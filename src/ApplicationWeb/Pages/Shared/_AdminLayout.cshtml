@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sensify</title>
+    <link rel="icon" type="image/png" href="~/dashboardImage/favicon.svg" />
+    @RenderSection("Styles", required: false)
+    <link href="~/plugins/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/plugins/fontawesome-free/css/fontawesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="~/plugins/chart.js/Chart.css">
+    <link href="~/css/backend.min.css" rel="stylesheet" />
+    <link href="~/css/backend.css" rel="stylesheet" />
+    <style>
+        .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+            color: white;
+            background-color: #269ABC !important;
+        }
+
+        [role=tablist] a {
+            background-color: #c5c5c5 !important;
+        }
+
+        [role=presentation] {
+            padding: 2px !important;
+        }
+
+        .alDbNavHeight {
+            height: 35px;
+        }
+
+        .alDbTabContentHeight {
+            height: 671px;
+        }
+
+        .text-light {
+            color: black !important;
+            font-weight: 900;
+        }
+
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        @await Html.PartialAsync("_Topbar")
+
+        @await Html.PartialAsync("_SideNavbar")
+
+        @RenderBody()
+
+        @* <script>
+            (function () {
+                var base_url = window.location.origin;
+                 window.location.href = base_url+'/Admin/Administration/Login';
+                      })();
+        </script> *@
+
+        <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+            <div class="nav navbar navbar-expand navbar-white navbar-light border-bottom p-0 alDbNavHeight">
+                <div class="nav-item dropdown">
+                    <a class="nav-link bg-danger dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Close</a>
+                    <div class="dropdown-menu mt-0">
+                        <a class="dropdown-item" href="#" data-widget="iframe-close" data-type="all">Close All</a>
+                        <a class="dropdown-item" href="#" data-widget="iframe-close" data-type="all-other">Close All Other</a>
+                    </div>
+                </div>
+                <a class="nav-link bg-light" href="#" data-widget="iframe-scrollleft"><i class="fas fa-angle-double-left"></i></a>
+                <ul class="navbar-nav overflow-hidden" role="tablist"></ul>
+                <a class="nav-link bg-light" href="#" data-widget="iframe-scrollright"><i class="fas fa-angle-double-right"></i></a>
+                <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active show alDbTabContentHeight" id="panel-index" role="tabpanel" aria-labelledby="tab-index"><iframe src="/Admin/DashBoard/Dashboarddesi" title="Admin Dashboard"></iframe></div>
+                <div class="tab-empty">
+                    <h2 class="display-4">No tab selected!</h2>
+                </div>
+            </div>
+        </div>
+        @await Html.PartialAsync("_Footer")
+
+
+        <script src="~/plugins/jquery/jquery.min.js"></script>
+        <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+        <script>
+            $.widget.bridge('uibutton', $.ui.button)
+        </script>
+        <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <script src="~/dist/js/adminlte.js"></script>
+        <script src="~/plugins/select2/js/select2.min.js"></script>
+        <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+        <script src="~/application-scripts/sigRTopbar.js"></script>
+
+
+        <script>
+            $("#notificationBell").click(function () {
+                var $notificationPopup = $("#OrderNotification");
+
+                if ($notificationPopup.is(":visible")) {
+
+                    $notificationPopup.hide();
+                    RemoveNotification();
+
+                } else {
+                    $notificationPopup.show();
+                }
+            });
+
+            function RemoveNotification() {
+
+                $.ajax({
+                    url: "/api/OrderList/DeleteNotification",
+                    type: "post",
+                    headers: { "Authorization": "Bearer " + localStorage.getItem('token') },
+                    success: function (response) {
+
+                    }
+                    , error: function (response) {
+                        Failed(response);
+                    }
+                });
+
+
+            }
+
+        </script>
+
+        @RenderSection("Scripts", required: false)
+    </div>
+</body>
+</html>

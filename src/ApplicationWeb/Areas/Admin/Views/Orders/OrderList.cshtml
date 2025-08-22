@@ -1,0 +1,384 @@
+﻿@model ApplicationCore.Entities.Orders.Orders
+
+@{
+    ViewData["Titel"] = "Order List";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<style>
+    .sl-column {
+        width: 30px;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .scrollable-master-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+
+    .scrollable-container {
+        width: 100%;
+        min-height: 158px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .label-right {
+        width: 100%;
+        text-align: right;
+    }
+
+    .no-padding {
+        padding: 0;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .edtiField150 {
+        width: 150px;
+    }
+
+    .edtiField100 {
+        width: 100px;
+    }
+
+    .btn-custom {
+        height: 36px; /* Matches Bootstrap form-control height */
+        padding: 0.375rem 0.75rem; /* Adjust padding to align with form inputs */
+
+    }
+
+    .btnmargin{
+        margin-top:32px;
+    }
+</style>
+
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div id="@toolbarId" class="master-toolbar">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnAllList" class="btn btn-success btn-sm btn-list btn-list-left mb-2">
+                        <i class="fa fa-list"></i>&nbsp;All
+                    </button>
+                    <button id="btnPendingList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="far fa-clock"></i>&nbsp;Pending
+                    </button>
+                    <button id="btnConfirmedList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="far fa-check-circle"></i>&nbsp;Confirmed
+                    </button>
+
+                    <button id="btnPackagingList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="fas fa-archive"></i>&nbsp;Packaging
+                    </button>
+                    <button id="btnOutForDeliveryList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="far fa-flag"></i>&nbsp;Out For Delivery
+                    </button>
+                    <button id="btnDeliveredList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="fas fa-shipping-fast"></i>&nbsp;Delivered
+                    </button>
+                    <button id="btnReturnedList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="fas fa-undo"></i>&nbsp;Returned
+                    </button>
+                    <button id="btnFailedToDeliverList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="fa fa-exclamation-triangle"></i>&nbsp;Failed To Deliver
+                    </button>
+                    <button id="btnCanceledList" class="btn btn-default btn-sm btn-list btn-list-left mb-2">
+                        <i class="fa fa-window-close"></i>&nbsp;Cancelled
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body row table-responsive">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Order Management Table</caption>
+                <thead>
+                    <tr>
+                        <th class="sl-column">SL</th>
+                        <th>Code/Date</th>
+                        <th>Customer Info</th>
+                        <th>Amount/Payment</th>
+                        <th>Status/Shipping</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-12 hide" id="@divDetailsId">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title ">Order Details</h3>
+                </div>
+                <div class="card-body ">
+                    <form class="form" id="@formId" novalidate="novalidate">
+                        <input type="hidden" asp-for="OrdersId">
+
+                        <div class="row">
+                            <div class="form-group col-sm-2">
+                                <label>Order Code</label>
+                                <input type="text" asp-for="Code" class="form-control" readonly />
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label>Date</label>
+                                <input type="text" asp-for="DateToString" class="form-control" readonly />
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label>Total Amount</label>
+                                <input type="text" asp-for="GrandTotal" class="form-control" readonly />
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>Payment Method</label>
+                                <input type="text" asp-for="PaymentType" class="form-control" readonly />
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <label>Payment Status</label>
+                                <div class="row col-12">
+                                    <div class="col-9 col-md-9 no-padding">
+                                        <input type="text" asp-for="PaymentStatus" class="form-control" readonly>
+                                    </div>
+
+                                    <div class="col-3 col-md-3">
+                                        <input type="checkbox" asp-for="IsPaymentStatusPaid" id="isPaymentStatusPaid" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-2">
+                                <label>Order Status</label>
+                                <div class="row col-12">
+                                    <select class="form-control" asp-for="DeliveryStatus" single="true">
+                                        <option value="Pending"> Pending </option>
+                                        <option value="Confirmed"> Confirmed </option>
+                                        <option value="Packaging"> Packaging </option>
+                                        <option value="OutForDelivery"> Out For Delivery </option>
+                                        <option value="Delivered"> Delivered </option>
+                                        <option value="Returned"> Returned </option>
+                                        <option value="FailedToDeliver"> Failed To Deliver </option>
+                                        <option value="Canceled"> cancelled </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-sm-2">
+                                <label>Shipping Type</label>
+                                <div class="row col-12">
+                                    <select class="form-control" asp-for="ShippingType" single="true">
+                                        <option value="BySelfDeliveryMan"> By Self Delivery Man </option>
+                                        <option value="ByThirdPartyDeliveryService"> By Third Party Delivery Service </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-2">
+                                <label>Courier Name</label>
+                                <input type="text" asp-for="CourierName" class="form-control" />
+                            </div>
+
+                            <div class="form-group col-sm-2">
+                                <label>Courier Tracking No</label>
+                                <input type="text" asp-for="CourierTrackingNo" class="form-control" />
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Product Details</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row entryForm">
+
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label>Product</label>
+                                                    <select class="form-control" id="detailProduct"></select>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <label>Variant</label>
+                                                    <select class="form-control " id="detailVariant"></select>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label>Qty</label>
+                                                    <input type="number" class="form-control " value="1" id="detailQty" placeholder="Qty">
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label>Price</label>
+                                                    <input type="text" class="form-control " id="detailPrice" placeholder="Price" readonly>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label>Tax</label>
+                                                    <input type="text" class="form-control" id="detailTax" placeholder="Tax" readonly>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-sm-2">
+                                                    <label>Ship. Cost</label>
+                                                    <input type="text" class="form-control" id="detailShipCost" placeholder="Ship. Cost" readonly>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label>Total Price</label>
+                                                    <input type="text" class="form-control" id="detailTotalPrice" placeholder="Total Price" readonly>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label>Rebate</label>
+                                                    <input type="number" class="form-control" id="detailRebate" placeholder="Rebate">
+                                                </div>
+                                                 <div class="btnmargin">
+                                                <button type="button" class="btn btn-sm btn-outline-dark btn-custom" id="btnEditOrder">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                <button type="button" class="btn btn-sm btn-outline-dark btn-custom" id="btnResetOrder">
+                                                        <i class="fa fa-window-close"></i>
+                                                    </button>
+                                                
+                                            </div>
+                                            </div>
+                                            
+                                            <div class="table-responsive mt-2">
+                                                <table class="table table-hover text-nowrap">
+                                                    <caption>Customer Orders Table</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>SL</th>
+                                                            <th>Image</th>
+                                                            <th>Item Details</th>
+                                                            <th>Variant Details</th>
+                                                            <th>Qty</th>
+                                                            <th>Price</th>
+                                                            <th>Tax</th>
+                                                            <th>Ship. Cost</th>
+                                                            <th>Total Price</th>
+                                                            <th>Rebate</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="itemTbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row col-12">
+                                        <div class="col-7 col-md-10">
+                                            <div class="label-right"><label>Price:</label></div>
+                                            <div class="label-right"><label>Tax:</label></div>
+                                            <div class="label-right"><label>Shipping Cost:</label></div>
+                                            <div class="label-right"><label>SubTotal:</label></div>
+                                            <div class="label-right"><label>Rebate:</label></div>
+                                            <div class="label-right"><label>Coupon Discount:</label></div>
+                                            <div class="label-right"><label>Total:</label></div>
+                                        </div>
+
+                                        <div class="col-5 col-md-2">
+                                            <div class="label-right"><label id="summaryPrice">0.00</label></div>
+                                            <div class="label-right"><label id="summaryTax">0.00</label></div>
+                                            <div class="label-right"><label id="summaryShippingCost">0.00</label></div>
+                                            <div class="label-right"><label id="summarySubTotal">0.00</label></div>
+                                            <div class="label-right"><label id="summaryRebate">0.00</label></div>
+                                            <div class="label-right"><label id="summaryCouponDiscount">0.00</label></div>
+                                            <div class="label-right"><label id="summaryTotal">0.00</label></div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Customer Details</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row col-sm-12"><label>Name: </label>&nbsp;<div id="customerName"></div><br /></div>
+                                        <div class="row col-sm-12"><label>Email: </label>&nbsp;<div id="email"></div><br /></div>
+                                        <div class="row col-sm-12"><label>Phone: </label>&nbsp;<div id="phoneNumber"></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Shipping Address</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="divNormalOrder">
+                                            <div class="row col-sm-12"><label>Receiver Name: </label>&nbsp;<div id="receiverName"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Phone: </label>&nbsp;<div id="receiverPhone"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Address: </label>&nbsp;<div id="receiverAddress"></div><br /></div>
+                                            <div class="row col-sm-12"><label>City: </label>&nbsp;<div id="receiverCity"></div><br /></div>
+                                            <div class="row col-sm-12"><label>State: </label>&nbsp;<div id="receiverState"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Country: </label>&nbsp;<div id="receiverCountry"></div></div>
+                                        </div>
+
+                                        <div id="divPickupOrder">
+                                            <div class="row col-sm-12"><label>Staff Name: </label>&nbsp;<div id="pickupPointName"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Phone: </label>&nbsp;<div id="pickupPointPhone"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Address: </label>&nbsp;<div id="pickupPointAddress"></div><br /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-footer float-right">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Back</button>
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+                paramName: "@ViewBag.ParamName",
+                pickupOrder: "@ViewBag.PickupOrder",
+                detailsForOrderId: "@ViewBag.DetailsForOrderId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/orders/order.js"></script>
+}

@@ -1,0 +1,42 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ApplicationCore.Entities.Products
+{
+    [Table("Variants")]
+    public class Variant : BaseEntity
+    {
+        [Key]
+        public int Variant_id { get; set; }
+        
+        public int Product_id { get; set; }
+        
+        [Required]
+        [StringLength(100)]
+        public string Sku { get; set; }
+        
+        [StringLength(50)]
+        public string Barcode { get; set; }
+        
+        public string Attributes { get; set; }
+        
+        public int Unit_id { get; set; }
+        
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Regular_price { get; set; }
+        
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal? Sale_price { get; set; }
+        
+        public int? Reorder_level { get; set; }
+        
+        public string Image { get; set; }
+        
+        public bool Status { get; set; }
+
+        // Navigation property for Product
+        [ForeignKey("Product_id")]
+        public virtual Product Product { get; set; }
+    }
+}

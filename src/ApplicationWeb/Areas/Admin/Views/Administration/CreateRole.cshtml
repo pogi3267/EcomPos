@@ -1,0 +1,32 @@
+﻿@model ApplicationCore.Entities.ApplicationUser.CreateRoleViewModel
+
+@{
+    ViewBag.Title = "Create New Role";
+}
+<div class="col-md-6  pt-3 ml-0 ">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Create New Role</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="CreateRole" method="post">
+                <div asp-validation-summary="All" class="text-danger">
+                </div>
+                <div class="form-group row">
+                    <label asp-for="RoleName" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="RoleName" class="form-control" placeholder="Name">
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-end">
+                    <a asp-action="ListRoles" class="btn ml-2 btn-danger">Back</a>&nbsp
+                    <button type="submit" class="btn btn-success">Save</button>
+                 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿@model ApplicationCore.Entities.ApplicationUser.UserClaimsViewModel
+@using ApplicationCore.Entities;
+@using ApplicationCore.Entities.ApplicationUser;
+@using System.Linq; // Needed for LINQ extensions like GroupBy, ToDictionary
+
+@{
+    ViewBag.Title = "Manage User Role";
+}
+
+<form method="post">
+    <div class="card">
+        <div class="row card-body">
+            @{
+                var menusList = (List<MenuMaster>)ViewBag.menuList;
+
+                // Pre-group claims by PageName for efficient rendering
+                // This creates a dictionary where the key is the PageName (e.g., "Products")
+                // and the value is a list of CustomSelectList objects for that page.
+                var claimsByPage = Model.Cliams
+                .GroupBy(c => c.ClaimType.Split(".")[0])
+                .ToDictionary(g => g.Key, g => g.ToList());
+            }
+
+            @* Add a hidden input for UserId to ensure it's always sent with the form *@
+            <input type="hidden" asp-for="UserId" />
+
+            @* Display validation summary to show any model binding errors *@
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            @foreach (var pageName in menusList.Select(item => item.PageName).Distinct())
+            {
+                if (string.IsNullOrWhiteSpace(pageName)) continue;
+
+                // Check if there are any claims associated with this pageName in the model
+                if (claimsByPage.TryGetValue(pageName, out var pageClaims))
+                {
+                    <div class="card col-sm-4 mb-3">
+                        @* Added mb-3 for spacing between cards *@
+                        <div class="card-header">
+                            <h5>@pageName</h5>
+                        </div>
+                        <div class="card-body">
+                            @*
+                                IMPORTANT: Iterate through the Model.Cliams using a standard 'for' loop
+                                to ensure proper indexing for ASP.NET Core model binding on POST.
+                                The 'i' in Model.Cliams[i] will generate names like Cliams[0].ClaimType,
+                                Cliams[1].Selected, etc., which the model binder expects.
+                            *@
+                            @for (int i = 0; i < Model.Cliams.Count; i++)
+                            {
+                                // Only render the claim if its ClaimType starts with the current pageName
+                                // This ensures claims are grouped correctly visually.
+                                if (Model.Cliams[i].ClaimType.StartsWith(pageName + "."))
+                                {
+                                    <div class="form-check">
+                                        @* Hidden input for ClaimType to ensure it's always sent back with its index *@
+                                        <input type="hidden" asp-for="@Model.Cliams[i].ClaimType" />
+
+                                        @* Checkbox for Selected property *@
+                                        <input asp-for="@Model.Cliams[i].Selected" class="form-check-input" />
+
+                                        @* Label for the checkbox, displaying the full claim type *@
+                                        <label class="form-check-label" asp-for="@Model.Cliams[i].Selected">
+                                            @Model.Cliams[i].ClaimType
+                                        </label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+            <button type="submit" class="btn btn-sm btn-success">Update</button> &nbsp;
+            <a asp-action="Edit" asp-route-id="@Model.UserId" class="btn btn-sm btn-danger">Back</a>
+        </div>
+    </div>
+</form>

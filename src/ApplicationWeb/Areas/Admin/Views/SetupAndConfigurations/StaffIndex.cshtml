@@ -1,0 +1,86 @@
+﻿@model ApplicationCore.Entities.SetupAndConfigurations.Staff
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+
+    <div class="col-sm-8" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">All Staffs</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <caption>Staffs List Table</caption>
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add Staff</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="StaffId">
+                    <input type="hidden" asp-for="UserId">
+                    <input type="hidden" asp-for="RoleId">
+                    
+                   
+                    
+                    <div class="form-group">
+                        <label asp-for="UserId">User</label>
+                        <select class="form-control" asp-for="UserId"></select>
+                        <span class="UserId text-danger dis-none">User is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RoleId">Role</label>
+                        <select class="form-control" asp-for="RoleId"></select>
+                        <span class="RoleId text-danger dis-none">Role is required</span>
+                    </div>
+                    <div class="card-footer float-right">
+                        <button type="button" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        function GetPageInformation() {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/staff.js"></script>
+}

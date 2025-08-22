@@ -1,0 +1,116 @@
+﻿@model ApplicationCore.Entities.Products.ProductAttribute
+
+@{
+    ViewData["Titel"] = "Product Setup";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="container-fluid">
+        <div class="card shadow-lg">
+            <div class="card-header fw-bold">
+                Create Product
+            </div>
+            <div class="card-body">
+                <form method="POST" action="https://uniquestore.dokanai.com/admin/products" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="OviVRS17LBBAdIxAgtvAsBydy5sPosB4cVc9EtV0">            <div class="mb-3">
+                        <label class="form-label required" for="product_name">Product Name</label>
+                        <input class="form-control " type="text" name="product_name" id="product_name" value="" required onload="convertToSlug(this.value)" onkeyup="convertToSlug(this.value)">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label required" for="product_code">Product Code</label>
+                        <input class="form-control  " type="text" name="product_code" id="product_code" value="" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="form-label required" for="purchase_price">Purchase Price</label>
+                                <input class="form-control " type="number" name="purchase_price" id="purchase_price" value="" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="required form-label" for="regular_price">Regular Price</label>
+                                <input class="form-control " type="number" name="regular_price" id="regular_price" value="" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="sale_price">Sale Price</label>
+                                <input class="form-control " type="number" name="sale_price" id="sale_price" value="" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="required form-label" for="product_images">Product Images</label>
+                        <div class="needsclick dropzone " id="product_images-dropzone"></div>
+                    </div>
+
+                    <div class="card border">
+                        <div class="variation-repeater">
+                            <div class="inner">
+                                <table class="table-striped table-bordered table mb-1" data-repeater-list="variation" style="table-layout: fixed;width: 100%;">
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Color</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    <tr data-repeater-item class="inner">
+                                        <td><select name="variation[][size_id]" class="inner form-control size_id"></select></td>
+                                        <td><select name="variation[][color_id]" class=" inner form-control color_id"></select></td>
+                                        <td><input type="text" name="variation[][price]" class="inner form-control" value="" placeholder="Price" /></td>
+                                        <td><input type="text" name="variation[][stock]" class="inner form-control" value="" placeholder="Stock" /></td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <select name="variation[][status]" class="inner form-control mr-3">
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Inactive">Inactive</option>
+                                                </select>
+                                                <button value="Delete" type="button" data-repeater-delete class="btn btn-link btn-sm inner p-0"><i class="fa fa-trash text-danger"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <input data-repeater-create type="button" class="btn btn-success inner btn-sm float-right m-2" value="Add Variation" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-danger" type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/product-setup/attribute.js"></script>
+        }

@@ -1,0 +1,184 @@
+﻿@model ApplicationCore.Entities.ApplicationUser.User
+
+@{
+    ViewData["Titel"] = "Customer List";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<style>
+    .customer-scroll-table {
+        width: 100%;
+        min-height: 158px;
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+</style>
+
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div id="@toolbarId" class="master-toolbar">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnAllList" class="btn btn-success btn-sm btn-list btn-list-left">
+                        <i class="fa fa-list"></i>&nbsp;All
+                    </button>
+                    <button id="btnActiveList" class="btn btn-default btn-sm btn-list btn-list-left">
+                        <i class="far fa-check-circle"></i>&nbsp;Active
+                    </button>
+                    <button id="btnInactiveList" class="btn btn-default btn-sm btn-list btn-list-left">
+                        <i class="fa fa-exclamation-triangle"></i>&nbsp;Inactive
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Customer Management Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Orders</th>
+                        <th>Active?</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-12 dis-none" id="@divDetailsId">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title ">Customer Details</h3>
+                </div>
+                <div class="card-body ">
+                    <form class="form" id="@formId" novalidate="novalidate">
+                        <input type="hidden" asp-for="Id">
+
+                        <div class="row col-sm-12 d-flex align-items-stretch">
+                            <div class="col-sm-5 d-flex">
+                                <div class="card card-primary flex-fill">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Customer</h4>
+                                    </div>
+                                    <div class="row card-body" >
+                                        <div class="col-sm-4 h-175">
+                                            <div class="row col-sm-12 w-165 h-155" id="idImg"></div>
+                                        </div>
+
+                                        <div class="col-sm-8">
+                                            <div class="row col-sm-12"><label>Name: </label>&nbsp;<div id="customerName"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Email: </label>&nbsp;<div id="customerEmail"></div><br /></div>
+                                            <div class="row col-sm-12"><label>Phone: </label>&nbsp;<div id="customerPhoneNumber"></div></div>
+                                            <div class="row col-sm-12"><label>Joined Date: </label>&nbsp;<div id="customerJoinedDate"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 d-flex">
+                                <div class="card card-primary flex-fill">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Address</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row col-sm-12"><label>Address: </label>&nbsp;<div id="customerAddress"></div><br /></div>
+                                        <div class="row col-sm-12"><label>City: </label>&nbsp;<div id="customerCity"></div><br /></div>
+                                        <div class="row col-sm-12"><label>State: </label>&nbsp;<div id="customerState"></div><br /></div>
+                                        <div class="row col-sm-12"><label>Country: </label>&nbsp;<div id="customerCountry"></div></div>
+                                        <div class="row col-sm-12"><label>Postal Code: </label>&nbsp;<div id="customerPostalCode"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 d-flex">
+                                <div class="card card-primary flex-fill">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Order Summary</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row col-sm-12"><label>Total Order: </label>&nbsp;<div id="totalOrder"></div><br /></div>
+                                        <div class="row col-sm-12"><label>Ongoing: </label>&nbsp;<div id="ongoingOrder"></div><br /></div>
+                                        <div class="row col-sm-12"><label>Completed: </label>&nbsp;<div id="completeOrder"></div><br /></div>
+                                        <div class="row col-sm-12"><label>Canceled: </label>&nbsp;<div id="canceledOrder"></div></div>
+                                        <div class="row col-sm-12"><label>Returned: </label>&nbsp;<div id="returnedOrder"></div></div>
+                                        <div class="row col-sm-12"><label>Failed To Deliver: </label>&nbsp;<div id="failedToDeliverOrder"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Order Details</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row entryForm">
+                                            <div class="row customer-scroll-table">
+                                                <table class="table table-bordered table-hover">
+                                                    <caption>Customer Order Details</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>SL</th>
+                                                            <th>Order ID</th>
+                                                            <th>Total</th>
+                                                            <th>Paid Status</th>
+                                                            <th>Order Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="itemTbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="card-footer float-right">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Back</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+                paramName: "@ViewBag.ParamName",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/customer/customer.js"></script>
+}

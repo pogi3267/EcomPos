@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\NewPubEcom</_PublishTargetUrl>
+    <History>True|2025-01-28T07:16:51.0681172Z;True|2025-01-28T12:45:43.7685151+06:00;True|2024-12-14T13:45:18.5892692+06:00;True|2024-12-14T13:40:31.1641872+06:00;True|2024-12-08T16:03:46.1069293+06:00;True|2024-11-29T00:10:17.9150417+06:00;True|2024-11-28T23:57:09.9702085+06:00;True|2024-11-24T14:47:07.4247916+06:00;True|2024-11-24T14:33:26.7852722+06:00;True|2024-11-24T00:10:12.3958269+06:00;True|2024-11-23T19:36:41.2254247+06:00;True|2024-11-21T18:00:47.1153296+06:00;True|2024-11-17T16:57:59.6273145+06:00;True|2024-11-17T15:27:19.1928888+06:00;True|2024-11-17T15:25:32.2924923+06:00;True|2024-11-17T01:18:54.8849767+06:00;True|2024-11-11T01:05:28.2233501+06:00;True|2024-09-14T18:47:52.8008353+06:00;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=103.125.255.10,9433%3bDatabase=kibanecommerce%3bUser Id=kiban%3bpassword=kiban%40123%3bTrustServerCertificate=true%3bMultipleActiveResultSets=true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

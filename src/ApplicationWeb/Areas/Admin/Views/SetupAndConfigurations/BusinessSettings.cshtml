@@ -1,0 +1,533 @@
+﻿@{
+    ViewData["Titel"] = "Policy Setup";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<style>
+    .AddressWidth250 {
+        width: 250px;
+    }
+
+    .AddressWidth200 {
+        width: 200px;
+    }
+
+    #carouselImage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    #carouselImage img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding:  5px;
+    }
+</style>
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="row col-md-12">
+
+        <div class="col-12 col-sm-12">
+            <div class="card card-primary card-tabs">
+                <div class="card-header p-0 pt-1 border-bottom-0">
+                    <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="product-configuration-bs-tab" data-toggle="pill" href="#product-configuration-bs" role="tab" aria-controls="product-configuration-bs" aria-selected="true">Product Configuration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="copyright-bs-tab" data-toggle="pill" href="#copyright-bs" role="tab" aria-controls="copyright-bs" aria-selected="false">Copyright</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="finance-bs-tab" data-toggle="pill" href="#finance-bs" role="tab" aria-controls="finance-bs" aria-selected="false">Finance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="mail-bs-tab" data-toggle="pill" href="#mail-bs" role="tab" aria-controls="mail-bs" aria-selected="false">Mail</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="top-banner-bs-tab" data-toggle="pill" href="#top-banner-bs" role="tab" aria-controls="top-banner-bs" aria-selected="false">Top Banner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="payment-icon-bs-tab" data-toggle="pill" href="#payment-icon-bs" role="tab" aria-controls="payment-icon-bs" aria-selected="false">Payment Icon</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="address-setup-bs-tab" data-toggle="pill" href="#address-setup-bs" role="tab" aria-controls="address-setup-bs" aria-selected="false">Address Setup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="timezone-bs-tab" data-toggle="pill" href="#timezone-bs" role="tab" aria-controls="timezone-bs" aria-selected="false">Timezone</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="payment-method-bs-tab" data-toggle="pill" href="#payment-method-bs" role="tab" aria-controls="payment-method-bs" aria-selected="false">Payment Method</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="maintenance-bs-tab" data-toggle="pill" href="#maintenance-bs" role="tab" aria-controls="maintenance-bs" aria-selected="false">Maintenance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="other-banner-bs-tab" data-toggle="pill" href="#other-banner-bs" role="tab" aria-controls="other-banner-bs" aria-selected="false">Other Banner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="home-page-setup-bs-tab" data-toggle="pill" href="#home-page-setup-bs" role="tab" aria-controls="home-page-setup-bs" aria-selected="false">Home Page Setup</a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-three-tabContent">
+
+                        <div class="tab-pane fade show active" id="product-configuration-bs" role="tabpanel" aria-labelledby="product-configuration-bs-tab">
+                            <form class="form-horizontal" id="formProductConfiguration">
+                                <input type="hidden" name="shipping_configuration_enabled" value="shipping_configuration_enabled">
+                                <input type="hidden" name="flash_deal_enabled" value="flash_deal_enabled">
+                                <input type="hidden" name="stock_visibility_enabled" value="stock_visibility_enabled">
+                                <input type="hidden" name="vat_tax_enabled" value="vat_tax_enabled">
+
+                                <div class="row">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="form-group">
+                                            <label>Shipping Configuration Enabled?</label>
+                                            <div>
+                                                <input type="checkbox" id="shipping_configuration_enabled_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="form-group">
+                                            <label>Flash Deal Enabled?</label>
+                                            <div>
+                                                <input type="checkbox" id="flash_deal_enabled_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 form-group">
+                                        <div class="form-group">
+                                            <label>Stock Visibility Enabled?</label>
+                                            <div>
+                                                <input type="checkbox" id="stock_visibility_enabled_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="form-group">
+                                            <label>Vat/Tax Option Enabled?</label>
+                                            <div>
+                                                <input type="checkbox" id="vat_tax_enabled_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="copyright-bs" role="tabpanel" aria-labelledby="copyright-bs-tab">
+                            <form class="form-horizontal" id="formCopywrite">
+                                <input type="hidden" name="setting" value="site_copywrite_text">
+                                <div class="col-md-8 form-group row">
+                                    <label for="signinSrEmail">Copyright Text</label>
+                                    <input type="text" class="form-control" name="site_copywrite_text_value" id="site_copywrite_text_value" placeholder="Copywrite Text">
+                                </div>
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="finance-bs" role="tabpanel" aria-labelledby="finance-bs-tab">
+                            <form class="form-horizontal" id="formCurrency">
+                                <input type="hidden" name="system_default_currency_name" value="system_default_currency_name">
+                                <input type="hidden" name="system_default_currency" value="system_default_currency">
+                                <input type="hidden" name="currency_position" value="currency_position">
+                                <input type="hidden" name="amount_format" value="amount_format">
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <label> Currency Name</label>
+                                        <input type="text" class="form-control col-md-12" name="system_default_currency_name_value" id="system_default_currency_name_value" placeholder="Currency Name">
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <label> Currency Symbol</label>
+                                        <input type="text" class="form-control col-md-12" name="system_default_currency_value" id="system_default_currency_value" placeholder="Currency Symbol">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <label> Currency Position</label>
+                                        <select class="form-control col-md-12" id="currency_position_value" single="true">
+                                            <option value="Left"> Left </option>
+                                            <option value="Right"> Right </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <label> Amount Format</label>
+                                        <input type="text" class="form-control col-md-12" name="amount_format_value" id="amount_format_value" placeholder="#,##0.00">
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="mail-bs" role="tabpanel" aria-labelledby="mail-bs-tab">
+                            <form class="form-horizontal" id="formMailing">
+                                <input type="hidden" name="admin_mailing_address" value="admin_mailing_address">
+                                <input type="hidden" name="send_mail_to_admin_after_order" value="send_mail_to_admin_after_order">
+                                <input type="hidden" name="send_mail_to_customer_after_order" value="send_mail_to_customer_after_order">
+                                <input type="hidden" name="send_mail_after_change_order_status" value="send_mail_after_change_order_status">
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <label> Admin Mail</label>
+                                        <input type="text" class="form-control col-md-12" name="admin_mailing_address_value" id="admin_mailing_address_value" placeholder="Admin Mail">
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <div class="form-group">
+                                            <label>Send Mail To Admin After Order</label>
+                                            <div>
+                                                <input type="checkbox" id="send_mail_to_admin_after_order_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <div class="form-group">
+                                            <label>Send Mail To Customer After Order</label>
+                                            <div>
+                                                <input type="checkbox" id="send_mail_to_customer_after_order_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <div class="form-group">
+                                            <label>Send Mail After Changing Order Status</label>
+                                            <div>
+                                                <input type="checkbox" id="send_mail_after_change_order_status_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="top-banner-bs" role="tabpanel" aria-labelledby="top-banner-bs-tab">
+                            <form class="form-horizontal" id="formCarouselImage">
+                                <input type="hidden" name="setting" value="site_carousel_images">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label for="name">Home Page Top Banner Images <small>(1900x675)</small></label>
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Banner Images</label>
+                                            <input type="file" id="carouselImageInp" class="custom-file-input" multiple accept="image/*" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 file-preview box sm" id="carouselImagePreview">
+                                    </div>
+                                </div>
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="payment-icon-bs" role="tabpanel" aria-labelledby="payment-icon-bs-tab">
+                            <form class="form-horizontal" id="formpaymentImage">
+                                <input type="hidden" name="setting" value="footer_online_payment_icon">
+                                <div class="form-group row">
+                                    <div class="col-md-6" id="paymentImage">
+                                        <label for="signinSrEmail"> Payment Icons  <small>(50x30)</small></label>
+                                        
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Payment Icons</label>
+                                            <input type="file" id="paymentImageInp" class="custom-file-input" multiple accept="image/*" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 file-preview box sm" id="paymentImagePreview">
+                                        </div>
+                                </div>
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="address-setup-bs" role="tabpanel" aria-labelledby="address-setup-bs-tab">
+                            <form class="form-horizontal" id="formAddress">
+
+                                <div class="row col-sm-12">
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-form-label">Field</label>
+                                        <select class="form-control" id="fieldAddress" single="true">
+                                            <option value="ReceiverName"> Name </option>
+                                            <option value="Phone"> Phone </option>
+                                            <option value="Email"> Email </option>
+                                            <option value="Address1"> Address </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-form-label">Field Label</label>
+                                        <input type="text" class="form-control" id="fieldLabel" placeholder="Field Label">
+                                    </div>
+
+                                    <div class="form-group col-sm-2">
+                                        <label class="col-form-label">Field Type</label>
+                                        <select class="form-control" id="fieldType" single="true">
+                                            <option value="Text"> Text </option>
+                                            <option value="LargeText"> Large Text </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-sm-2">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Is Required?</label>
+                                            <div>
+                                                <input type="checkbox" id="IsFieldRequired" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row col-sm-12 pb-2">
+                                    <div class="col-sm-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-success ml-2" id="btnAddField">Add</button>
+                                    </div>
+                                </div>
+
+                                <div id="dynamicRowsContainer"></div>
+
+                                <div class="form-group mt-3 mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="timezone-bs" role="tabpanel" aria-labelledby="timezone-bs-tab">
+                            <form class="form-horizontal" id="formTimezone">
+                                <input type="hidden" name="timezone" value="timezone">
+
+                                <div class="row">
+                                    <div class="col-sm-12 form-group">
+                                        <label> Timezone</label>
+                                        <select class="form-control col-md-6" id="timezone_value" single="true">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="payment-method-bs" role="tabpanel" aria-labelledby="payment-method-bs-tab">
+                            <form class="form-horizontal" id="formPaymentMode">
+                                <input type="hidden" name="setting" value="payment_mode">
+
+                                <div class="row">
+                                    <div class="col-sm-12 form-group">
+                                        <label> Mode</label>
+                                        <select class="form-control col-md-6" id="payment_mode_value" single="true">
+                                            <option value="all"> All </option>
+                                            <option value="cod"> Only Cash On Delivery </option>
+                                            <option value="dp"> Digital Payment </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="maintenance-bs" role="tabpanel" aria-labelledby="maintenance-bs-tab">
+                            <form class="form-horizontal" id="formMaintenanceMode">
+                                <input type="hidden" name="maintenance_mode" value="maintenance_mode">
+                                <input type="hidden" name="maintenance_time" value="maintenance_time">
+
+                                <div class="row">
+                                    <div class="col-sm-3 form-group">
+                                        <label>Maintenance Mode</label>
+                                        <div>
+                                            <input type="checkbox" id="maintenance_mode_value" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="form-group">
+                                            <label>Maintenance Time</label>
+                                            <div class="input-group date devensedatetime" id="maintenanceDate" data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input devensedatetime" id="maintenance_time_value" data-target="#maintenanceDate" />
+                                                <div class="input-group-append" data-target="#maintenanceDate" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="other-banner-bs" role="tabpanel" aria-labelledby="other-banner-bs-tab">
+                            <form class="form-horizontal" id="formHomeBannerSetup">
+                                <input type="hidden" name="home_banner1_image" value="home_banner1_image">
+                                <input type="hidden" name="home_banner2_image" value="home_banner2_image">
+                                <input type="hidden" name="home_banner3_image" value="home_banner3_image">
+                                <div class="form-group row">
+                                    <div class="col-md-4 " id="homeBanner1Image">
+                                        <label> Banner 1 Image </label>
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Banner 1 Image <small>(1200x300)</small></label>
+                                            <input type="file" id="banner1ImageInp" class="custom-file-input" multiple accept="image/*" />
+                                        </div>
+                                        <div class="file-preview box sm" id="banner1ImagePreview">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4 " id="homeBanner2Image">
+                                        <label> Banner 2 Image </label>
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Banner 2 Image <small>(600x250)</small></label>
+                                            <input type="file" id="banner2ImageInp" class="custom-file-input" multiple accept="image/*" />
+                                        </div>
+                                        <div class="file-preview box sm" id="banner2ImagePreview">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 " id="homeBanner3Image">
+                                        <label> Banner 3 Image </label>
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Banner 3 Image <small>(600x250)</small></label>
+                                            <input type="file" id="banner3ImageInp" class="custom-file-input" multiple accept="image/*" />
+                                        </div>
+                                        <div class="file-preview box sm" id="banner3ImagePreview">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="home-page-setup-bs" role="tabpanel" aria-labelledby="home-page-setup-bs-tab">
+                            <form class="form-horizontal" id="formHomePage">
+
+                                <div class="row col-sm-12">
+                                    <div class="form-group col-sm-3">
+                                        <label class="col-form-label">Section</label>
+                                        <select class="form-control" id="fieldSection" single="true">
+                                            <option value=""> Select One </option>
+                                            <option value="FlashDealProducts"> Flash Deal Products </option>
+                                            <option value="TodaysDealProducts"> Today's Deal Products </option>
+                                            <option value="AllCategory"> Category </option>
+                                            <option value="TrendingProducts"> Trending Products </option>
+                                            <option value="DiscountProducts"> Discount Products </option>
+                                            <option value="FeaturedProducts"> Featured Products </option>
+                                            <option value="ProductsByCategory"> Products By Category </option>
+                                            <option value="CustomerReview"> Customer Review </option>
+                                            <option value="Subscription"> Subscription </option>
+                                            <option value="Banner1"> Banner 1 </option>
+                                            <option value="Banner2"> Banner 2 </option>
+                                            <option value="Banner3"> Banner 3 </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-form-label">Title</label>
+                                        <input type="text" class="form-control" id="fieldTitle" placeholder="Title">
+                                    </div>
+
+                                    <div class="form-group col-sm-5">
+                                        <label class="col-form-label">Subtitle</label>
+                                        <input type="text" class="form-control" id="fieldSubtitle" placeholder="Subtitle">
+                                    </div>
+
+                                    <div class="form-group col-sm-3">
+                                        <label class="sectionNoOfProd">No Of Product</label>
+                                        <input type="number" class="form-control sectionNoOfProd" id="fieldNoOfProduct" placeholder="No Of Product">
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label class="sectionFD">Flash Deal</label>
+                                        <select class="form-control sectionFD" id="fieldFlashDeal" single="true"></select>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label class="sectionCat">Category</label>
+                                        <select class="form-control sectionCat" id="fieldCategory" single="true"></select>
+                                    </div>
+
+                                </div>
+
+                                <div class="row col-sm-12 pb-2">
+                                    <div class="col-sm-12 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-success ml-2" id="btnAddSection">Add</button>
+                                    </div>
+                                </div>
+
+
+                                <div id="dynamicRowsContainerHomePage"></div>
+
+                                <div class="form-group mt-3 mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<partial name="_ModalUploader" />
+
+@section scripts{
+    <script src="~/application-scripts/modal-preview.js"></script>
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/business-settings.js"></script>
+    }

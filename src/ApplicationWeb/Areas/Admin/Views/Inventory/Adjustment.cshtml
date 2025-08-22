@@ -1,0 +1,121 @@
+@model ApplicationCore.Entities.Inventory.Adjustment
+@using ApplicationCore.Utilities;
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12" id="@pageId">
+
+    <div class="row col-sm-12" id="@divPrimaryId">
+        <div id="@toolbarId" class="master-toolbar">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnNew" class="btn btn-default btn-sm btn-list btn-list-left">
+                        <i class="fa fa-plus"></i>&nbsp;New Adjustment
+                    </button>
+                    <button id="btnAllList" class="btn btn-success btn-sm btn-list btn-list-left">
+                        <i class="fa fa-list"></i>&nbsp;Adjustment List
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Adjustment List</h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <thead>
+                        <tr>
+                            <th style="width:5%;text-align:center;">SL.</th>
+                            <th style="width:10%;text-align:center;">Invoice No</th>
+                            <th style="width:10%;text-align:center;">Date</th>
+                            <th style="width:10%;text-align:center;">Party Type</th>
+                            <th style="width:15%;text-align:center;">Party Name</th>
+                            <th style="width:8%;text-align:center;">Amount</th>
+                            <th style="width:25%;text-align:center;">Reason</th>
+                            <th style="width:15%;text-align:center;">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-sm-12" id="@divDetailsId" style="display:none;">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Adjustment Details</h3>
+                </div>
+
+                <div class="card-body table-responsive">
+                    <form class="form" id="@formId" novalidate="novalidate">
+                        <input type="hidden" asp-for="AdjustmentId" />
+                        <input type="hidden" asp-for="InvoiceNumber" />
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label asp-for="AdjustmentDate">Adjustment Date</label>
+                                <input type="date" asp-for="AdjustmentDate" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="AdjustmentFor">Party Type</label>
+                                <select asp-for="AdjustmentFor" class="form-control" single="true">
+                                    <option value="@OperationalUserRole.Customer">Customer</option>
+                                    <option value="@OperationalUserRole.Supplier">Supplier</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                <label asp-for="OperationalUserId">Party Name</label>
+                                <select asp-for="OperationalUserId" class="form-control" single="true">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Amount">Amount</label>
+                                <input type="number" asp-for="Amount" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-8">
+                                <label asp-for="Reason">Reason</label>
+                                <textarea type="text" col="3" asp-for="Reason" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="card-footer float-right">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Back</button>
+                            <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/inventory/adjustment.js"></script>
+}

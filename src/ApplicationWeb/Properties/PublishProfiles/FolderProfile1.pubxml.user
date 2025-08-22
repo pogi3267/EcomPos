@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\NewPubEcom</_PublishTargetUrl>
+    <History>True|2025-05-19T05:35:59.6993271Z;True|2025-05-15T11:05:03.4882498+06:00;True|2025-05-11T23:52:53.7290372+06:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=139.59.33.27%3bDatabase=Fokla%3bUser Id=sa%3bpassword=%40abc_123%3bTrustServerCertificate=true%3bMultipleActiveResultSets=true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

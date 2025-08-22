@@ -1,0 +1,395 @@
+﻿@model ApplicationCore.Entities.ApplicationUser.User
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        display: flex;
+        max-width: 1000px;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        padding-right: 0px !important;
+    }
+
+    .login-section, .image-section {
+        flex: 1;
+        padding: 40px;
+        height: 80vh;
+    }
+
+    .login-section {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .login-section h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .login-section p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+    .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+        .remember-forgot label input {
+            margin-right: 5px;
+        }
+
+    .btn-login {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #ff4b5c;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+
+    .social-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+        .social-login img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+    .sign-up {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+    }
+
+        .sign-up a {
+            color: #ff4b5c;
+            text-decoration: none;
+        }
+
+    .image-section {
+        background-color: #f3f3f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("/dashboardImage/ADMIN.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        max-width: 100%;
+        height: auto;
+    }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .login-section {
+            padding: 20px;
+        }
+
+        .image-section {
+            display: none;
+        }
+    }
+
+    .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+    }
+
+    .hide-loader {
+        display: none;
+    }
+
+    .show-loader {
+        display: block;
+    }
+
+    #togglePassword {
+        cursor: pointer;
+        background-color: white;
+        border-left: none;
+    }
+
+    .inp-password {
+        border-right: none !important;
+    }
+
+    /*.copy-credentials {
+        font-size: 15px;
+    }
+
+    .copy-btn {
+        cursor: pointer;
+        color: blue;
+        margin-left: 5px;
+    }
+
+    #copyImg{
+        height:30px;
+        width:30px;
+    }*/
+</style>
+
+<div id="divSign" class="wrapper col-sm-12">
+    <div class="container">
+        <!-- Login Section -->
+        <div class="login-section">
+            <h1>Welcome to Sensify!</h1>
+            <p>Please enter your details.</p>
+            <form id="login">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" asp-for="UserName" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control inp-password" asp-for="Password" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text" id="togglePassword">
+                            <span class="fas fa-eye"></span>
+                        </div>
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="icheck-primary">
+                        <input type="checkbox" id="remember" asp-for="Remember">
+                        <label for="remember" asp-for="Remember">
+                            Remember Me
+                        </label>
+                    </div>
+                </div>
+                <div class="justify-content-center ">
+                    <button type="button" id="signIn" class="btn btn-md w-100 btn-primary">Sign In</button>
+                </div>
+                <div class="py-sm-4 text-center py-2">
+                    <a class="text-center fs-4" href="@Url.Action("ForgotPassword","Administration",new {Areas="Admin"})'" id="forgot-password-link">Forgot password?</a>
+                </div>
+               @* <div class="copy-credentials">
+                    <span>User name: <strong>admin@devense.net</strong></span>
+                    <span>Password: <strong>123456</strong></span>
+
+                    <span class="copy-btn" id="fillCredentials">
+                        <img id="copyImg" src="~/dashboardImage/copy.png" alt="Copy Icon" />
+                    </span>
+                </div>*@
+            </form>
+
+        </div>
+
+        <div class="image-section">
+        </div>
+    </div>
+</div>
+
+<div class="loader-container dis-none" id="divLoader">
+    <div class="spinner-border text-info"></div>
+</div>
+
+@section Scripts{
+    <script>
+        (function () {
+            const TOKEN_KEY = "token";
+            const CLAIM_KEY = "CLAIM_KEY";
+
+            document.getElementById('togglePassword').addEventListener('click', function () {
+                const passwordInput = document.getElementById('Password');
+                const icon = this.querySelector('span');
+
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+
+            $(document).ready(function () {
+                if ('@ViewBag.IsRememberMe'.toLowerCase() == 'true') {
+                    ShowLoader();
+                    let model = {
+                        UserName: '@Html.Raw(ViewBag.RememberMeEmail)',
+                        Password: '@Html.Raw(ViewBag.RememberMePassword)',
+                        Remember: $("#login").find('#remember').val(),
+                        IsDecrypt: true,
+                        IsClaimNeeded: true
+                    }
+                    SignIn(model);
+                } else {
+                    HideLoader();
+                }
+            });
+
+            function ShowLoader() {
+                $('#divLoader').show();
+                $('#divSign').hide();
+            }
+
+            function HideLoader() {
+                $('#divLoader').hide();
+                $('#divSign').show();
+            }
+
+            $('#UserName').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    $('#Password').focus();
+                }
+            });
+
+            $('#Password').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    let model = formElToJson($("#login"));
+                    if (model.UserName == '' || model.Password == '') {
+                        Failed("Username and password can't be empty!");
+                        return;
+                    }
+                    ShowLoader();
+                    SignIn();
+                }
+            });
+
+            $("#signIn").click(function () {
+                let model = formElToJson($("#login"));
+                if (model.UserName == '' || model.Password == '') {
+                    Failed("Username and password can't be empty!");
+                    return;
+                }
+                ShowLoader();
+                SignIn();
+            });
+
+            $("#signUp").click(function () {
+                ShowLoader();
+                SignUp();
+            });
+
+            function SignIn(model = null) {
+                if (model == null) {
+                    model = formElToJson($("#login"));
+                    model.Remember = $("#login").find('#remember').val();
+                    model.IsClaimNeeded = true;
+                }
+
+                $.ajax({
+                    url: "/api/Authenticate/login",
+                    data: model,
+                    type: "post",
+                    success: function (response) {
+                        localStorage.removeItem(TOKEN_KEY);
+                        localStorage.setItem(TOKEN_KEY, response.token);
+
+                        localStorage.removeItem(CLAIM_KEY);
+                        localStorage.setItem(CLAIM_KEY, JSON.stringify(response.userClaims));
+                        window.location.href = '/Home/Index';
+                    }
+                    , error: function (response) {
+                        HideLoader();
+                        Failed(response);
+                    }
+                });
+            }
+
+            function SignUp() {
+                let model = formElToJson($("#register"));
+                $.ajax({
+                    url: "/api/Authenticate/register",
+                    data: model,
+                    type: "post",
+                    success: function (response) {
+                        HideLoader();
+                        Success(response);
+                    }
+                    , error: function (response) {
+                        HideLoader();
+                        Failed(response);
+                    }
+                });
+            }
+
+            $("#fillCredentials").click(function () {
+                document.getElementById('UserName').value = "admin@devense.net";
+                document.getElementById('Password').value = "123456";
+            });
+        })();
+    </script>
+    }

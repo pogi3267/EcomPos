@@ -1,0 +1,93 @@
+﻿@model ApplicationCore.Entities.SetupAndConfigurations.City
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+
+    <div class="col-sm-8" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">All Cities</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <caption>Cities List Table</caption>
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>City Name</th>
+                            <th>Cost</th>
+                            <th>State Name</th> 
+                            <th>Country</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add City</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="CitiesId">
+                    <div class="form-group">
+                        <label asp-for="Name">City Name</label>
+                        <input type="text" class="form-control" placeholder="Enter CityName" asp-for="Name">
+                        <span class="Name text-danger dis-none">Name is required</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label asp-for="StateId">State Name</label>
+                        <select asp-for="StateId" id="stateId" class="form-control"></select>
+                        <span class="StateId text-danger dis-none">State is required</span>
+                    </div>
+                    
+                   
+                    <div class="form-group">
+                        <label asp-for="Cost">Cost</label>
+                        <input type="text" class="form-control" placeholder="Enter  Cost" asp-for="Cost">
+                        <span class="Cost text-danger dis-none">Cost is required</span>
+                    </div>
+
+                    <div class="card-footer float-right">
+                        <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/shipping-cities.js"></script>
+}

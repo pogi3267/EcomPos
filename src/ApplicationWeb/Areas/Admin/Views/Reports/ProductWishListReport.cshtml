@@ -1,0 +1,56 @@
+﻿@model ApplicationCore.DTOs.ReportsDTO
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container mt-3 row col-sm-12">
+
+        <div class="col-sm-8 card">
+            <div class="card-header">
+                <h3 class="card-title">Product Wish List Report</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post" target="_blank">
+
+                    <div class="form-group row">
+                        <div class="form-group col-sm-4">
+                            <label for="CategoryId">Product Category</label>
+                        <select class="form-control" asp-for="CategoryId" asp-items="@Model.CategoryList.Select(x => new SelectListItem { Text = x.Text, Value = x.Value.ToString()})">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="submit" asp-controller="Reports" asp-action="GetProductWishList" class="btn btn-warning report-print" target="_blank">Print</button>
+                        </div> 
+                       
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    
+}
+
+

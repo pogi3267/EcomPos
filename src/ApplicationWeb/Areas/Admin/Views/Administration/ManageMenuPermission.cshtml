@@ -1,0 +1,50 @@
+﻿@model ApplicationCore.Entities.MenuMaster
+@using ApplicationCore.Entities;
+@using ApplicationCore.Entities.ApplicationUser;
+
+<form method="post">
+    
+    <div class="card mt-3">
+        <div class="row container card-body col-sm-12">
+
+            @{
+                foreach (var parentMenu in Model.ParentMenues)
+                {
+                    List<MenuMaster> childList = Model.Menues.Where(w => w.ParentId == parentMenu.MenuMasterId).ToList();
+                    if (string.IsNullOrWhiteSpace(parentMenu.Name) || childList.Count == 0) continue;
+
+                    <div class="card col-sm-4">
+                        <div class="card-header">
+                            <h5>@parentMenu.Name</h5>
+                        </div>
+                        <div class="card-body">
+
+                            @for (int i = 0; i < Model.Menues.Count(); i++)
+                            {
+                                if (Model.Menues[i].ParentId == parentMenu.MenuMasterId)
+                                {
+                                    <div class="form-check">
+                                        <input type="hidden" asp-for="@Model.Menues[i].MenuMasterId" />
+                                        <input type="hidden" asp-for="@Model.Menues[i].Name" />
+                                        <input type="hidden" asp-for="@Model.Menues[i].ParentId" />
+                                        <input asp-for="@Model.Menues[i].IsPermissionGranted" class="form-check-input" id="permissionCheckbox-@Model.Menues[i].MenuMasterId" />
+                                        <label class="form-check-label" for="permissionCheckbox-@Model.Menues[i].MenuMasterId">
+                                            @Model.Menues[i].Name
+                                        </label>
+                                    </div>
+                                }
+                                
+                            }
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+            <button type="submit" class="btn btn-sm btn-success">Update</button>&nbsp
+            <a asp-action="Edit" asp-route-id="@Model.UserId" class="btn btn-sm btn-danger">Back</a>
+        </div>
+    </div>
+</form>
+

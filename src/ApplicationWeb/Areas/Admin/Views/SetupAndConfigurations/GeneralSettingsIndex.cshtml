@@ -1,0 +1,174 @@
+﻿@model ApplicationCore.Entities.SetupAndConfigurations.GeneralSettings
+
+
+@{
+    ViewData["Titel"] = "Add General Settings";
+}
+
+<style>
+    .setting-img {
+        height: 125px;
+        width: 125px;
+    }
+</style>
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">General Settings</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="GeneralSettingsId">
+                    <div class="form-group">
+                        <label asp-for="SystemName">System Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Category Name" asp-for="SystemName">
+                        <span class="Name text-danger dis-none">Name is required</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <label for="name">System Logo White <small>(170x40)</small></label>
+                            <div class="custom-file">
+                                <label class="custom-file-label" asp-for="SystemLogoWhiteImage">System Logo White</label>
+                                <input type="file" asp-for="SystemLogoWhiteImage" class="custom-file-input" />
+                                <span class="SystemLogoWhiteImage text-danger dis-none">System Logo White Image is required</span>
+                            </div>
+                            <div class="file-preview box sm" id="imagePreview">
+                                <img id="systemLogoWhiteImage" class="setting-img" src="" alt="No Image">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="name">System Logo Black <small>(170x40)</small></label>
+                            <div class="custom-file">
+                                <label class="custom-file-label" asp-for="SystemLogoBlackImage">System Logo Black Image</label>
+                                <input type="file" asp-for="SystemLogoBlackImage" class="custom-file-input" />
+                                <span class="SystemLogoBlackImage text-danger dis-none">System Logo Black Image is required</span>
+                            </div>
+                            <div class="file-preview box sm" id="imagePreview">
+                                <img id="systemLogoBlackImage" class="setting-img" src="" alt="No Image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row dis-none">
+                        <div class="col-sm-6 form-group">
+                            <label>SystemTimezone</label>
+                            <input type="date" class="form-control" asp-for="SystemTimezone">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label for="name">Login Page Background <small>(200x200)</small></label>
+                            <div class="custom-file">
+                                <label class="custom-file-label" asp-for="LoginPageBackgroundImage">Admin login page background</label>
+                                <input type="file" asp-for="LoginPageBackgroundImage" class="custom-file-input" />
+                                <span class="LoginPageBackgroundImage text-danger dis-none">System Logo Black Image is required</span>
+                            </div>
+                            <div class="file-preview box sm" id="imagePreview">
+                                <img id="loginPageBackgroundImage" class="setting-img" src="" alt="No Image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div>
+                        <h3>Contact  Information</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" asp-for="PhoneNumber">
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Sceound Phone Number</label>
+                            <input type="text" class="form-control" asp-for="SceoundPhoneNumber">
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Telephon Number</label>
+                            <input type="text" class="form-control" asp-for="TelephonNumber">
+                        </div>
+                        <div class="col-sm-3">
+                            <label>Email</label>
+                            <input type="text" class="form-control" asp-for="Email">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-8">
+                            <label>Address</label>
+                            <textarea type="text" class="form-control" asp-for="Address"></textarea>
+
+                        </div>
+                        <div class="col-sm-4">
+                            <label>Zip Code</label>
+                            <input type="text" class="form-control" asp-for="ZipCode">
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <h3>Social Media Account</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Linkedin</label>
+                            <input type="text" class="form-control" asp-for="Linkedin">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Twitter</label>
+                            <input type="text" class="form-control" asp-for="Twitter">
+                        </div>
+
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-6">
+                            <label>Facebook</label>
+                            <input type="text" class="form-control" asp-for="Facebook">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Youtube</label>
+                            <input type="text" class="form-control" asp-for="Youtube">
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <h3>About Us</h3>
+                    </div>
+                    <div class="row">
+                        <label>Titel</label>
+                        <input type="text" class="form-control" asp-for="Titel">
+                    </div>
+                    <div class="form-group row mt-3">
+                        <label class="col-md-12 col-from-label">Company Description </label>
+                        <textarea asp-for="AboutUs" rows="8" class="form-control"></textarea>
+                    </div>
+
+                    <div class="card-footer mt-3 float-right">
+                        <button type="button" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/general-settings.js"></script>
+}

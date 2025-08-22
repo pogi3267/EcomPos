@@ -1,0 +1,123 @@
+@model ApplicationCore.Entities.Accounting.AccountLedger
+
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12" id="@pageId">
+    
+   
+    <div class="col-sm-5" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add Chart of Account</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="Id">
+                    <div class="form-group">
+                        <label asp-for="RootAccount">*Root Account</label>
+                        <select  class="chosen-select form-control" single="true" asp-for="RootAccount">
+                                             <option value="0">select one..</option>
+                                            <option value="1">Assets</option>
+                                            <option value="2">Capital & Liabilities</option>
+                                            <option value="3">Income</option>
+                                            <option value="4">Expense</option>
+                                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ParentId">Parent Account</label>
+                        <select  class="chosen-select form-control" asp-for="ParentId" >
+                          
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Code">* Account Code</label>
+                        <input type="text" class="form-control" asp-for="Code" readonly  />
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ParentName">* Account Head</label>
+                        <input type="text" class="form-control" asp-for="ParentName"/>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Posted">Posted</label>
+                        <input type="checkbox" asp-for="Posted">
+                    </div>
+                    <div class="card-footer float-right">
+                        <button type="button" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="btnSave">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-7" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">All Agent Name</h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <thead>
+                        <tr>
+                            <th style="width:35px;">SL.</th>
+                            <th>Code</th>
+                            <th>Parent Name</th>
+                            <th>Status</th>
+                            <th style="width:100px;">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Account Ledger Information</h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="chartOfAccountDetailTable">
+                    <thead>
+                        <tr>
+                            <td style="text-align: center">SL.</td>
+                            <td style="text-align: center">Root Account</td>
+                            <td style="text-align: center">Child Account</td>
+                        </tr>
+
+                    </thead>
+                    <tbody id="chartOfAccountDetailTbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation =function(){
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/accounting/chartofAccount.js"></script>
+}

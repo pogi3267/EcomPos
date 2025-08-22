@@ -1,0 +1,168 @@
+﻿@model ApplicationCore.Entities.SetupAndConfigurations.BusinessSetting
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title ">Shipping Configuration</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0 h6">Select Shipping Method</h5>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" id="formIdShippingMethod">
+
+                                <input type="hidden" asp-for="Type" value="shipping_type">
+                                <div class="radio mar-btm">
+                                    <input id="product_wise_shipping" class="magic-radio" type="radio" asp-for="Value" value="product_wise_shipping">
+                                    <label>
+                                        <span>Product Wise Shipping Cost</span>
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="radio mar-btm">
+                                    <input id="flat_rate" class="magic-radio" type="radio" asp-for="Value" value="flat_rate">
+                                    <label for="flat-shipping">Flat Rate Shipping Cost</label>
+                                </div>
+
+                                <div class="radio mar-btm">
+                                    <input id="area_wise_shipping" class="magic-radio" type="radio" asp-for="Value" value="area_wise_shipping">
+                                    <label for="area-shipping">Area Wise Flat Shipping Cost</label>
+                                </div>
+                                <div class="form-group mb-0 text-right">
+                                    <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0 h6">Note</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    1. Product Wise Shipping Cost calulation: Shipping cost is calculate by addition of each product shipping cost.
+                                </li>
+                                <li class="list-group-item">
+                                    2. Flat Rate Shipping Cost calulation: How many products a customer purchase, doesn\'t matter. Shipping cost is fixed.
+                                </li>
+                                <li class="list-group-item">
+                                    3. Area Wise Flat Shipping Cost calulation: Fixed rate for each area. If customers purchase multiple products from one seller shipping cost is calculated by the customer shipping area. To configure area wise shipping cost go to  <a href="">Shipping Cities</a>.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0 h6">Flat Rate Cost</h5>
+                        </div>
+                        <form class="form" id="formIdFlatRate">
+                            <div class="card-body">
+
+                                <input type="hidden" asp-for="Type" value="flat_rate_shipping_cost">
+                                <div class="row">
+                                    <div class="col-sm-11">
+                                        <input id="flat_rate_shipping_cost" class="form-control" type="text" asp-for="Value">
+                                    </div>
+                                    <div class="col-sm-1 mt-3">
+                                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0 h6">Note</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    1. Flat rate shipping cost is applicable if Flat rate shipping is enabled.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0 h6">Shipping Cost for Admin Products</h5>
+                        </div>
+                        <form class="form" id="formIdAdminShipping">
+                            <div class="card-body">
+
+                                <input type="hidden" asp-for="Type" value="shipping_cost_admin">
+                                 <div class="row">
+                                    <div class="col-sm-11">
+                                        <input id="shipping_cost_admin" class="form-control" type="text" asp-for="Value">
+                                    </div>
+                                    <div class="col-sm-1 mt-3">
+                                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0 h6">Note</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    1. Shipping cost for admin is applicable if Seller wise shipping cost is enabled.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/shipping-configuration.js"></script>
+}

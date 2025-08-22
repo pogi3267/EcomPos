@@ -1,0 +1,224 @@
+﻿@model ApplicationCore.Entities.Marketing.FlashDeal
+
+@{
+    ViewData["Titel"] = "Flash Sales";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<style>
+    #bannerImage {
+        height: 125px;
+        width: 125px;
+    }
+
+    .fdProdTable {
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .addProdbtns {
+        padding-top: 37px;
+    }
+
+</style>
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div id="@toolbarId" class="master-toolbar">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnNew" class="btn btn-default btn-sm btn-list btn-list-left">
+                        <i class="fa fa-plus"></i>&nbsp;Add new
+                    </button>
+                    <button id="btnAllList" class="btn btn-success btn-sm btn-list btn-list-left">
+                        <i class="fa fa-list"></i>&nbsp;Flash Deal List
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body row table-responsive">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Flash Deal Management Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Tittle</th>
+                        <th>Ative?</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Background Color</th>
+                        <th>Text Color</th>
+                        <th>Banner</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-12 dis-none" id="@divDetailsId">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title ">Add Flash Deal</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" id="@formId" enctype="multipart/form-data" novalidate="novalidate">
+                        <input type="hidden" asp-for="FlashDealId">
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label asp-for="Title">Tittle</label>
+                                <input type="text" class="form-control" placeholder="Title" asp-for="Title">
+                                <span class="Title text-danger dis-none">Title is required</span>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <div class="form-group">
+                                    <label asp-for="IsStatus">Is Active</label>
+                                    <div>
+                                        <input type="checkbox" asp-for="IsStatus" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <label asp-for="StartDate">Start Date</label>
+                                <div class="input-group date devensedate" id="StartDate" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input devensedate" asp-for="StartDate" data-target="#StartDate" />
+                                    <div class="input-group-append" data-target="#StartDate" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                                <span class="StartDate text-danger dis-none">Start Date is required</span>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label asp-for="EndDate">End Date</label>
+                                <div class="input-group date devensedate" id="EndDate" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input devensedate" asp-for="EndDate" data-target="#EndDate" />
+                                    <div class="input-group-append" data-target="#EndDate" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                                <span class="EndDate text-danger dis-none">End Date is required</span>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <label asp-for="BackgroundColor">Background Color</label>
+                                <input type="color" class="form-control" placeholder="Symbol" asp-for="BackgroundColor">
+                                <span class="BackgroundColor text-danger dis-none">Background Color is required</span>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label asp-for="TextColor">Text Color</label>
+                                <input type="color" class="form-control" placeholder="Code" asp-for="TextColor">
+                                <span class="TextColor text-danger dis-none">TextColor is required</span>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <label for="name">Banner <small>(1920 x 500)</small></label>
+                                <div class="custom-file">
+                                    <label class="custom-file-label" asp-for="BannerImage"></label>
+                                    <input type="file" asp-for="BannerImage" class="custom-file-input" />
+                                    <span class="Banner text-danger dis-none">Banner is required</span>
+                                </div>
+                                <div class="file-preview box sm" id="bannerPreview">
+                                    <img id="bannerImage" src="" alt="No Image">
+                                </div>
+                                <span class="small text-muted">This image is shown as cover banner in flash deal details page.</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer float-right">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Back</button>
+                            <button type="button" class="btn btn-primary" id="btnSave">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 dis-none" id="divProduct">
+
+        <div class="row col-sm-12 align-items-center">
+            <div class="row col-sm-12">
+                <div class="form-group col-sm-7">
+                    <label class="col-form-label">Product</label>
+                    <select class="form-control" id="productList-flashDeal"></select>
+                </div>
+
+                <div class="form-group col-sm-2">
+                    <label class="col-form-label">Discount</label>
+                    <input type="number" value="0" min="0" step="1" id="flashDealDiscount" class="form-control">
+                </div>
+
+                <div class="form-group col-sm-3">
+                    <label class="col-form-label">Discount Type</label>
+                    <select class="form-control" id="flashDealDiscountType" single="true">
+                        <option value="amount"> Flat </option>
+                        <option value="percent"> Percent </option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row col-sm-12 pb-2">
+                <div class="col-sm-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-success" id="btnAddProdFlashDeal">Add</button> &nbsp;
+                    <button type="button" class="btn btn-danger" id="btnBackProdFlashDeal">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title"><label>Flash Deal Products</label></h3>
+            </div>
+            <div class="card-body table-responsive fdProdTable">
+                <table class="table table-bordered table-hover">
+                    <caption>Products Management Table</caption>
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Brand</th>
+                            <th>Current Stock</th>
+                            <th>P. Discount</th>
+                            <th>P. Discount Type</th>
+                            <th>Flash Discount</th>
+                            <th>Flash Discount Type</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblFlashProductsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/marketing/flash-deal-list.js"></script>
+}

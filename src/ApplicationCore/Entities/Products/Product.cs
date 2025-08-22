@@ -1,0 +1,226 @@
+﻿using ApplicationCore.Entities.Marketing;
+using Dapper.Contrib.Extensions;
+using FluentValidation;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Identity.Client;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace ApplicationCore.Entities.Products
+{
+    [Table("Products")]
+    public class Product : BaseEntity
+    {
+        public Product()
+        {
+            ProductStockList = new List<ProductVariation>();
+        }
+
+        [Dapper.Contrib.Extensions.Key]
+        public int ProductId { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+        public string AddedBy { get; set; }
+        public string UserId { get; set; }
+
+        [Required]
+        public int CategoryId { get; set; }
+        public int BrandId { get; set; }
+        public string Photos { get; set; }
+        public string ThumbnailImage { get; set; }
+        public string VideoProvider { get; set; }
+        public string VideoLink { get; set; }
+        public string Tags { get; set; }
+        public string Description { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal SalePrice { get; set; }
+        public decimal? WholesalePrice { get; set; }
+        public int VariantProduct { get; set; }
+        public string Attributes { get; set; }
+        public string ChoiceOptions { get; set; }
+        public string Colors { get; set; }
+        public string Variations { get; set; }
+        public bool TodaysDeal { get; set; }
+        public bool InHouseProduct { get; set; }
+        public int Published { get; set; }
+        public bool Approved { get; set; }
+        public string StockVisibilityState { get; set; }
+        public bool CashOnDelivery { get; set; }
+        public bool Featured { get; set; }
+        public int SellerFeatured { get; set; }
+        public decimal CurrentStock { get; set; }
+        public string ProductSKU { get; set; }
+        public int MinQuantity { get; set; }
+        public int? LowStaockQuantity { get; set; }
+        public decimal? Discount { get; set; }
+        public string DiscountType { get; set; }
+        public DateTime? DiscountStartDate { get; set; }
+        public DateTime? DiscountEndDate { get; set; }
+        public decimal? Tax { get; set; }
+        public string TaxType { get; set; }
+        public string ShippingType { get; set; }
+        public string ShippingCost { get; set; }
+        public bool IsQuantityMultiplied { get; set; }
+        public int? EstShippingDays { get; set; }
+        public int NumberOfSale { get; set; }
+        public string MetaTittle { get; set; }
+        public string MetaDescription { get; set; }
+        public string MetaImage { get; set; }
+        public string PDF { get; set; }
+        public string Slug { get; set; }
+        public decimal Rating { get; set; }
+        public string Barcode { get; set; }
+        public int Digital { get; set; }
+        public int AuctionProduct { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string ExternalLink { get; set; }
+        public string ExternalLinkButton { get; set; }
+        public int WholeSaleProduct { get; set; }
+        public int UnitId { get; set; }
+        public bool IsTrend { get; set; }
+        public int TaxId { get; set; }
+
+        #region Extra
+
+        [Write(false)]
+        public List<Select2OptionModel> PhotoSourceList { get; set; }
+
+        [Write(false)]
+        public Select2OptionModel ThumbnailImageSource { get; set; }
+
+        [Write(false)]
+        public Select2OptionModel MetaImageSource { get; set; }
+
+        [Write(false)]
+        public IFormFile PdfUpload { get; set; }
+
+        [Write(false)]
+        public string ImageLink { get; set; }
+
+        [Write(false)]
+        public int HasVariation { get; set; }
+
+        [Write(false)]
+        public string Variation { get; set; }
+
+        [Write(false)]
+        public List<int> AttributeIds { get; set; }
+
+        [Write(false)]
+        public List<Select2OptionModel> AttributeList { get; set; }
+
+        [Write(false)]
+        public List<ProductVariant> ProductVariant { get; set; }
+
+        [Write(false)]
+        public List<ProductStock> ProductStocks { get; set; }
+
+        [Write(false)]
+        public List<ProductTax> ProductTaxes { get; set; }
+        [Write(false)]
+        public List<Product> FlashDealProductList { get; set; }
+        [Write(false)]
+        public List<Select2OptionModel> ProductList { get; set; }
+
+        #region Flash Deal informaiton
+
+        [Write(false)]
+        public int FlashDealId { get; set; }
+
+        [Write(false)]
+        public decimal? FlashDiscount { get; set; }
+
+        [Write(false)]
+        public string FlashDiscountType { get; set; }
+
+        [Write(false)]
+        public string CategoryName { get; set; }
+
+        [Write(false)]
+        public string BrandName { get; set; }
+
+        [Write(false)]
+        public List<Select2OptionModel> FlashDealList { get; set; } 
+        [Write(false)]
+        public List<Select2OptionModel> TaxList { get; set; }
+
+        [Write(false)]
+        public List<FlashDealProducts> FlashDealProducts { get; set; }
+
+        #endregion Flash Deal informaiton
+
+        [Write(false)]
+        public List<CategorySelect2Option> CategoryList { get; set; }
+
+        [Write(false)]
+        public List<Select2OptionModel> BrandList { get; set; }
+
+        [Write(false)]
+        public List<Select2OptionModel> UnitList { get; set; }
+
+        [Write(false)]
+        public List<int> ColorIds { get; set; }
+
+        [Write(false)]
+        public List<ColorSelect2Option> ColorList { get; set; }
+
+        [Write(false)]
+        public List<Select2OptionModel> VideoProviderList { get; set; }
+
+        [Write(false)]
+        public List<ProductVariation> ProductStockList { get; set; }
+
+        [Write(false)]
+        public string AddToCartColor { get; set; }
+
+        [Write(false)]
+        public string AddToCartAttribute { get; set; }
+
+        [Write(false)]
+        public int AddToCartQuantity { get; set; }
+
+        [Write(false)]
+        public double AddToCartTotalPrice { get; set; }
+        [Write(false)]
+        public decimal DiscountPrice { get; set; }
+        [Write(false)]
+        public string ThumbnailImagePath { get; set; }
+        [Write(false)]
+        public bool IsShippingEnable { get; set; }
+        [Write(false)]
+        public bool IsFlashDealEnable { get; set; }
+        [Write(false)]
+        public bool IsStockVisibilityEnable { get; set; }
+        [Write(false)]
+        public bool IsVatTaxEnable { get; set; }
+
+        #endregion Extra
+    }
+
+    public class ProductVariation
+    {
+        public string Variant { get; set; }
+        public string Sku { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal Price { get; set; }
+        public string Image { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
+    public class ProductValidator:AbstractValidator<Product>
+    {
+        public ProductValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Please enter the product name.");
+            RuleFor(x => x.CategoryId).NotNull().WithMessage("Please select a category.");
+            RuleFor(x => x.UnitId).NotEmpty().WithMessage("Please select a unit.");
+            RuleFor(x => x.UnitPrice).NotEmpty().WithMessage("Please enter unit price.");
+            RuleFor(x => x.SalePrice).NotEmpty().WithMessage("Please enter purchase price.");
+            RuleFor(x => x.CurrentStock).NotEmpty().WithMessage("Please enter current stock.");
+        }
+
+    }
+}

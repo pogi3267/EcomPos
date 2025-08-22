@@ -1,0 +1,107 @@
+﻿@model ApplicationCore.Entities.Products.Brand
+@{
+    ViewData["Titel"] = "Brand";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<style>
+    #bandImage {
+        height: 125px;
+        width: 125px;
+    }
+
+</style>
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+
+    <div class="col-sm-8" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">All Brand Name</h3>
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <caption>Brand Setup Table</caption>
+                    <thead>
+                        <tr>
+                        <th>SL</th>
+                        <th>Name</th>
+                        <th>Logo</th>
+                        <th>Options</th>
+                    </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add Brand</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="BrandId">
+                    <div class="form-group">
+                        <label asp-for="Name"></label>
+                        <input type="text" class="form-control" placeholder="Enter Brand Name" asp-for="Name">
+                        <span class="error-message text-danger" id="brandNameError"><b></b></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Logo <small>(120x80)</small></label>
+                        <div class="custom-file">
+                            <label class="custom-file-label" asp-for="Photo"></label>
+                            <input type="file" asp-for="Photo" class="custom-file-input" />
+                            <span class="error-message text-danger" id="brandPhotoError"><b></b></span>
+                        </div>
+                        <div class="file-preview box sm" id="imagePreview">
+                            <img id="bandImage" src="" alt="No Image">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="MetaTittle"></label>
+                        <input type="text" class="form-control" placeholder="Enter Meta Tittle" asp-for="MetaTittle">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MetaDescription"></label>
+                        <textarea type="text" class="form-control" placeholder="Enter Meta Description" asp-for="MetaDescription"> </textarea>
+                    </div>
+
+                    <div class="card-footer float-right">
+                        <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/product-setup/brand.js"></script>
+}

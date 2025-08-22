@@ -1,0 +1,16 @@
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Threading.Tasks;
+
+namespace Infrastructure.Interfaces
+{
+    public interface IBaseService
+    {
+        Task<T> GetSingleAsync<T>(string query, object parameters = null, IDbTransaction transaction = null) where T : class;
+        Task<List<T>> GetDataAsync<T>(string query, object parameters = null, IDbTransaction transaction = null) where T : class;
+        Task<int> SaveSingleAsync<T>(T entity, IDbTransaction transaction = null) where T : class;
+        Task<int> SaveAsync<T>(List<T> entities, IDbTransaction transaction = null) where T : class;
+        Task<int> UpdateSingleAsync<T>(T entity, IDbTransaction transaction = null) where T : class;
+        Task<int> ExecuteAsync(string query, object parameters = null, IDbTransaction transaction = null);
+    }
+}

@@ -1,0 +1,148 @@
+﻿@using ApplicationCore.Entities.ApplicationUser
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> _userManager
+@inject Infrastructure.Services.MenuMasterService _menuService
+
+@{
+    var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
+}
+
+<style>
+    .form-inline {
+        padding-top: 10px;
+    }
+
+    .sidebar {
+        background: #f8f9fc;
+        padding: 15px;
+    }
+
+    [class*=sidebar-light-] .nav-treeview > .nav-item > .nav-link,
+    [class*=sidebar-light-] .sidebar a,
+    [class*=sidebar-light-] .nav-sidebar > .nav-item > .nav-link:focus {
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+        [class*=sidebar-light-] .nav-sidebar > .nav-item.menu-open > .nav-link,
+        [class*=sidebar-light-] .nav-sidebar > .nav-item:hover > .nav-link,
+        [class*=sidebar-light-] .nav-treeview > .nav-item > .nav-link.active,
+        [class*=sidebar-light-] .nav-treeview > .nav-item > .nav-link.active:hover {
+            background-color: #269ABC;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+
+        [class*=sidebar-light-] .nav-treeview > .nav-item > .nav-link:focus,
+        [class*=sidebar-light-] .nav-treeview > .nav-item > .nav-link:hover {
+            color: #269ABC;
+            background: rgba(78, 115, 223, 0.1);
+            border-radius: 4px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+    .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+        background-color: #269ABC !important;
+        color: #fff;
+    }
+
+    #menuSearch, #menuSearchSpan {
+        background: #269ABC;
+        color: #ffffff;
+        padding: 8px 10px;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+
+    .submenu-right {
+        margin-left: 20%;
+    }
+
+    .sideBarStyleForLi {
+        color: white;
+        font-weight: 500;
+    }
+</style>
+
+
+<aside class="main-sidebar sidebar-light-primary bg-light  elevation-4">
+    <a href="#" class="brand-link">
+        <img src="~/dashboardImage/logoOnly.png" alt="Logo" class="brand-image img-circle ">
+        <span class="brand-text bg-light">Sensify</span>
+    </a>
+
+
+    <div class="sidebar">
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a href="/Admin/DashBoard/Dashboarddesi" class="nav-link">
+                        <i class=" nav-icon fas fa-home"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+
+                @{
+                    var menusList = await _menuService.GetMenuMaster(userId);
+                    if (menusList.Where(w => w.ParentId == 0).Any())
+                    {
+                        foreach (var parentMenu in menusList.Where(w => w.ParentId == 0))
+                        {
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    @if (!string.IsNullOrEmpty(parentMenu.Icon))
+                                    {
+                                        <i class="nav-icon @parentMenu.Icon"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="nav-icon far fa-circle"></i>
+                                    }
+                                    <p>
+                                        @parentMenu.Name
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+
+                                <ul class="nav nav-treeview">
+                                    @if (menusList.Where(w => w.ParentId == parentMenu.MenuMasterId).Any())
+                                    {
+                                        foreach (var childMenu in menusList.Where(w => w.ParentId == parentMenu.MenuMasterId))
+                                        {
+                                            <li class="nav-item">
+                                                <a href="@childMenu.Url?id=@childMenu.MenuMasterId" class="nav-link">
+                                                    <i class="nav-icon far fa-circle "></i>
+                                                    <p>@childMenu.Name</p>
+                                                </a>
+
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+</aside>
+

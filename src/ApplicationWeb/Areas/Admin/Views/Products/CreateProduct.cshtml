@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Create Product";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divDetailsId">
+        
+        <partial name="_ProductPartial" />
+        
+    </div>
+</div>
+
+
+<partial name="_ModalUploader" />
+
+@section scripts{
+
+    <script src="~/application-scripts/modal-preview.js"></script>
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/product-setup/product.js"></script>
+}

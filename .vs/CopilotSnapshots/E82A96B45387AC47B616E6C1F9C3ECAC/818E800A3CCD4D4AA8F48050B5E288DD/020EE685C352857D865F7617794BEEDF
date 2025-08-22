@@ -1,0 +1,842 @@
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Entities.Marketing;
+using ApplicationCore.Entities.Products;
+using Infrastructure.Interfaces.Products;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Dapper;
+using Microsoft.Data.SqlClient;
+
+namespace Infrastructure.Services.Products
+{
+    public class ProductService : IProductService
+    {
+        private readonly IDapperService<Product> _service;
+        private readonly SqlConnection _connection;
+        private SqlTransaction transaction = null;
+
+        public ProductService(IDapperService<Product> service) : base()
+        {
+            _service = service;
+            _connection = service.Connection;
+        }
+
+        public async Task<Product> GetInitial()
+        {
+            try
+            {
+                Product data = new Product();
+                var query = $@" SELECT CategoryId as Id, Name as Text, ParentId as ParentId  FROM Categories;
+                                SELECT BrandId as Id, Name as Text FROM Brands;
+                                SELECT UnitId as Id, Name as Text FROM Units;
+                                SELECT AttributeId Id, Name Text FROM Attributes;
+                                SELECT Code Id, Name Text, Code FROM Color ORDER BY Name ASC;
+
+                                SELECT 'Youtube' as Text, 'Youtube' as Id
+                                union all
+                                SELECT 'Dailymotion' as Text, 'Dailymotion' as Id
+                                union all
+                                SELECT 'Vimeo' as Text, 'Vimeo' as Id;
+
+                                -- Flash Deal
+                                SELECT Id = fd.FlashDealId, Text = fd.Title
+                                FROM FlashDeals fd WHERE FD.Status = 1; 
+
+                                --Taxes
+                                SELECT Id =TaxId, Text= Name FROM Taxes WHERE TaxStatus=1;
+                                
+
+
+                                ";
+                var queryResult = await _connection.QueryMultipleAsync(query);
+                data.CategoryList = DFS.GetCategory(queryResult.Read<CategorySelect2Option>().ToList());
+                data.BrandList = queryResult.Read<Select2OptionModel>().ToList();
+                data.UnitList = queryResult.Read<Select2OptionModel>().ToList();
+                data.AttributeList = queryResult.Read<Select2OptionModel>().ToList();
+                data.ColorList = queryResult.Read<ColorSelect2Option>().ToList();
+                data.VideoProviderList = queryResult.Read<Select2OptionModel>().ToList();
+                data.FlashDealList = queryResult.Read<Select2OptionModel>().ToList();
+                data.TaxList = queryResult.Read<Select2OptionModel>().ToList();
+
+                return data;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<Product>> GetAll()
+        {
+            var query = $@"SELECT * FROM Categories;";
+
+            try
+            {
+                var result = await _service.GetDataAsync<Product>(query);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Product> GetAsync(int id)
+        {
+            var query = $@"SELECT ProductId,Name,AddedBy,UserId,CategoryId,BrandId,Photos,ThumbnailImage,VideoProvider,VideoLink,Tags,Description,UnitPrice,
+                            PurchasePrice,VariantProduct,Attributes,ChoiceOptions,Colors,Variations,TodaysDeal,Published,Approved,StockVisibilityState,CashOnDelivery,Featured,
+                            SellerFeatured,CurrentStock,MinQuantity,LowStaockQuantity,Discount,DiscountType,dbo.GetLocalDate(DiscountStartDate)DiscountStartDate, dbo.GetLocalDate(DiscountEndDate)DiscountEndDate,Tax,TaxType,ShippingType,ShippingCost,
+                            IsQuantityMultiplied,EstShippingDays,NumberOfSale,MetaTittle,MetaDescription,MetaImage,PDF,Slug,Rating,Barcode,Digital,AuctionProduct,FileName,FilePath,
+                            ExternalLink,ExternalLinkButton,WholeSaleProduct,UnitId,ProductSKU,dbo.GetLocalDate(PurchaseDate)PurchaseDate,InHouseProduct,TaxId,
+                            (Select ISNULL(Value, 'false') from BusinessSettings WHERE Type = 'shipping_configuration_enabled') IsShippingEnable,
+                            (Select ISNULL(Value, 'false') from BusinessSettings WHERE Type = 'flash_deal_enabled') IsFlashDealEnable,
+                            (Select ISNULL(Value, 'false') from BusinessSettings WHERE Type = 'stock_visibility_enabled') IsStockVisibilityEnable,
+                            (Select ISNULL(Value, 'false') from BusinessSettings WHERE Type = 'vat_tax_enabled') IsVatTaxEnable
+                            FROM Products WHERE ProductId = {id};
+
+                            SELECT TOP 1 Id, FDP.FlashDealId, FDP.ProductId, FDP.Discount, FDP.DiscountType 
+                            FROM FlashDealProducts FDP
+                            INNER JOIN FlashDeals FD ON FD.FlashDealId = FDP.FlashDealId
+                            WHERE FDP.ProductId = {id} AND FD.Status = 1;
+
+                            -- dropdown list
+                            SELECT CAST(CategoryId AS VARCHAR) Id, Name as Text, ParentId as ParentId  FROM Categories;
+
+                            SELECT CAST(BrandId AS VARCHAR) Id, Name as Text FROM Brands;
+
+                            SELECT CAST(UnitId AS VARCHAR)  Id, Name as Text FROM Units;
+
+                            SELECT CAST(AttributeId AS VARCHAR) Id, Name Text FROM Attributes;
+
+                            SELECT CAST(Code AS VARCHAR) Id, Name Text, Code FROM Color ORDER BY Name ASC;
+
+                            SELECT 'Youtube' as Text, 'Youtube' as Id
+                            union all
+                            SELECT 'Dailymotion' as Text, 'Dailymotion' as Id
+                            union all
+                            SELECT 'Vimeo' as Text, 'Vimeo' as Id;
+
+                            -- Flash Deal
+                            SELECT Id = fd.FlashDealId, Text = fd.Title
+                            FROM FlashDeals fd WHERE FD.Status = 1;
+
+                            --Taxes
+                            SELECT Id =TaxId, Text= Name FROM Taxes WHERE TaxStatus=1;
+
+                            SELECT Id = u.UploadId, Text = u.FileName FROM Uploads u
+                            WHERE u.UploadId IN (SELECT value
+                            FROM STRING_SPLIT((SELECT Photos FROM Products WHERE ProductId = {id} ), ',')
+                            WHERE RTRIM(value) <> '');
+
+                            SELECT Id = u.UploadId, Text = u.FileName FROM Uploads u
+                            WHERE u.UploadId IN (SELECT ThumbnailImage FROM Products WHERE ProductId = {id});
+
+                            SELECT Id = u.UploadId, Text = u.FileName FROM Uploads u
+                            WHERE u.UploadId IN (SELECT MetaImage FROM Products WHERE ProductId = {id});
+
+                            SELECT * FROM ProductStocks WHERE ProductId={id};
+                            ";
+
+            try
+            {
+                await _connection.OpenAsync();
+                var queryResult = await _connection.QueryMultipleAsync(query);
+                Product data = queryResult.Read<Product>().FirstOrDefault();
+                data.FlashDealProducts = queryResult.Read<FlashDealProducts>().ToList();
+                data.CategoryList = DFS.GetCategory(queryResult.Read<CategorySelect2Option>().ToList());
+                data.BrandList = queryResult.Read<Select2OptionModel>().ToList();
+                data.UnitList = queryResult.Read<Select2OptionModel>().ToList();
+                data.AttributeList = queryResult.Read<Select2OptionModel>().ToList();
+                data.ColorList = queryResult.Read<ColorSelect2Option>().ToList();
+                data.VideoProviderList = queryResult.Read<Select2OptionModel>().ToList();
+                data.FlashDealList = queryResult.Read<Select2OptionModel>().ToList();
+                data.TaxList = queryResult.Read<Select2OptionModel>().ToList();
+                data.PhotoSourceList = queryResult.Read<Select2OptionModel>().ToList();
+                data.ThumbnailImageSource = queryResult.Read<Select2OptionModel>().FirstOrDefault();
+                data.MetaImageSource = queryResult.Read<Select2OptionModel>().FirstOrDefault();
+                data.ProductStocks = queryResult.Read<ProductStock>().ToList();
+
+                if (data.FlashDealProducts.Count > 0)
+                {
+                    data.FlashDealId = data.FlashDealProducts.FirstOrDefault().FlashDealId;
+                    data.FlashDiscount = data.FlashDealProducts.FirstOrDefault().Discount;
+                    data.FlashDiscountType = data.FlashDealProducts.FirstOrDefault().DiscountType;
+                }
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<int> SaveAsync(Product entity, List<ProductStock> productStocks, ProductTax tax, FlashDealProducts flashDealProducts)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                transaction = _connection.BeginTransaction();
+                int id = await _service.SaveSingleAsync(entity, transaction);
+                if (flashDealProducts != null)
+                {
+                    flashDealProducts.ProductId = id;
+                    await _service.SaveSingleAsync(flashDealProducts, transaction);
+                }
+                productStocks?.ForEach(item =>
+                {
+                    item.ProductId = id;
+                });
+                await _service.SaveAsync(productStocks, transaction);
+
+                tax.ProductId = id;
+                await _service.SaveSingleAsync(tax, transaction);
+
+                transaction.Commit();
+                return id;
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null) transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                transaction.Dispose();
+                _connection.Close();
+            }
+        }
+
+        public async Task<int> UpdateAsync(Product entity)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                transaction = _connection.BeginTransaction();
+                await _service.SaveSingleAsync(entity, transaction);
+
+                await _service.SaveAsync(entity.FlashDealProducts, transaction);
+                await _service.SaveAsync(entity.ProductStocks, transaction);
+                await _service.SaveAsync(entity.ProductTaxes, transaction);
+
+                transaction.Commit();
+                return entity.ProductId;
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null) transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                transaction.Dispose();
+                _connection.Close();
+            }
+        }
+
+        public async Task<int> UpdateProductAsync(Product entity)
+        {
+            try
+            {
+                entity.EntityState = ApplicationCore.Enums.EntityState.Modified;
+                await _connection.OpenAsync();
+                transaction = _connection.BeginTransaction();
+                int id = await _service.SaveSingleAsync(entity, transaction);
+
+                transaction.Commit();
+                return id;
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null) transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                transaction.Dispose();
+                _connection.Close();
+            }
+        }
+
+        public async Task<Product> GetProductAsync(int id)
+        {
+            var query = $@"
+                        SELECT P.*, img.FileName ThumbnailImagePath
+                        FROM Products P
+                        LEFT JOIN Uploads img on img.UploadId = P.ThumbnailImage
+                        WHERE P.ProductId={id};
+
+                        SELECT * FROM FlashDealProducts WHERE ProductId={id};
+
+                        SELECT * FROM ProductStocks WHERE ProductId={id};
+
+                        SELECT * FROM ProductTaxes WHERE ProductId={id};
+                            ";
+
+            try
+            {
+                await _connection.OpenAsync();
+                var queryResult = await _connection.QueryMultipleAsync(query);
+                Product data = queryResult.Read<Product>().FirstOrDefault();
+                data.FlashDealProducts = queryResult.Read<FlashDealProducts>().ToList();
+                data.ProductStocks = queryResult.Read<ProductStock>().ToList();
+                data.ProductTaxes = queryResult.Read<ProductTax>().ToList();
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<Product> GetProductDiscountAsync(int id)
+        {
+            var query = $@"
+            WITH 
+            PROD AS (
+            Select P.ProductId, P.UnitPrice,
+            DiscountPrice = CASE WHEN GetUtcDate() >= dbo.GetLocalDate(P.DiscountStartDate) AND GetUtcDate() <= dbo.GetLocalDate(P.DiscountEndDate) AND P.DiscountType = 'percent' THEN (P.UnitPrice - (P.UnitPrice * P.Discount) / 100) 
+            WHEN GetUtcDate() >= dbo.GetLocalDate(P.DiscountStartDate) AND GetUtcDate() <= dbo.GetLocalDate(P.DiscountEndDate) AND P.DiscountType = 'amount' THEN (P.UnitPrice - P.Discount) 
+            ELSE P.UnitPrice 
+            END
+            from Products P
+            WHERE P.ProductId = {id}
+            ), 
+            FD_PRODS AS (
+            SELECT P.ProductId,
+            DiscountPrice = CASE WHEN GetUtcDate() >= dbo.GetLocalDate(FD.StartDate) AND GetUtcDate() <= dbo.GetLocalDate(FD.EndDate) AND FDP.DiscountType = 'percent' THEN (P.UnitPrice - (P.UnitPrice * FDP.Discount) / 100) 
+            WHEN GetUtcDate() >= dbo.GetLocalDate(FD.StartDate) AND GetUtcDate() <= dbo.GetLocalDate(FD.EndDate) AND FDP.DiscountType = 'amount' THEN (P.UnitPrice - FDP.Discount) 
+            ELSE P.UnitPrice 
+            END
+            FROM FlashDeals FD
+            INNER JOIN FlashDealProducts FDP ON FDP.FlashDealId = FD.FlashDealId
+            INNER JOIN PROD P ON P.ProductId = FDP.ProductId
+            WHERE FD.[Status] = 1 AND GetUtcDate() >= dbo.GetLocalDate(FD.StartDate) AND GetUtcDate() <= dbo.GetLocalDate(FD.EndDate)
+            ORDER BY FDP.Id DESC OFFSET 0 ROWS
+            )
+            Select TOP 1 P.ProductId, P.UnitPrice, ISNULL(FDP.DiscountPrice, P.DiscountPrice) DiscountPrice, (P.UnitPrice - ISNULL(FDP.DiscountPrice, P.DiscountPrice)) Discount
+            from PROD P
+            LEFT JOIN FD_PRODS FDP ON FDP.ProductId = P.ProductId;
+            ";
+
+            try
+            {
+                await _connection.OpenAsync();
+                Product data = await _connection.QuerySingleAsync<Product>(query);
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<List<Product>> GetDataFromDbase(string searchBy, int take, int skip, string sortBy, string sortDir, string status)
+        {
+            try
+            {
+                string orderBy = string.IsNullOrEmpty(sortBy) ? "ORDER BY ProductId DESC" : "ORDER BY " + sortBy + " " + sortDir;
+                string pageBy = string.Format(@"OFFSET {0} ROWS FETCH NEXT {1} ROWS ONLY", skip, take);
+                string sql = $@"SELECT
+                                ps.ProductId
+                                ,ps.Name
+                                ,ImageLink = img.FileName
+                                ,UnitPrice
+                                ,ps.TodaysDeal
+                                ,ps.Published
+                                ,ps.Featured
+                                ,ps.IsTrend
+                                ,ps.CurrentStock
+                                ,HasVariation = case when ps.Variations is null or Variations = '[]' then 0 else 1 end
+                                ,C.Name CategoryName, ISNULL(B.Name, '') BrandName
+                                ,ps.LowStaockQuantity
+                                ,Count(1) Over() TotalRows
+                                FROM Products ps
+                                LEFT JOIN Uploads img on img.UploadId = ps.ThumbnailImage 
+								LEFT JOIN Categories C ON C.CategoryId = Ps.CategoryId
+								LEFT JOIN Brands B ON B.BrandId = Ps.BrandId
+                                WHERE 1=1 ";
+
+                if (searchBy != "")
+                    sql += " AND ps.Name like '%" + searchBy + "%'";
+                sql += $@"{Environment.NewLine}{orderBy}{Environment.NewLine}{pageBy}";
+                var result = await _service.GetDataAsync<Product>(sql);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<int> DeleteAsync(Product entity)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                transaction = _connection.BeginTransaction();
+                await _service.SaveSingleAsync(entity, transaction);
+
+                await _service.SaveAsync(entity.FlashDealProducts, transaction);
+                await _service.SaveAsync(entity.ProductStocks, transaction);
+                await _service.SaveAsync(entity.ProductTaxes, transaction);
+
+                transaction.Commit();
+                return entity.ProductId;
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null) transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                transaction.Dispose();
+                _connection.Close();
+            }
+        }
+
+        #region Other Technical Stuffs
+
+        public async Task<List<AttributeValue>> GetAttribute(string attributeList)
+        {
+            var query = $@"SELECT Id, Value, ColorCode, ATT.AttributeId, ATT.Name AttributeName
+                        FROM Attributes ATT
+                        INNER JOIN AttributeValues AV on AV.AttributeId = ATT.AttributeId
+                        where ATT.AttributeId in (" + attributeList + ");";
+
+            try
+            {
+                var result = await _service.GetDataAsync<AttributeValue>(query);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        #endregion Other Technical Stuffs
+
+        public async Task<Product> GetViewProductByIdAsync(int id)
+        {
+            var query = $@"SELECT ProductId,Name,AddedBy,UserId,CategoryId,BrandId,Photos,ThumbnailImage,VideoProvider,VideoLink,Tags,Description,UnitPrice,
+                            PurchasePrice,VariantProduct,Attributes,ChoiceOptions,Colors,Variations,TodaysDeal,Published,Approved,StockVisibilityState,CashOnDelivery,Featured,
+                            SellerFeatured,CurrentStock,MinQuantity,LowStaockQuantity,Discount,DiscountType,dbo.GetLocalDate(DiscountStartDate) DiscountStartDate, dbo.GetLocalDate(DiscountEndDate) DiscountEndDate,Tax,TaxType,ShippingType,ShippingCost,
+                            IsQuantityMultiplied,EstShippingDays,NumberOfSale,MetaTittle,MetaDescription,MetaImage,PDF,Slug,Rating,Barcode,Digital,AuctionProduct,FileName,FilePath,
+                            ExternalLink,ExternalLinkButton,WholeSaleProduct,UnitId,ProductSKU,InHouseProduct
+                            FROM Products WHERE ProductId = {id};
+
+                            SELECT Id = u.UploadId, Text = u.FileName FROM Uploads u
+                            WHERE u.UploadId IN (SELECT value
+                            FROM STRING_SPLIT((SELECT Photos FROM Products WHERE ProductId = {id} ), ',')
+                            WHERE RTRIM(value) <> '');
+
+                            SELECT Id = u.UploadId, Text = u.FileName FROM Uploads u
+                            WHERE u.UploadId IN (SELECT ThumbnailImage FROM Products WHERE ProductId = {id});
+
+                            SELECT Id = u.UploadId, Text = u.FileName FROM Uploads u
+                            WHERE u.UploadId IN (SELECT MetaImage FROM Products WHERE ProductId = {id});
+                            ";
+
+            try
+            {
+                await _connection.OpenAsync();
+                var queryResult = await _connection.QueryMultipleAsync(query);
+                Product data = queryResult.Read<Product>().FirstOrDefault();
+                data.PhotoSourceList = queryResult.Read<Select2OptionModel>().ToList();
+                data.ThumbnailImageSource = queryResult.Read<Select2OptionModel>().FirstOrDefault();
+                data.MetaImageSource = queryResult.Read<Select2OptionModel>().FirstOrDefault();
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<List<Product>> GetFlashDealProductsAsync(int flashDealId)
+        {
+            try
+            {
+                string sql = $@"
+                SELECT FDP.FlashDealId, FDP.ProductId, FDP.Discount FlashDiscount, FDP.DiscountType FlashDiscountType,
+                P.Name, P.CategoryId, P.BrandId, P.CurrentStock, P.Discount, P.DiscountType,
+                C.Name CategoryName, B.Name BrandName
+                FROM FlashDealProducts FDP
+                INNER JOIN Products P ON P.ProductId = FDP.ProductId AND P.Published = 1
+                LEFT JOIN Categories C ON C.CategoryId = P.CategoryId
+                LEFT JOIN Brands B ON B.BrandId = P.BrandId
+                WHERE FDP.FlashDealId = {flashDealId} ";
+                var result = await _service.GetDataAsync<Product>(sql);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<Product>> GetFlashDealProductAsync(int flashDealId, int productId)
+        {
+            try
+            {
+                string sql = $@"
+                SELECT FDP.FlashDealId, FDP.ProductId, FDP.Discount FlashDiscount, FDP.DiscountType FlashDiscountType,
+                P.Name, P.CategoryId, P.BrandId, P.CurrentStock, P.Discount, P.DiscountType,
+                C.Name CategoryName, B.Name BrandName
+                FROM FlashDealProducts FDP
+                INNER JOIN Products P ON P.ProductId = FDP.ProductId AND P.Published = 1
+                INNER JOIN Categories C ON C.CategoryId = P.CategoryId
+                INNER JOIN Brands B ON B.BrandId = P.BrandId
+                WHERE FDP.FlashDealId = {flashDealId} AND FDP.ProductId = {productId}";
+                var result = await _service.GetDataAsync<Product>(sql);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<Select2OptionModel>> GetProductsAsync()
+        {
+            try
+            {
+                string sql = $@"
+                SELECT Id = P.ProductId, Text = P.Name --'Name: ' + P.Name + ', Category: ' + C.Name + ', Brand: ' + B.Name
+                FROM Products P WHERE P.Published = 1
+                --LEFT JOIN Categories C ON C.CategoryId = P.CategoryId
+                --LEFT JOIN Brands B ON B.BrandId = P.BrandId";
+                return await _service.GetDataAsync<Select2OptionModel>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task DeleteFlashDealProductAsync(int flashDealId, int productId)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                var query = $@"DELETE FROM FlashDealProducts WHERE FlashDealId = @flashDealId AND ProductId = @productId";
+                await _connection.ExecuteAsync(query, new { flashDealId, productId });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<int> SaveFlashDealProductAsync(FlashDealProducts entity)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                transaction = _connection.BeginTransaction();
+                var id = await _service.SaveSingleAsync(entity, transaction);
+                transaction.Commit();
+                return id;
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null) transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                transaction.Dispose();
+                _connection.Close();
+            }
+        }
+
+        public async Task DeleteUploadImg(string ids)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                var query = $@"UPDATE Uploads SET IsDeleted = 1 WHERE UploadId IN (SELECT Value FROM String_SPLIT('{ids}',','))";
+                await _connection.ExecuteAsync(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<List<Product>> GetProductsToAddAsync()
+        {
+            try
+            {
+                string sql = $@"
+                SELECT P.ProductId, P.Name, P.CategoryId, P.BrandId, P.CurrentStock, P.Discount, P.DiscountType, 
+                F.Discount FlashDiscount, F.DiscountType FlashDiscountType
+                FROM Products P 
+                LEFT JOIN FlashDealProducts F ON F.ProductId = P.ProductId AND P.Published = 1
+                GROUP BY P.ProductId, P.Name, P.CategoryId, P.BrandId, P.CurrentStock, P.Discount, P.DiscountType, 
+                F.Discount, F.DiscountType";
+                var result = await _service.GetDataAsync<Product>(sql);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<ProductStock>> GetVariantByProductAsync(int productId)
+        {
+            try
+            {
+                string sql = $@"
+                Select ProductStockId, Variant, SKU, Price, [Image], ProductId, Quantity, PurchaseQty
+                from ProductStocks
+                WHERE ProductId = {productId}";
+                var result = await _service.GetDataAsync<ProductStock>(sql);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<Variant>> GetProductVariantsAsync(int productId)
+        {
+            try
+            {
+                string query = @"
+                    SELECT v.*, p.Name as ProductName, u.Name as UnitName
+                    FROM Variants v
+                    INNER JOIN Products p ON v.Product_id = p.ProductId
+                    INNER JOIN Units u ON v.Unit_id = u.UnitId
+                    WHERE v.Product_id = @ProductId AND v.Status = 1";
+
+                await _connection.OpenAsync();
+                var result = await _connection.QueryAsync<Variant>(query, new { ProductId = productId });
+                return result.AsList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<Variant> GetVariantAsync(int variantId)
+        {
+            try
+            {
+                string query = @"
+                    SELECT v.*, p.Name as ProductName, u.Name as UnitName
+                    FROM Variants v
+                    INNER JOIN Products p ON v.Product_id = p.ProductId
+                    INNER JOIN Units u ON v.Unit_id = u.UnitId
+                    WHERE v.Variant_id = @VariantId";
+
+                await _connection.OpenAsync();
+                return await _connection.QueryFirstOrDefaultAsync<Variant>(query, new { VariantId = variantId });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<int> SaveVariantAsync(Variant variant)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                using var transaction = _connection.BeginTransaction();
+
+                try
+                {
+                    string query = @"
+                        INSERT INTO Variants (
+                            Product_id, Sku, Barcode, Attributes, Unit_id, 
+                            Regular_price, Sale_price, Reorder_level, Image, Status,
+                            Created_By, Created_At)
+                        VALUES (
+                            @Product_id, @Sku, @Barcode, @Attributes, @Unit_id,
+                            @Regular_price, @Sale_price, @Reorder_level, @Image, @Status,
+                            @Created_By, @Created_At);
+                        SELECT CAST(SCOPE_IDENTITY() as int)";
+
+                    variant.Created_At = DateTime.UtcNow;
+                    variant.Status = true;
+
+                    int id = await _connection.QuerySingleAsync<int>(query, variant, transaction);
+                    transaction.Commit();
+                    return id;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<int> UpdateVariantAsync(Variant variant)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                using var transaction = _connection.BeginTransaction();
+
+                try
+                {
+                    string query = @"
+                        UPDATE Variants SET 
+                            Sku = @Sku,
+                            Barcode = @Barcode,
+                            Attributes = @Attributes,
+                            Unit_id = @Unit_id,
+                            Regular_price = @Regular_price,
+                            Sale_price = @Sale_price,
+                            Reorder_level = @Reorder_level,
+                            Image = @Image,
+                            Status = @Status,
+                            Updated_By = @Updated_By,
+                            Updated_At = @Updated_At
+                        WHERE Variant_id = @Variant_id";
+
+                    variant.Updated_At = DateTime.UtcNow;
+                    
+                    int result = await _connection.ExecuteAsync(query, variant, transaction);
+                    transaction.Commit();
+                    return result;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<bool> DeleteVariantAsync(int variantId)
+        {
+            try
+            {
+                await _connection.OpenAsync();
+                using var transaction = _connection.BeginTransaction();
+
+                try
+                {
+                    string query = @"
+                        UPDATE Variants 
+                        SET Status = 0, 
+                            Updated_At = @UpdatedAt 
+                        WHERE Variant_id = @VariantId";
+
+                    await _connection.ExecuteAsync(query, 
+                        new { 
+                            VariantId = variantId, 
+                            UpdatedAt = DateTime.UtcNow 
+                        }, 
+                        transaction);
+
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        public async Task<List<Variant>> GetVariantsByProductAsync(int productId)
+        {
+            try
+            {
+                string query = @"
+                    SELECT v.*, p.Name as ProductName, u.Name as UnitName
+                    FROM Variants v
+                    INNER JOIN Products p ON v.Product_id = p.ProductId
+                    INNER JOIN Units u ON v.Unit_id = u.UnitId
+                    WHERE v.Product_id = @ProductId AND v.Status = 1
+                    ORDER BY v.Created_At DESC";
+
+                await _connection.OpenAsync();
+                var result = await _connection.QueryAsync<Variant>(query, new { ProductId = productId });
+                return result.AsList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+    }
+}

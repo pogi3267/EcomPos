@@ -1,0 +1,17 @@
+﻿// --------------Note-------------------
+//await _service.ExecuteAsync("SP_TEST", new { Id = entity.ProductId }, CommandType.StoredProcedure);
+//var query = $@"Update MyTable Set Name = @Name Where ProductId = @ProductId";
+//await _service.ExecuteAsync(query, new { entity.Name, entity.ProductId });
+
+//await _service.ExecuteAsync("SP_TEST", new { Id = entity.ProductId }, CommandType.StoredProcedure);
+//var query = $@"Update MyTable Set Name = @Name Where ProductId = @ProductId";
+//await _service.ExecuteAsync(query, new { entity.Name, entity.ProductId });
+
+
+private async Task<int> GetMaxIdNo(int itemMasterID, int bookingID)
+{
+    var query = $@"Select ISNULL(MAX(RollNo), 0) MaxRollNo
+        From tbl
+        Where ItemMasterID = {itemMasterID} And BookingID = {bookingID}";
+    return await _service.GetSingleIntFieldAsync(query);
+}

@@ -1,0 +1,146 @@
+﻿@{
+    ViewData["Titel"] = "Policy Setup";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="row col-sm-12">
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0 h6 ">Free Shipping</h5>
+                </div>
+                <div class="card-body h-370">
+                    <form class="form-horizontal" id="formFreeShippingDescription">
+                        <input type="hidden" name="policy_setup" value="free_shipping_note">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea class="form-control" id="freeShippingDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0 h6 ">Secure Payment</h5>
+                </div>
+                <div class="card-body h-370">
+                    <form class="form-horizontal" id="formSecurePaymentDescription">
+                        <input type="hidden" name="policy_setup" value="secure_payment_note">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea class="form-control" id="securePaymentDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0 h6 ">Money Return</h5>
+                </div>
+                <div class="card-body h-370">
+                    <form class="form-horizontal" id="formMoneyReturnDescription">
+                        <input type="hidden" name="policy_setup" value="money_return_note">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea class="form-control" id="moneyReturnDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header ">
+                    <h5 class="mb-0 h6">24/7 Support</h5>
+                </div>
+                <div class="card-body h-370">
+                    <form class="form-horizontal" id="formSupportDescription">
+                        <input type="hidden" name="policy_setup" value="support_note">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea class="form-control" id="supportDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header ">
+                    <h5 class="mb-0 h6">7 Days Delivery</h5>
+                </div>
+                <div class="card-body h-370">
+                    <form class="form-horizontal" id="formDaysDeliveryDescription">
+                        <input type="hidden" name="policy_setup" value="delivery_note">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <textarea class="form-control" id="deliveryDescription"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/policy-setup.js"></script>
+    }

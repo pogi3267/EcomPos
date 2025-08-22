@@ -1,0 +1,99 @@
+﻿@model ApplicationCore.Entities.SetupAndConfigurations.Currency
+
+
+@{
+    ViewData["Titel"] = "Currency";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+
+    <div class="col-sm-8" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">All Currency Name</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <caption>Currency List Table</caption>
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Currency name</th>
+                            <th>Currency symbol</th>
+                            <th>Currency code</th>
+                            <th>Exchange Rate(1 USD = ?)</th>
+                            <th>Status</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-4" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add Currency</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="CurrencyId">
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input type="text" class="form-control" placeholder="Name" asp-for="Name">
+                        <span class="Name text-danger dis-none">Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Symbol">Symbol</label>
+                        <input type="text" class="form-control" placeholder="Symbol" asp-for="Symbol">
+                        <span class="Symbol text-danger dis-none">Symbol is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Code">Code</label>
+                        <input type="text" class="form-control" placeholder="Code" asp-for="Code">
+                        <span class="Code text-danger dis-none">Code is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ExchangeRate">Exchange Rate</label>
+                        <input type="text" class="form-control" placeholder="ExchangeRate" asp-for="ExchangeRate">
+                        <span class="ExchangeRate text-danger dis-none">ExchangeRate is required</span>
+                    </div>
+                    <div class="card-footer float-right">
+                        <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/currency.js"></script>
+}

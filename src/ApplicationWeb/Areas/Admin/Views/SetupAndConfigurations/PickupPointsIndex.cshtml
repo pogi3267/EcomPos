@@ -1,0 +1,104 @@
+﻿@model ApplicationCore.Entities.SetupAndConfigurations.PickupPoint
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    
+    <div class="col-sm-9" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">All Pick-up Points</h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <caption>Pick-up Points List Table</caption>
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Manager</th>
+                            <th>Pickup Station Contact</th>
+                            <th>Status</th>
+                            <th>Cash On Pickup Status</th>
+                            <th>Options</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-3" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add Pick-up Points</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="PickupPointId">
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Tax Name" asp-for="Name">
+                        <span class="Name text-danger dis-none">Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address">Location</label>
+                        <textarea class="form-control" asp-for="Address"></textarea>
+                        <span class="Address text-danger dis-none">Address is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone">Phone</label>
+                        <input type="text" class="form-control" placeholder="Enter Phone Number" asp-for="Phone">
+                        <span class="Phone text-danger dis-none">Phone is required</span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label asp-for="PickUpStatus">Pickup Point Status</label>
+                            <div>
+                                <input type="checkbox" asp-for="PickUpStatus" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="StaffId">
+                        <label asp-for="StaffId">Pick-up Point Manager</label>
+                        <select class="form-control" asp-for="StaffId">
+                        </select>
+                        <span class="StaffId text-danger dis-none">Staff is required</span>
+                    </div>
+                    <div class="card-footer float-right">
+                        <button type="button" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+@section scripts{
+    <script>
+        function GetPageInformation () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/pickup-point.js"></script>
+}

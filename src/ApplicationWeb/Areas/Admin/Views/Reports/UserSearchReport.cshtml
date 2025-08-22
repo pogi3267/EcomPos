@@ -1,0 +1,65 @@
+﻿@model ApplicationCore.DTOs.ReportsDTO
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container mt-3 row col-sm-12">
+    <div class="col-sm-8  card">
+        <div class="card-header">
+            <h3 class="card-title">User Search Report</h3>
+        </div>
+
+        <div class="card-body">
+            <form method="post" target="_blank">
+
+                <div class="form-group row ">
+                    <div class="form-group col-sm-4">
+                        <label for="fromDate">From Date</label>
+                        <div class="input-group date devensedate" id="FromDate" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" asp-for="FromDate" data-target="#FromDate" />
+                            <div class="input-group-append" data-target="#FromDate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="toDate">To Date</label>
+                        <div class="input-group date devensedate" id="ToDate" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" asp-for="ToDate" data-target="#ToDate" />
+                            <div class="input-group-append" data-target="#ToDate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="submit" asp-controller="Reports" asp-action="GetUserSearchList" class="btn btn-warning report-print" target="_blank">Print</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+
+}
+
+

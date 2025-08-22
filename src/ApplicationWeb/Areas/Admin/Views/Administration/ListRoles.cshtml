@@ -1,0 +1,108 @@
+﻿@using ApplicationCore.Entities.Commonhelper
+
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewBag.Title = "All Users Role";
+}
+
+
+<div class="col-sm-12 mt-3">
+    <div class="card">
+        <div class="card-body pt-2">
+            <a asp-action="CreateRole" asp-controller="Administration"
+               class="btn btn-success mb-1">
+                Add Role
+            </a>
+
+            <table class="table table-bordered table-hover" id="userRoleTableId">
+                <caption>User Role Management</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Role Name</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody id="ecomTableTbody">
+                    @{
+                        int sl = 1;
+                    }
+
+                    @foreach (var role in Model)
+                    {
+                        var dt = new ButtonModel { StrButtonId = role.Id, Aspcontroller = "Administration" };
+                        <tr>
+                            <td>
+                                @sl
+                            </td>
+                            <td>
+                                @role.Name
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-action="EditRole" asp-controller="Administration" class="btn btn-info btn-sm btnEdit" asp-route-id="@role.Id">Edit</a>&nbsp
+                                    <button type="button" class="btn btn-danger btn-sm btnDelete" onclick="DeleteRole('@role.Id')">Delete</button>
+                                </div>
+                            </td>
+
+                        </tr>
+                        sl++;
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+
+            $('#userRoleTableId').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "language": {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search",
+                    "lengthMenu": "Display _MENU_ Records",
+                    "emptyTable": "No Data Available!",
+                    "paginate": {
+                        "next": ">",
+                        "previous": "<"
+                    }
+                },
+            });
+        });
+
+        async function DeleteRole(id) {
+            let decisionResult = await Decision();
+            try {
+                if (decisionResult) {
+                    $.ajax({
+                        url: "/Admin/Administration/DeleteRole/" + id,
+                        type: "post",
+                        success: function (response) {
+                            window.location.href = "/Admin/Administration/ListRoles";
+                            Success("Deleted successfully!");
+                        }
+                        , error: function (response) {
+                            Failed(response);
+                        }
+                    });
+                }
+            } catch (e) {
+                Failed(e);
+            }
+        }
+    </script>
+    }

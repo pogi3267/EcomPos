@@ -1,0 +1,33 @@
+﻿@model List<ApplicationCore.Entities.ApplicationUser.UserRoleViewModel>
+
+@{
+    var userId = ViewBag.userId;
+    ViewBag.Title = "Manage User Role";
+}
+<div class="col-md-6 mt-3 ml-0 shadow-sm">
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <h5>Manage User Roles</h5>
+            </div>
+            <div class="card-body">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="form-check m-1">
+                        <input type="hidden" asp-for="@Model[i].RoleId" />
+                        <input type="hidden" asp-for="@Model[i].RoleName" />
+                        <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                        <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                            @Model[i].RoleName
+                        </label>
+                    </div>
+                }
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <button type="submit" class="btn btn-success">Update</button> &nbsp
+                <a asp-action="Edit" asp-route-id="@userId" class="btn btn-danger">Back</a>
+            </div>
+        </div>
+    </form>
+</div>

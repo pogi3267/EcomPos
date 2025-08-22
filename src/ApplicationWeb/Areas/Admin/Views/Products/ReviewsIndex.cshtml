@@ -1,0 +1,117 @@
+﻿@model ApplicationCore.Entities.Products.Reviews
+@{
+    ViewData["Titel"] = "Review List";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<style>
+    .customer-scroll-table {
+        width: 100%;
+        min-height: 158px;
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+</style>
+
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div id="@toolbarId" class="master-toolbar">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnAdd" class="btn btn-success btn-sm btn-list btn-list-left">
+                        <i class="fa fa-plus"></i>&nbsp;Add Review
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Review List Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Product Name</th>
+                        <th>Comment</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                        <th>User</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-12 dis-none" id="@divDetailsId">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title ">Review Details</h3>
+                </div>
+                <div class="card-body ">
+                    <form class="form" id="@formId" novalidate="novalidate">
+                        <input type="hidden" asp-for="ReviewId">
+                        
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label asp-for="Comment">Comment</label>
+                                <input type="text" class="form-control" placeholder="Enter Comment" asp-for="Comment">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label asp-for="ProductName">Product Name </label>
+                                <select class="form-control" asp-for="ProductId" id="productId"></select>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label asp-for="Rating">Rating</label>
+                                <select class="form-control" asp-for="Rating" id="rating"></select>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label asp-for="Status">Status</label>
+                                <select class="form-control" asp-for="Status" id="status"></select>
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label asp-for="UserName">User Name </label>
+                                <select class="form-control" asp-for="UserId" id="userId"></select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-footer float-right">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Back</button>
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId"
+            }
+        }
+    </script>
+    <script src="~/application-scripts/product-setup/reviews.js"></script>
+}

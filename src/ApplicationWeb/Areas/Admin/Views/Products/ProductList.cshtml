@@ -1,0 +1,63 @@
+﻿@model ApplicationCore.Entities.Products.Product
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container mt-3 row col-sm-12" id="@pageId">
+
+    <div class="row col-sm-12 mt-3" id="@divPrimaryId">
+        <div class="col-sm-12">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Product List Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>U.Price</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Total Stock</th>
+                        <th>Todays Deal</th>
+                        <th>Published</th>
+                        <th>Featured</th>
+                        <th>Trending</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-12 dis-none" id="@divDetailsId">
+            <partial name="_ProductPartial" />
+        </div>
+    </div>
+</div>
+
+
+
+<partial name="_ModalUploader" />
+
+@section scripts{
+    <script src="~/application-scripts/modal-preview.js"></script>
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+                paramName: "@ViewBag.ParamName",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/product-setup/product-list.js"></script>
+}

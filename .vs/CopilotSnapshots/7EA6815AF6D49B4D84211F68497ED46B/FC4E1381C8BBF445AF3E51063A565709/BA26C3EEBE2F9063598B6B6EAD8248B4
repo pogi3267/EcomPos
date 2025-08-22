@@ -1,0 +1,143 @@
+﻿@page
+@model AddPurchaseModel
+@{
+    ViewData["Title"] = "Add Purchase";
+}
+
+<div class="container-fluid mt-3">
+    <div class="card">
+        <div class="card-header">
+            <h5>Add Purchase</h5>
+            <small class="text-muted">The field labels marked with * are required input fields.</small>
+        </div>
+        <div class="card-body">
+            <form id="addPurchaseForm" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" name="date" required />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="memoNo">Memo No</label>
+                        <input type="text" class="form-control" id="memoNo" name="memoNo" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="branch">Branch *</label>
+                        <select class="form-control" id="branch" name="branch" required>
+                            <option value="">Select warehouse...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="supplier">Supplier</label>
+                        <select class="form-control" id="supplier" name="supplier">
+                            <option value="">Select supplier...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="purchaseStatus">Purchase Status</label>
+                        <select class="form-control" id="purchaseStatus" name="purchaseStatus">
+                            <option value="Received">Received</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="attachDocument">Attach Document <span data-toggle="tooltip" title="Attach a document."><i class="fa fa-question-circle"></i></span></label>
+                        <input type="file" class="form-control" id="attachDocument" name="attachDocument" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="currency">Currency *</label>
+                        <select class="form-control" id="currency" name="currency" required>
+                            <option value="BDT">BDT</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="exchangeRate">Exchange Rate *</label>
+                        <input type="number" class="form-control" id="exchangeRate" name="exchangeRate" value="1" required />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="productSearch">Select Product</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="productSearch" placeholder="Please type product code and select..." autocomplete="off" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label>Order Table *</label>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="orderTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Code</th>
+                                        <th>Quantity</th>
+                                        <th>Batch No</th>
+                                        <th>Expired Date</th>
+                                        <th>Net Unit Cost</th>
+                                        <th>Discount</th>
+                                        <th>VAT</th>
+                                        <th>SubTotal</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2" class="text-center">Total</td>
+                                        <td id="totalQuantity">0</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="totalNetUnitCost">0.00</td>
+                                        <td id="totalDiscount">0.00</td>
+                                        <td id="totalVAT">0.00</td>
+                                        <td id="totalSubTotal">0.00</td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="orderTax">Order Tax</label>
+                        <select class="form-control" id="orderTax" name="orderTax">
+                            <option value="No Tax">No Tax</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="discount">Discount</label>
+                        <input type="number" class="form-control" id="discount" name="discount" value="0" />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="shippingCost">Shipping Cost</label>
+                        <input type="number" class="form-control" id="shippingCost" name="shippingCost" value="0" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="note">Note</label>
+                        <textarea class="form-control" id="note" name="note" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/application-scripts/inventory/add-purchase.js"></script>
+}

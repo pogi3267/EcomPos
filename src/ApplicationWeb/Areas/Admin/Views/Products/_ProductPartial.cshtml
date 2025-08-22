@@ -1,0 +1,494 @@
+﻿@model ApplicationCore.Entities.Products.Product
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var formId = "form" + pageId;
+}
+
+<style>
+    pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+
+    .setup-visibility {
+        background-color: #f0f0f0;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    .setup-title {
+        /*      background-color: #269ABC;*/
+        color: black;
+        padding: 5px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    .variant-table {
+        display: none
+    }
+
+</style>
+
+
+<form class="form" id="@formId" novalidate="novalidate">
+    <input type="hidden" asp-for="ProductId" />
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6"> Add Product Information </h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label>Product Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" asp-for="Name" placeholder="Product Name" />
+                        <span class="error-message text-danger" id="productNameError"><b></b></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputError">Category <span class="text-danger">*</span></label>
+                        <select class="form-control" asp-for="CategoryId">
+                            <option value="">Select Category</option>
+                            <!-- Options go here -->
+                        </select>
+                        <span class="error-message text-danger" id="categoryIdError"><b></b></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-4" id="brand">
+                        <label> Brand </label>
+                        <select class="form-control" asp-for="BrandId">
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label> Unit <span class="text-danger">*</span></label>
+                        <select class="form-control" asp-for="UnitId">
+                        </select>
+                        <span class="error-message text-danger" id="unitError"><b></b></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label> Minimum Purchase Qty </label>
+                        <input type="number" class="form-control" asp-for="MinQuantity" value="1" min="1">
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label>Tags</label>
+                        <input type="text" class="form-control" asp-for="Tags">
+                        <small class="text-muted"> This is used for search.</small>
+                    </div>
+
+
+                    <div class="col-md-4 " id="galleryImage">
+                        <label for="signinSrEmail"> Gallery Images  <small>(600x600)</small></label>
+                        <div class="input-group pointer" data-multiple="true">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">Browse </div>
+                            </div>
+                            <div class="form-control file-amount">Choose File</div>
+                            <input type="hidden" asp-for="Photos" id="photosSetter">
+                        </div>
+                        <div class="file-preview box sm" id="galleryImagePreview">
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4" id="thumbnailImage">
+                        <label> Thumbnail Image  <small>(300x300)</small></label>
+                        <div class="input-group pointer">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">Browse </div>
+                            </div>
+                            <div class="form-control file-amount">Choose File</div>
+                            <input type="hidden" asp-for="ThumbnailImage" id="thumbnailImageSetter">
+                        </div>
+                        <div class="file-preview box sm" id="thumbnailImagePreview">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label class="col-md-12 col-from-label"> Video Provider </label>
+                        <select class="form-control" asp-for="VideoProvider">
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-12 col-from-label"> Video Link </label>
+                        <input type="text" class="form-control" asp-for="VideoLink" placeholder="Video Link">
+                        <small class="text-muted">Use proper link without extra parameter.</small>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="PdfUpload"> PDF Specification </label>
+
+                        <div class="input-group pointer" id="pdfUpload">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">Browse </div>
+                            </div>
+                            <div class="form-control" id="pdfAmount">Choose File</div>
+                        </div>
+                        <input type="file" accept="application/pdf" class="d-none" asp-for="PdfUpload" id="pdfSetter">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6"> Product price + Stock </h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label> Unit price  <span class="text-danger">*</span></label>
+                        <input type="number" value="" placeholder="Unit price" asp-for="UnitPrice" class="form-control">
+                        <span class="error-message text-danger" id="unitpriceError"><b></b></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label> Sale Price  <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" asp-for="SalePrice">
+                        <span class="error-message text-danger" id="salePriceError"><b></b></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label> Wholesale Price</label>
+                        <input type="text" class="form-control" asp-for="WholesalePrice">
+                        <span class="error-message text-danger" id="wholesalePriceError"><b></b></span>
+                    </div>
+                   
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label> Discount</label>
+                        <input type="number" asp-for="Discount" placeholder="Discount" class="form-control" required>
+                    </div>
+                    <div class="col-sm-3">
+                        <label> Discount Type</label>
+                        <select class="form-control fullWidth" single="true" asp-for="DiscountType">
+                            <option value="">select one</option>
+                            <option value="amount"> Flat </option>
+                            <option value="percent"> Percent </option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <label> Discount Date Start </label>
+                        <div class="input-group date devensedate" id="DiscountStartDate" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input devensedate" asp-for="DiscountStartDate" data-target="#DiscountStartDate" />
+                            <div class="input-group-append" data-target="#DiscountStartDate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label> Discount Date End </label>
+                        <div class="input-group date devensedate" id="DiscountEndDate" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input devensedate" asp-for="DiscountEndDate" data-target="#DiscountEndDate" />
+                            <div class="input-group-append" data-target="#DiscountEndDate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="show-hide-div">
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label> Quantity<span class="text-danger">*</span></label>
+                            <input type="number" asp-for="CurrentStock" placeholder="Quantity" class="form-control">
+                            <span class="error-message text-danger" id="currentStock"><b></b></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label> SKU</label>
+                            <input type="text" placeholder="SKU" asp-for="ProductSKU" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="ExternalLink">External link </label>
+                        <input type="text" placeholder="External link" asp-for="ExternalLink" class="form-control">
+                        <small class="text-muted"> Leave it blank if you do not use external site link </small>
+                    </div>
+                    <div class="col-md-6">
+                        <label>External link button text</label>
+                        <input type="text" placeholder="External link button text" asp-for="ExternalLinkButton" class="form-control">
+                        <small class="text-muted"> Leave it blank if you do not use external site link </small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6"> Product Variation </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <label asp-for="ColorIds"> Colors </label>
+                        <select class="fullWidth" multiple="multiple" asp-for="ColorIds">
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Attributes"> Attributes </label>
+                        <select class="form-control fullWidth" multiple="multiple" asp-for="AttributeIds">
+                        </select>
+                        <small class="text-muted">Choose the attributes of this product and then input values of each attribute</small>
+                    </div>
+                </div>
+
+                <div>
+                    <table class="table" id="choiceAtrributeInfo">
+                        <caption>Product Variation Table</caption>
+                        <thead>
+                        </thead>
+                        <tbody id="choiceInfoTBody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="product-variation table-responsive variant-table" id="productVariation">
+                    <table class="table" id="productVariationInfo">
+                        <caption>Product Variation List Table</caption>
+                        <thead>
+                            <tr>
+                                <th>Variant</th>
+                                <th>Variant Price</th>
+                                <th>SKU</th>
+                                <th>Quantity</th>
+                                <th>Photo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productVariationTBody">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6"> Product Description </h5>
+            </div>
+            <div class="card-body">
+                <div class="col-md-12">
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6"> SEO Meta Tags </h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label> Meta Title </label>
+                        <input type="text" class="form-control" asp-for="MetaTittle" placeholder="Meta Title">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Meta Image</label>
+                        <div class="input-group pointer" id="metaImage">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">Browse </div>
+                            </div>
+                            <div class="form-control file-amount">Choose File</div>
+                            <input type="hidden" asp-for="MetaImage" id="metaImageSetter">
+                        </div>
+                        <div class="file-preview box sm" id="metaImagePreview">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-12 col-from-label"> Description </label>
+                    <div class="col-md-12">
+                        <textarea asp-for="MetaDescription" rows="8" class="form-control"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6">
+                    Setup And Configuration
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="col-sm-12 setup-visibility" id="shipping_type">
+                    <div>
+                        <h6 class="setup-title">Shipping Configuration</h6>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="FreeShipping" asp-for="ShippingType" value="1">
+                                <label for="FreeShipping" class="custom-control-label">Free Shipping</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="FlatRate" asp-for="ShippingType" value="2">
+                                <label for="FlatRate" class="custom-control-label">Flat Rate</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label> Shipping cost </label>
+                            <input type="number" placeholder="Shipping cost" asp-for="ShippingCost" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="IsQuantityMultiplied">Is Product Quantity Multiply</label>
+                                <div>
+                                    <input type="checkbox" asp-for="IsQuantityMultiplied" id="IsQuantityMultiplied"
+                                           data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Estimate Shipping Days</label>
+                            <input type="number" class="form-control" asp-for="EstShippingDays" placeholder="Shipping Days">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 setup-visibility" id="flash_deal">
+                    <div>
+                        <h6 class="setup-title">Flash Deal</h6>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label asp-for="FlashDealId"> Add To Flash</label>
+                            <select class="form-control" asp-for="FlashDealId"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="FlashDiscount">Discount</label>
+                            <input type="number" value="0" min="0" step="1" asp-for="FlashDiscount" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="FlashDiscountType">Discount Type</label>
+                            <select class="form-control fullWidth" asp-for="FlashDiscountType" single="true">
+                                <option value="">select one</option>
+                                <option value="amount"> Flat </option>
+                                <option value="percent"> Percent </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 setup-visibility" id="product_configuration">
+                    <div>
+                        <h6 class="setup-title">Product Configuration</h6>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label> Cash On Delivery </label>
+                                <div>
+                                    <input type="checkbox" asp-for="CashOnDelivery" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label> Featured </label>
+                                <div>
+                                    <input type="checkbox" asp-for="Featured" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label> Todays Deal </label>
+                                <div>
+                                    <input type="checkbox" asp-for="TodaysDeal" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Low Stock Quantity Warning </label>
+                            <input type="number" asp-for="LowStaockQuantity" value="1" min="0" step="1" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 setup-visibility" id="stock_visibility_state">
+                    <div>
+                        <h6 class="setup-title">Stock Visibility State</h6>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="ShowStockQuantity" asp-for="StockVisibilityState" value="1">
+                                <label for="ShowStockQuantity" class="custom-control-label">Show Stock Quantity</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="HideStock" asp-for="StockVisibilityState" value="2">
+                                <label for="HideStock" class="custom-control-label">Hide Stock</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="col-sm-12 setup-visibility" id="vat_tax">
+                    <div>
+                        <h6 class="setup-title">VAT & Tax</h6>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <label asp-for="TaxId">Name</label>
+                            <select class="form-control" asp-for="TaxId"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Tax">Tax</label>
+                            <input type="number" asp-for="Tax" placeholder="Tax" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="TaxType">Tax Type</label>
+                            <select class="form-control fullWidth" asp-for="TaxType" single="true">
+                                <option value="amount"> Flat </option>
+                                <option value="percent"> Percent </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card-footer float-right">
+        <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
+        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+        <button type="button" class="btn btn-success" id="btnPublishSave">Save & Publish</button>
+    </div>
+</form>
+

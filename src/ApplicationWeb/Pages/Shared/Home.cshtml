@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@section scripts{
+<script>
+        (function () {
+
+            var base_url = window.location.origin;
+            var host = window.location.host;
+            const TOKEN_KEY = "token";
+            const CLAIM_KEY = "CLAIM_KEY";
+          
+            $("#logOut").click(function () {
+                LogOut();
+            });
+            
+
+            function LogOut() {
+                $.ajax({
+                    url: "/api/Authenticate/logout",
+                    type: "post",
+                    headers: { "Authorization": "Bearer " + localStorage.getItem(TOKEN_KEY) },
+                    success: function (response) {
+                        localStorage.removeItem(TOKEN_KEY);
+                        localStorage.removeItem(CLAIM_KEY);
+                        window.location.href = base_url+'/Admin/Administration/Login';
+                    }
+                    , error: function (response) {
+                        Failed(response);
+                    }
+                });
+            }
+
+
+        })();
+
+
+</script>
+}

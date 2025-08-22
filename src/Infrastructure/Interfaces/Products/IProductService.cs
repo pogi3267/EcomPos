@@ -1,0 +1,31 @@
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Entities.Marketing;
+using ApplicationCore.Entities.Products;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Infrastructure.Interfaces.Products
+{
+    public interface IProductService
+    {
+        Task<List<Product>> GetAll();
+        Task<Product> GetInitial();
+        Task<Product> GetAsync(int Id);
+        Task<Product> GetProductAsync(int Id);
+        Task<Product> GetProductDiscountAsync(int Id);
+        Task<Product> GetViewProductByIdAsync(int Id);
+        Task<int> SaveAsync(Product entity, List<ProductVariant> productVariant, ProductTax productTax, FlashDealProducts flashDealProducts);
+        Task<int> UpdateAsync(Product entity);
+        Task<int> UpdateProductAsync(Product entity);
+        Task<List<Product>> GetDataFromDbase(string searchBy, int take, int skip, string sortBy, string sortDir, string status);
+        Task<List<AttributeValue>> GetAttribute(string attributeList);
+        Task<List<Product>> GetFlashDealProductsAsync(int flashDealId);
+        Task<List<Product>> GetFlashDealProductAsync(int flashDealId, int productId);
+        Task<List<Product>> GetProductsToAddAsync();
+        Task<List<ProductStock>> GetVariantByProductAsync(int productId);
+        Task<List<Select2OptionModel>> GetProductsAsync();
+        Task DeleteFlashDealProductAsync(int flashDealId, int productId);
+        Task DeleteUploadImg(string ids);
+        Task<int> SaveFlashDealProductAsync(FlashDealProducts entity);
+    }
+}

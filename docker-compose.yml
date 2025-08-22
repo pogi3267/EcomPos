@@ -1,0 +1,14 @@
+﻿services:
+  applicationweb:
+    image: applicationweb:latest
+    build:
+      context: .
+      dockerfile: src/ApplicationWeb/Dockerfile
+    ports:
+      - "5000:80"   # host:container
+      - "5001:443"
+    restart: unless-stopped
+    volumes:
+      - ./wwwroot/Images:/app/wwwroot/Images
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production

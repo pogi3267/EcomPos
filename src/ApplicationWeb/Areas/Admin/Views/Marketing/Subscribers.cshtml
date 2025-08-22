@@ -1,0 +1,47 @@
+﻿@model ApplicationCore.Entities.Marketing.SpecialOfferEmails
+
+@{
+    ViewData["Titel"] = "Subscribers";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Subscribers Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/marketing/subscriber.js"></script>
+}

@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model ApplicationCore.Entities.ApplicationUser.User
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+    var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-2" id="@pageId">
+
+    <div class="col-sm-8" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">User Information</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="Id" value="@userId">
+                    <div class="form-group">
+                        <label asp-for="FirstName">First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter First Name" asp-for="FirstName">
+                        <span class="FirstName text-danger dis-none">FirstName is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Last Name" asp-for="LastName">
+                        <span class="LastName text-danger dis-none">LastName is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber">Phone Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Phone Number" asp-for="PhoneNumber">
+                        <span class="PhoneNumber text-danger dis-none">Phone Number is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input type="text" class="form-control" placeholder="Enter Email" asp-for="Email" readonly>
+                        <span class="Email text-danger dis-none">Email is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserName">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Username" asp-for="UserName" readonly>
+                        <span class="UserName text-danger dis-none">UserName is required</span>
+                    </div>
+                    
+                    <div class="card-footer float-right">
+                        <button type="button" class="btn btn-primary" id="btnSave">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/administration/profile.js"></script>
+}

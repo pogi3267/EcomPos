@@ -1,0 +1,435 @@
+﻿@using Infrastructure.Interfaces.SetupAndConfigurations;
+@inject IBusinessSettingService  currency
+@{
+    var currencySym = await currency.GetAsync("system_default_currency");
+}
+
+<style>
+    .dashboard-div-height {
+        height: auto;
+    }
+
+    .bacTtotalOrders {
+        background: linear-gradient(45deg, #4099ff, #73b4ff);
+        color: white;
+    }
+
+    .bacTotalStores {
+        background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+        color: white;
+    }
+
+    .bacTotalProducts {
+        background: linear-gradient(45deg, #FFB64D, #ffcb80);
+        color: white;
+    }
+
+    .bacTotalCustomers {
+        background: linear-gradient(45deg, #FF5370, #ff869a);
+        color: white;
+    }
+
+    .info-box .info-box-icon > img {
+        max-width: 60% !important;
+    }
+
+    .card-body {
+        position: relative;
+    }
+
+    .select-box-right {
+        position: absolute;
+        right: 8px; 
+        transform: translateY(-5%);
+    }
+
+    .main-header {
+        z-index: 1050 !important;
+    }
+
+</style>
+
+<div class="container-fluid mt-3">
+    <div class="card mb-3 remove-card-shadow">
+        <div class="card-body ">
+            <div class="d-flex align-items-center justify-content-between">
+                <h5 class="d-flex align-items-center text-capitalize gap-10 mb-3">
+                    <img width="20" class="mb-1 mr-2" src="~/dashboardImage/infographic_11182457.png" alt="">
+                    Business analytics
+                </h5>
+                <div class="select-box-right mr-3">
+                    <select class="form-control" id="businessId">
+                        <option value="today">Today</option>
+                        <option value="week">Week</option>
+                        <option value="month">Month</option>
+                        <option value="year">Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bacTtotalOrders">
+                        <div class="inner">
+                            <h3 id="TotalOrders"></h3>
+
+                            <p>Total Orders</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="/Admin/Orders/OrderList?id=32" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bacTotalStores">
+                        <div class="inner">
+                            <h3 id="TotalStores"></h3>
+
+                            <p>Total Stores</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="/Admin/Reports/ProductStockReport?id=104" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bacTotalProducts">
+                        <div class="inner">
+                            <h3 id="TotalProducts"></h3>
+
+                            <p>Total Products</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="/Admin/Products/ProductList?id=17" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bacTotalCustomers">
+                        <div class="inner">
+                            <h3 id="TotalCustomers"></h3>
+
+                            <p>Total Customers</p>
+                        </div>
+                        <div class="icon">
+
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="/Admin/Customer/Customer?id=36" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon">
+                            <img src="~/dashboardImage/pending.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Pending</span>
+                            <span id="Pending" class="info-box-number"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon">
+                            <img src="~/dashboardImage/packeging.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Packaging</span>
+                            <span id="Packaging" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon">
+                            <img src="~/dashboardImage/productdeliverd.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Delivered</span>
+                            <span id="Delivered" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="~/dashboardImage/return.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Returned</span>
+                            <span id="Returned" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="~/dashboardImage/order confirm.png" alt="" />
+
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Confirmed</span>
+                            <span id="Confirmed" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="~/dashboardImage/out for delivery.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Out for delivery</span>
+                            <span id="Outfordelivery" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="~/dashboardImage/cancel order.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Canceled</span>
+                            <span id="Canceled" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon">
+                            <img src="~/dashboardImage/failed to deliver.png" alt="" />
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Failed to delivery</span>
+                            <span id="Failedtodelivery" class="info-box-number"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card mb-3 remove-card-shadow">
+        <div class="card-body">
+            <h5 class="d-flex align-items-center text-capitalize gap-10 mb-3">
+                <img width="20" class="mb-1 mr-2" src="~/dashboardImage/wallet.png" alt="">
+                Admin wallet
+            </h5>
+
+            <div class="row g-2" id="order_stats">
+                <div class="col-lg-4">
+                    <div class="card h-100 d-flex justify-content-center align-items-center">
+                        <div class="card-body d-flex flex-column gap-10 align-items-center justify-content-center">
+                            <img width="60" class="mb-2" src="~/dashboardImage/revenue.gif" alt="" />
+                            <h3 class="for-card-count mb-0 fz-24"><b>@currencySym.Value</b><span id="TotalRevenue"></span></h3>
+                            <div class="text-capitalize mb-30">
+                                Total Revenue
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-2">
+                        <div class="col-md-6 mt-3">
+                            <div class="card card-body h-100 justify-content-center">
+                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h3 class="mb-1 fz-24"><b>@currencySym.Value</b><span id="TotalCollection"></span></h3>
+                                        <div class="text-capitalize mb-0">Total Collection</div>
+                                    </div>
+                                    <div>
+                                        <img width="60" class="mb-2" src="~/dashboardImage/Commision.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <div class="card card-body h-100 justify-content-center">
+                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h3 class="mb-1 fz-24"><b>@currencySym.Value</b><span id="TotalDeliveryCharge"></span></h3>
+                                        <div class="text-capitalize mb-0">Delivery charge earned</div>
+                                    </div>
+                                    <div>
+                                        <img width="60" class="mb-2" src="~/dashboardImage/delivery.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <div class="card card-body h-100 justify-content-center">
+                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h3 class="mb-1 fz-24"><b>@currencySym.Value</b><span id="PendingAmount"></span></h3>
+
+                                        <div class="text-capitalize mb-0">Pending amount</div>
+                                    </div>
+                                    <div>
+                                        <img width="60" class="mb-2" src="~/dashboardImage/pending_amount.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <div class="card card-body h-100 justify-content-center">
+                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                    <div class="d-flex flex-column align-items-start">
+                                        <h3 class="mb-1 fz-24"><b>@currencySym.Value</b><span id="TotalTaxCollection"></span></h3>
+                                        <div class="text-capitalize mb-0">Total tax collected</div>
+                                    </div>
+                                    <div>
+                                        <img width="60" class="mb-2" src="~/dashboardImage/tax.gif" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="row card-body">
+            <div class="col-sm-8 card mb-3 remove-card-shadow ">
+                    <div class="card-body">
+                        <h5 class="d-flex align-items-center text-capitalize gap-10 mb-3">
+                        <img width="20" class="mb-1 mr-2" src="~/dashboardImage/salesGraph.png" alt="">
+                            Sales statistics
+                        </h5>
+                        
+                        <div class="position-relative mb-4">
+                            <canvas id="sales-chart" height="200"></canvas>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-end">
+                            <span class="mr-2">
+                                <i class="fas fa-square text-primary"></i> This year
+                            </span>
+
+                            <span>
+                                <i class="fas fa-square text-gray"></i> Last year
+                            </span>
+                        </div>
+                    </div>
+              
+
+
+            </div>
+            <div class="col-sm-4 card mb-3 remove-card-shadow">
+                <div class="card-body">
+                    <h5 class="d-flex align-items-center text-capitalize gap-10 mb-3">
+                        <img width="20" class="mb-1 mr-2" src="~/dashboardImage/paymentHistroy.png" alt="">
+                        This year's payment history
+                    </h5>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="chart-responsive">
+                                <canvas id="pieChart" height="200"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="chart-legend clearfix">
+                                <li><i class="far fa-circle text-danger"></i> Cash On Delivery</li>
+                                <li><i class="far fa-circle text-success"></i> Paypal</li>
+                                <li><i class="far fa-circle text-warning"></i> Stripe</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card mb-3 remove-card-shadow">
+                <div class="card-header1">
+                    <h5 class="card-title gap-10">
+                        <img width="20" class="mb-1 mr-2" src="~/dashboardImage/bestselling.png" alt="">
+                        Top Selling Products
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                     
+                    <ul class="products-list product-list-in-card pl-2 pr-2" id="topSellinglistItem">
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/Admin/Products/ProductList?id=17" class="uppercase">View All Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                
+                <div class="card-header1">
+                    <h5 class="card-title gap-10">
+                        <img width="20" class="mb-1 mr-2" src="~/dashboardImage/recentlyaddedproduct.png" alt="">
+                        Recently Added Products
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="products-list product-list-in-card pl-2 pr-2" id="recentlylistItem">
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/Admin/Products/ProductList?id=17" class="uppercase">View All Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header1">
+                    <h5 class="card-title gap-10">
+                        <img width="20" class="mb-1 mr-2" src="~/dashboardImage/topcustomer.png" alt="">
+                        Top Customer
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="products-list product-list-in-card pl-2 pr-2" id="topCustomers">
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/Admin/Customer/Customer?id=97" class="uppercase">View All Customers</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/application-scripts/home.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/../plugins/flot/jquery.flot.js"></script>
+    <script src="~/../plugins/flot/plugins/jquery.flot.resize.js"></script>
+    <script src="~/../plugins/flot/plugins/jquery.flot.pie.js"></script>
+    <script src="~/application-scripts/sigRdashboard.js"></script>
+
+}

@@ -1,0 +1,161 @@
+@model ApplicationCore.Entities.Inventory.Payment
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12" id="@pageId">
+
+    <div class="col-sm-12" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">পেমেন্ট করুন</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="PaymentId">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label><b>পার্টির নাম:</b></label>
+                            <select asp-for="SupplierId" class="form-control ">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label asp-for="PayDate"><b>তারিখ:</b></label>
+                            <input type="date" asp-for="PayDate" class="form-control " />
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label><b>চালানের ধরন:</b></label>
+                            <select asp-for="Cltype" class="form-control  " id="chalanType" single="true">
+                                <option value="0">--Select One--</option>
+                                <option value="previous">পূর্বের বিক্রয়</option>
+                                <option value="next">অগ্রিম বিক্রয়</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label>প্রাপ্য টাকা:</label>
+                            @* <label id="dueMoneyAmount" style="color:greenyellow">000</label> *@
+                            <input type="text" class="form-control " id="dueMoneyAmount" style="color:darkred" readonly />
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label asp-for="NextPayDate"><b>পরবর্তী র্পেমেন্ট:</b></label>
+                            <input type="date" asp-for="NextPayDate" class="form-control " />
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-sm-2">
+                            <label><b>পেমেন্টের ধরন:</b></label>
+                            <select asp-for="PayType" class="form-control " single="true">
+                                <option value="cash">ক্যাশ</option>
+                                <option value="cheque">চেক</option>
+                                <option value="tt">টি.টি</option>
+                                <option value="dd">ডি.ডি</option>
+                                <option value="po">পি.ও</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label><b>চেকের ব্যাংক:</b></label>
+                            <select asp-for="BankId" class="form-control" id="payBankId">
+                                </select>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label><b>একাউন্ট নং:</b></label>
+                            <select asp-for="BankAccountId" class="form-control" id="payAccountNo">
+                                </select>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label><b>চেক নং:</b></label>
+                            <div>
+                                <input type="text" class="form-control" asp-for="ChequeNo" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label for="chequeDate"><b>চেকের তারিখ:</b></label>
+                            <div class="input-group date">
+                                <input type="date" asp-for="ChequeDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label><b>পরিশোধিত টাকা:</b></label>
+                            <div>
+                                <input type="number" asp-for="PayAmount" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label><b>গুদাম:</b></label>
+                            <select asp-for="BranchId" class="form-control "></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>বিবরন</label>
+                            <textarea class="form-control " rows="2" cols="7" asp-for="Remarks" readonly></textarea>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label><b>বার্তা পাঠান:</b></label>
+                            <select asp-for="MessageStatus" class="form-control" single="true">
+                                <option value="pending">হ্যাঁ</option>
+                                <option value="no">না</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-2" style="padding-top:30px">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-sm-12 table-responsive" id="@divPrimaryId">
+
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <thead>
+                        <tr>
+                            <th style="width:8%;text-align:center;">ক্রমিক নং</th>
+                            <th style="width:10%;text-align:center;">পেমেন্ট নং</th>
+                            <th style="width:15%;text-align:center;">পার্টির নাম</th>
+                            <th style="width:10%;text-align:center;">চেক নং</th>
+                            <th style="width:8%;text-align:center;">পেমেন্ট ধরন</th>
+                            <th style="width:12%;text-align:center;">ব্যাংক</th>
+                            <th style="width:10%;text-align:center;">চেকের তারিখ</th>
+                            @* <th>বার্তা</th> *@
+                            <th style="width:8%;text-align:center;">টাকা</th>
+                            <th style="width:8%;text-align:center;">অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/inventory/payment.js"></script>
+}

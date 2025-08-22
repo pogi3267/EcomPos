@@ -1,0 +1,15 @@
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\bin\Debug\net6.0\win-x86\Infrastructure.deps.json
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\bin\Debug\net6.0\win-x86\Infrastructure.dll
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\bin\Debug\net6.0\win-x86\Infrastructure.pdb
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\bin\Debug\net6.0\win-x86\ApplicationCore.dll
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\bin\Debug\net6.0\win-x86\ApplicationCore.pdb
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.csproj.AssemblyReference.cache
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.AssemblyInfoInputs.cache
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.AssemblyInfo.cs
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.csproj.CoreCompileInputs.cache
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.csproj.CopyComplete
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.dll
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\refint\Infrastructure.dll
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\Infrastructure.pdb
+E:\EcomarceForBangladesh\EcommerceSolution\src\Infrastructure\obj\Debug\net6.0\win-x86\ref\Infrastructure.dll

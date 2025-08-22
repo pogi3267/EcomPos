@@ -1,0 +1,66 @@
+﻿@model ApplicationCore.Entities.ApplicationUser.EditRoleViewModel
+
+@{
+    ViewBag.Title = "Edit Role";
+}
+<div class="col-md-6 mt-3 ml-0">
+    <div class="card">
+        <header class="card-header">
+            <h3 class="card-title">Edit Role</h3>
+        </header>
+
+        <div class="card-body">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <label asp-for="Id" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Id" disabled class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="RoleName" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="RoleName" class="form-control">
+                        <span asp-validation-for="RoleName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success">Update</button> &nbsp
+                    <a asp-action="ListRoles" class="btn btn-danger">Back</a>
+                </div>
+            </form>
+        </div>
+
+        <section class="card mx-md-3">
+            <header class="card-header mb-2">
+                <h6>Users in this role</h6>
+            </header>
+            <div class="card-body">
+                @if (Model.Users.Any())
+                {
+                    <div class="text-center">
+                        <ol type="1">
+                            @foreach (var user in Model.Users)
+                            {
+                                <li class="text-left">@user</li>
+                            }
+                        </ol>
+                    </div>
+                }
+                else
+                {
+                    <h5 class="card-title">None at the moment</h5>
+                }
+            </div>
+
+            <footer class="card-footer">
+                <a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleId="@Model.Id" class="btn btn-primary">
+                    Add or remove users from this role
+                </a>
+            </footer>
+        </section>
+    </div>
+</div>

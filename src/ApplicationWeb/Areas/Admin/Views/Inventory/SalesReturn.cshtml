@@ -1,0 +1,182 @@
+﻿@model ApplicationCore.Entities.Inventory.SalseReturn
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+<style>
+    .preview-img {
+        width: 200px; 
+        height: 120px; 
+        object-fit: cover; 
+        border: 1px solid #ddd; 
+        border-radius: 5px; 
+    }
+</style>
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="row col-sm-12" id="@divPrimaryId">
+        <div class="col-sm-12">
+            <div id="@toolbarId" class="master-toolbar">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button id="btnAllList" class="btn btn-success btn-sm btn-list btn-list-left">
+                            <i class="fa fa-list"></i>&nbsp;SalesReturn List
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered table-hover" id="@tblMasterId">
+                            <thead>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>SalesReturn Date</th>
+                                    <th>Customer Name</th>
+                                    <th>Total Quentity</th>
+                                    <th>Total Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="@tblBodyId">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12" id="@divDetailsId" style="display:none;">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">SalesReturn Details</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="SaleReturnId" id="salesReturnId">
+                    <input type="hidden" asp-for="SaleId" id="saleId">
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label>SalesReturn Date</label>
+                            <input type="date" asp-for="SaleReturnDate" class="form-control salesReturn-form-validation" placeholder="salesReturnDate">
+                            <span class="text-danger salesReturnDate" style="display:none;">SalesReturn Date</span>
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label>Customer</label>
+                            <select asp-for="CustomerId" id="customerId"  class="form-control salesReturn-form-validation"></select>
+                            <span class="text-danger salesReturnType" style="display:none;">Customer</span>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Customer Address</label>
+                            <input type="text" id="customerAddress" asp-for="Address" readonly placeholder="supplier address" class="form-control" />
+                            <span class="text-danger customerAddress" style="display:none;">Customer Address</span>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Expanse</label>
+                            <input type="number" asp-for="Expanse" placeholder="sale price" class="form-control salesReturn-form-validation" />
+                            <span class="text-danger expanse" style="display:none;">Expanse</span>
+                        </div>
+@*
+                        <div class="form-group col-sm-2">
+                            <label for="name">Product Img</label>
+                            <div class="custom-file">
+                                <label class="custom-file-label" asp-for="Photo"></label>
+                                <input type="file" asp-for="Photo" class="custom-file-input" />
+                                <span class="error-message text-danger" id="brandPhotoError"><b></b></span>
+                            </div>
+                        </div>*@
+
+@*
+                        <div class="form-group col-sm-3">
+                            <div class="file-preview box sm" id="imagePreview">
+                                <img id="bandImage" src="~/dashboardImage/productdefoultimage.png" alt="No Image" class="preview-img">
+
+                            </div>
+                        </div>*@
+                    </div>
+            @*        <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label>Product Name</label>
+                            <select asp-for="ProductId" id="productId" class="form-control salesReturn-form-validation"></select>
+                            <span class="text-danger productId" style="display:none;">Product Name</span>
+                        </div>
+                        <div class="col-md-3">
+                            <label asp-for="VariantId">Variant Name</label>
+                            <select class="form-control fullWidth" asp-for="VariantId" id="variantStock"></select>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Quantity</label>
+                            <input type="number"  id="quantity" placeholder="quantity" class="form-control salesReturn-form-validation" />
+                            <span class="text-danger quantity" style="display:none;">Quantity</span>
+                        </div>
+                        <div class="form-group col-sm-1">
+                            <label>Unit</label>
+                            <select asp-for="UnitId" id="unitId" class="form-control salesReturn-form-validation"></select>
+                            <span class="text-danger UnitId" style="display:none;">Unit</span>
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <label>Sale Price</label>
+                            <input type="number"  id="salePrice" placeholder="sale price" class="form-control salesReturn-form-validation" />
+                            <span class="text-danger salePrice" style="display:none;">Sale Price</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-2" style="padding-top: 30px;">
+                            <button type="button" class="btn btn-danger" id="btnCancel" title="Clear All">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="btnAdd" title="Add SalesReturn">Add</button>
+                        </div>
+                    </div>*@
+
+                    <div class="row table-responsive">
+                        <table class="table table-bordered table-hover" id="salesReturnMain" style="min-height:90px;">
+                            <thead>
+                                <tr>
+                                    <th>SL.</th>
+                                    <th>Product Name</th>
+                                    <th>Variant Name</th>
+                                    <th>Unit</th>
+                                    <th>Sales Quantity</th>
+                                    <th>Already Returned Quantity</th>
+                                    <th>Returned Quantity</th>
+                                    <th>Sale Price</th>
+                                    <th style="width:50px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesReturnTbody">
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <button type="button" class="btn btn-danger" id="btnBack" title="Back">Back</button>
+                            <button type="button" class="btn btn-primary" id="btnSave" title="Save SalesReturn">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/inventory/salesReturn.js"></script>
+}

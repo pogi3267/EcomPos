@@ -1,0 +1,59 @@
+@model ApplicationCore.Entities.Accounting.AccountVoucher
+
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12" id="@pageId">
+
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">List Payment Voucher</h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <thead>
+                        <tr>
+                            <th style="width:35px;">SL.</th>
+                            <th>Date</th>
+                            <th>PV No</th>
+                            <th>Type</th>
+                            <th>Branch</th>
+                            <th>Voucher By</th>
+                            <th>Memo</th>
+                            <th>Amount</th>
+                            <th style="width:100px;">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>
+                const GetPageInformation = function () {
+                    return {
+                        pageName: "@ViewBag.PageName",
+                        menuId: "@ViewBag.MenuId",
+                    }
+                }
+            </script>
+    <script src="~/application-scripts/accounting/paymentVoucher.js"></script>
+}

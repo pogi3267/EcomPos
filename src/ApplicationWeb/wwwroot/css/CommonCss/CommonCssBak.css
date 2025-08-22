@@ -1,0 +1,56 @@
+﻿#ecomTableId tr th, tr td {
+    text-align: center;
+    padding: 7px;
+}
+
+.card-header {
+    height:auto;
+    padding-top: 7px;
+    background-color: #269ABC !important;
+    color: white;
+}
+
+.page-item.active .page-link {
+    background-color: #428BCA !important;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.dis-none {
+    display: none;
+}
+
+/*.note-toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+}*/
+
+.report-print {
+    height: 40px;
+    margin-top: 30px;
+}
+
+
+.card-header1 {
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text for readability */
+    font-weight: 600; /* Slightly bold text */
+    padding: 10px 15px; /* Balanced padding for spacing */
+    height: auto; /* Allows for flexible height */
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    border-bottom: 1px solid #ddd; /* Subtle border at the bottom */
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    font-size: 16px; /* Slightly larger font */
+}
+
+table th {
+    text-align: center;
+    vertical-align: middle; /* Ensures text is vertically centered as well */
+}
+

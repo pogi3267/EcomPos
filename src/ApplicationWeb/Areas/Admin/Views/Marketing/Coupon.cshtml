@@ -1,0 +1,137 @@
+﻿@model ApplicationCore.Entities.Marketing.Coupon
+
+@{
+    ViewData["Titel"] = "Coupon";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-12" id="@divPrimaryId">
+        <div id="@toolbarId" class="master-toolbar">
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnNew" class="btn btn-default btn-sm btn-list btn-list-left">
+                        <i class="fa fa-plus"></i>&nbsp;Add new
+                    </button>
+                    <button id="btnAllList" class="btn btn-success btn-sm btn-list btn-list-left">
+                        <i class="fa fa-list"></i>&nbsp;Coupon List
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover" id="@tblMasterId">
+                <caption>Coupon Management Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Code</th>
+                        <th>Discount</th>
+                        <th>Discount Type</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Active?</th>
+                        <th>Details</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody id="@tblBodyId">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row col-sm-12">
+        <div class="col-sm-12 dis-none" id="@divDetailsId">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title ">Add Coupon</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" id="@formId" enctype="multipart/form-data" novalidate="novalidate">
+                        <input type="hidden" asp-for="CouponId">
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Code">Code</label>
+                                <input type="text" class="form-control" placeholder="Code" asp-for="Code">
+                                <span class="Code text-danger dis-none">Code is required</span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Discount">Discount</label>
+                                <input type="number" class="form-control" placeholder="Discount" asp-for="Discount">
+                                <span class="Discount text-danger dis-none">Discount is required</span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="DiscountType">Discount Type</label>
+                                <select class="form-control" asp-for="DiscountType" single="true">
+                                    <option value="amount"> Flat </option>
+                                    <option value="percent"> Percent </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                <label asp-for="StartDate">Start Date</label>
+                                <div class="input-group date devensedate" id="StartDate" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input devensedate" asp-for="StartDate" data-target="#StartDate" />
+                                    <div class="input-group-append" data-target="#StartDate" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                                <span class="StartDate text-danger dis-none">Start Date is required</span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="EndDate">End Date</label>
+                                <div class="input-group date devensedate" id="EndDate" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input devensedate" asp-for="EndDate" data-target="#EndDate" />
+                                    <div class="input-group-append" data-target="#EndDate" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                                <span class="EndDate text-danger dis-none">End Date is required</span>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label asp-for="Details">Details</label>
+                                <input type="text" class="form-control" placeholder="Details" asp-for="Details">
+                                <span class="Details text-danger dis-none">Details is required</span>
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                <label asp-for="IsActive">Is Active</label>
+                                <input type="checkbox" asp-for="IsActive" data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                            </div>
+                        </div>
+
+                        <div class="card-footer float-right">
+                            <button type="button" class="btn btn-danger" id="btnCancel">Back</button>
+                            <button type="button" class="btn btn-primary" id="btnSave">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/marketing/coupon.js"></script>
+}

@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Titel"] = "Bulk Import";
+}
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+<style>
+    #bandImage {
+        height: 125px;
+        width: 125px;
+    }
+
+    .divImport {
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+</style>
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="col-sm-8" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6">Product Bulk Upload</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert divImport">
+                    <strong>Step 1:</strong>
+                    <p>1. Download the skeleton file and fill it with proper data.</p>
+                    <p>2. You can download the example file to understand how the data must be filled.</p>
+                    <p>3. Once you have downloaded and filled the skeleton file, upload it in the form below and submit.</p>
+                    <p>4. After uploading products you need to edit them and set product's images and choices.</p>
+                </div>
+                <br>
+                <button class="btn btn-info" onclick="downloadCSV()">Download CSV</button>
+                <div class="alert divImport">
+                    <strong>Step 2:</strong>
+                    <p>1. Category and Brand should be in numerical id.</p>
+                    <p>2. You can download the pdf to get Category and Brand id.</p>
+                </div>
+                <br>
+                <button class="btn btn-info" onclick="downloadCategoryCSV()">Download Category</button>
+                <button class="btn btn-info" onclick="downloadBrandCSV()">Download Brand</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0 h6"><strong>Upload Product File</strong></h5>
+            </div>
+            <div class="card-body">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="custom-file">
+                                <label class="custom-file-label">
+                                    <input type="file" id="uploadedFile" name="uploadedFile" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0">
+                        <button type="submit" class="btn btn-info">Upload CSV</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            };
+        };
+
+        $(document).ready(function () {
+            $('#uploadForm').on('submit', function (e) {
+                e.preventDefault();
+                var formData = new FormData();
+                var fileInput = $('#uploadedFile')[0].files[0];
+                formData.append('uploadedFile', fileInput);
+                $.ajax({
+                    url: '/api/BulkAction/Upload',
+                    type: 'POST',
+                    headers: {
+                        Authorization: 'Bearer ' + GetToken()
+                    },
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function () {
+                        Success("Uploaded successfully!");
+                        document.getElementById('uploadedFile').value = '';
+                    },
+                    error: function () {
+                        Failed("Failed!");
+                    }
+                });
+            });
+        });
+
+        function downloadCSV() {
+            downloadFile('/api/BulkAction/ExportCsv');
+        }
+
+        function downloadCategoryCSV() {
+            downloadFile('/api/BulkAction/ExportCategories');
+        }
+
+        function downloadBrandCSV() {
+            downloadFile('/api/BulkAction/ExportBrands');
+        }
+
+        function downloadFile(url) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + GetToken()
+                },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function (data, status, xhr) {
+                    var filename = "";
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                    }
+                    var blob = new Blob([data], { type: 'xlsx' });
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = filename || 'export.csv';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                error: function (xhr, status, error) {
+                    alert('Error exporting CSV: ' + xhr.responseText || error);
+                }
+            });
+        }
+    </script>
+}

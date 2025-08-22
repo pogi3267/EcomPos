@@ -1,0 +1,87 @@
+﻿@model ApplicationCore.Entities.Inventory.Item
+
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12" id="@pageId">
+    
+    <div class="col-sm-7" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Item List</h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <thead>
+                        <tr>
+                            <th style="width:8%;">SL</th>
+                            <th style="width:20%;">Name</th>
+                            <th style="width:10%;">Code</th>
+                            <th style="width:10%;">Unit</th>
+                            <th style="width:15%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                         
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-5" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Add Item</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="ItemId">
+                    <div class="form-group">
+                        <label asp-for="ItemName">Item Name</label>
+                        <input type="text" class="form-control" placeholder="name" asp-for="ItemName">
+                        <span class="ItemName text-danger" style="display:none;">Item Name is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ItemCode">Item Code</label>
+                        <input type="text" asp-for="ItemCode" class="form-control" placeholder="item code" />
+                        <span class="ItemCode text-danger" style="display:none;">Item Code is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Unit">Unit</label>
+                        <input type="text" asp-for="Unit" class="form-control" placeholder="unit" />
+                        <span class="Unit text-danger" style="display:none;">Unit is required</span>
+                    </div>
+                    <div class="card-footer float-right">
+                        <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation =function(){
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/inventory/item.js"></script>
+}

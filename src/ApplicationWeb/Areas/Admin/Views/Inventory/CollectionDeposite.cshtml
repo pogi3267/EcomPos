@@ -1,0 +1,160 @@
+@model ApplicationCore.Entities.Inventory.Collection
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12" id="@pageId">
+    <div class="col-sm-6" id="@divDetailsId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title ">Collection Deposite</h3>
+            </div>
+            <div class="card-body">
+                <form class="form" id="@formId" novalidate="novalidate">
+                    <input type="hidden" asp-for="CollectionId">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>কোড:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="CustomerCode" class="depositInfo"></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>দাতা ব্যাংক:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="BankName" class="depositInfo"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>কাস্টমার:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="CustomerName" class="depositInfo"></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>সংগ্রহের তারিখ:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="CollectionDate" class="depositInfo"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>ইনভয়েস নং:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="InvoiceNoCollection" class="depositInfo"></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>চেকের তারিখ:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="ChequeDate" class="depositInfo"></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>চেক নম্বর:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="ChequeNo" class="depositInfo"></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label>টাকার পরিমাণ:</label>
+                        </div>
+                        <div class="col-sm-3 no-padding">
+                            <label for="CollectionAmount" class="depositInfo"></label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-sm-6">
+                            <label>ব্যাংক এর নাম:</label>
+                            <div>
+                                <select asp-for="DepositBankId" id="depositBankId" class="form-control"></select>
+                         
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>একাউন্ট নং:</label>
+                            <div>
+                                <select asp-for="DepositAccountNumberId" id="depositAccountNumberId" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-6">
+                            <label for="dipositeDate"><b>জমাদানের তারিখ: </b></label>
+                            <div>
+                                <input type="date" asp-for="DepositDate" class="form-control " />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="remarkText">মন্তব্য:</label>
+                            <div>
+                                <textarea asp-for="DepositRemark" id="remarkText" cols="40" rows="3" style="width: 100%;"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <br />
+                    </div>
+                    <div class="card-footer float-right">
+                        <button type="reset" class="btn btn-danger" id="btnCancel">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" id="@divPrimaryId">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"></h3>
+            </div>
+
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-hover" id="@tblMasterId">
+                    <thead>
+                        <tr>
+                            <th style='text-align: center;'>চেক নং</th>
+                            <th style='text-align: center;'>চেক গ্রহনের ধরন</th>
+                            <th style='text-align: center;'>সংগ্রহণের নং</th>
+                            <th style='text-align: center;'>টাকার পরিমান</th>
+                            <th style='text-align: center;'>অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody id="@tblBodyId">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/inventory/collection-deposit.js"></script>
+}

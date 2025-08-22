@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Titel"] = "Payments";
+}
+
+@{
+    var pageId = ViewBag.PageName + "-" + ViewBag.MenuId;
+    var divToolbarId = "divtoolbar" + pageId;
+    var toolbarId = "toolbar" + pageId;
+    var tblMasterId = "tbl" + pageId;
+    var tblBodyId = "tblBody" + pageId;
+    var tblChildId = "tblChild" + pageId;
+    var formId = "form" + pageId;
+    var divPrimaryId = "divPrimary" + pageId;
+    var divDetailsId = "divDetails" + pageId;
+}
+
+<div class="d-flex flex-column-fluid container row col-sm-12 mt-3" id="@pageId">
+    <div class="row col-md-12">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0 h6 ">Paypal Credential</h5>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" id="formPaypal">
+                        <input type="hidden" name="payment_method" value="paypal_payment">
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label class="col-from-label">Paypal Client Id</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="clientId" placeholder="Paypal Client Id">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label class="col-from-label">Paypal Client Secret</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="clientSecret" placeholder="Paypal Client Secret">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label class="col-from-label">Paypal Sandbox Mode</label>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="aiz-switch aiz-switch-success mb-0">
+                                    <input id="paypalSandboxMode" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                                <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0 h6 ">Stripe Credential</h5>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" id="formStripe">
+                        <input type="hidden" name="payment_method" value="stripe_payment">
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label class="col-from-label">Stripe Key</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Stripe Key" name="stripeKey">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                                <label class="col-from-label">Stripe Secret</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Stripe Secret" name="stripeSecret">
+                            </div>
+                        </div>
+                        <div class="form-group mb-0 text-right">
+                            <button type="button" class="btn btn-success" id="btnSave">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        const GetPageInformation = function () {
+            return {
+                pageName: "@ViewBag.PageName",
+                menuId: "@ViewBag.MenuId",
+            }
+        }
+    </script>
+    <script src="~/application-scripts/setup-and-configurations/payment-method.js"></script>
+    }

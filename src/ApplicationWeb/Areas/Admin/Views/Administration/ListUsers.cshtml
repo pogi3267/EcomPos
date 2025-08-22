@@ -1,0 +1,118 @@
+﻿@using ApplicationCore.Entities.Commonhelper
+@model IEnumerable<ApplicationCore.Entities.ApplicationUser.ApplicationUser>
+@{
+    ViewBag.Title = "All Users";
+}
+
+<div class="col-sm-12 mt-3">
+    <div class="card">
+        <div class="card-body pt-2">
+                <a asp-action="Create" asp-controller="User"
+                   class="btn btn-success mb-1">
+                    Add User
+                </a>
+            
+            <table class="table table-bordered table-hover" id="ecomTableId">
+                <caption>User Management Table</caption>
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>User Name</th>
+                        <th>Name</th>
+                        <th>User Id</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody id="ecomTableTbody">
+                    @{
+                        int sl = 1;
+                    }
+
+                    @foreach (var user in Model)
+                    {
+                        var dt = new ButtonModel { StrButtonId = user.Id, Aspcontroller = "Administration" };
+                        <tr>
+                            <td>
+                                @sl
+                            </td>
+                            <td>
+                                @user.UserName
+                            </td>
+                            <td>
+                                @($"{user.FirstName} {user.LastName}")
+                            </td>
+                            <td>
+                                @user.Id
+                            </td>
+                            <td>
+                                @user.Email
+                            </td>
+                            <td>
+                                @user.PhoneNumber
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-controller="Administration" class="btn btn-info btn-sm btnEdit" asp-route-id="@user.Id">Edit</a> &nbsp
+                                    <button type="button" class="btn btn-danger btn-sm btnDelete" onclick="DeleteUser('@user.Id')">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        sl++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            $('#ecomTableId').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+                "language": {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search",
+                    "lengthMenu": "Display _MENU_ Records",
+                    "emptyTable": "No Data Available!",
+                    "paginate": {
+                        "next": ">",
+                        "previous": "<"
+                    }
+                },
+            });
+        });
+
+        async function DeleteUser(id) {
+            let decisionResult = await Decision();
+            try {
+                if (decisionResult) {
+                    $.ajax({
+                        url: "/Admin/Administration/DeleteUser/" + id,
+                        type: "post",
+                        success: function (response) {
+                            window.location.href = "/Admin/Administration/ListUsers";
+                            Success("Deleted successfully!");
+                        }
+                        , error: function (response) {
+                            Failed(response);
+                        }
+                    });
+                }
+            } catch (e) {
+                Failed(e);
+            }
+        }
+    </script>
+}
+
