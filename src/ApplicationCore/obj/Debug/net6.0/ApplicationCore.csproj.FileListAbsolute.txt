@@ -23,3 +23,16 @@ E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\src\ApplicationCor
 E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\refint\ApplicationCore.dll
 E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.pdb
 E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ref\ApplicationCore.dll
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\bin\Debug\net6.0\ApplicationCore.deps.json
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\bin\Debug\net6.0\ApplicationCore.dll
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\bin\Debug\net6.0\ApplicationCore.pdb
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.csproj.AssemblyReference.cache
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.AssemblyInfoInputs.cache
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.AssemblyInfo.cs
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.csproj.CoreCompileInputs.cache
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.sourcelink.json
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.dll
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\refint\ApplicationCore.dll
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ApplicationCore.pdb
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationCore\obj\Debug\net6.0\ref\ApplicationCore.dll

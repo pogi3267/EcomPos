@@ -65,8 +65,8 @@ namespace Infrastructure.Services.Products
         {
             try
             {
-                var query = $@"select ProductStockId, ProductId, Variant, ISNULL(SKU, '') SKU, Price, Quantity, up.FileName, ps.PurchaseQty
-                        from ProductStocks ps
+                var query = $@"select Variant_id, ps.ProductId, Variant, ISNULL(SKU, '') SKU, Price,  up.FileName
+                        from ProductVariants ps
                         left join Uploads up on up.UploadId = ps.Image
                         WHERE ps.ProductId = " + productId + ";";
                 var result = await _service.GetDataAsync<ProductStock>(query);

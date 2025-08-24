@@ -1,62 +1,60 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\",
+  "WorkspaceRootPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\infrastructure\\services\\products\\brandservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|solutionrelative:src\\infrastructure\\services\\products\\brandservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationcore\\entities\\products\\productstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|solutionrelative:src\\applicationcore\\entities\\products\\productstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationcore\\entities\\products\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|solutionrelative:src\\applicationcore\\entities\\products\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationweb\\areas\\customer\\controller\\apis\\ui\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\customer\\controller\\apis\\ui\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationweb\\areas\\customer\\controller\\apis\\ui\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\customer\\controller\\apis\\ui\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationweb\\areas\\admin\\controllers\\apis\\products\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\controllers\\apis\\products\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\infrastructure\\services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\infrastructure\\services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|solutionrelative:src\\infrastructure\\services\\products\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationcore\\entities\\products\\productvariant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\areas\\admin\\views\\products\\printbarcode.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\views\\products\\printbarcode.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\areas\\admin\\controllers\\apis\\products\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\controllers\\apis\\products\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationcore\\dtos\\barcodeitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|solutionrelative:src\\applicationcore\\dtos\\barcodeitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|solutionrelative:src\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\.nuget\\packages\\evohtmltopdf_azure_client\\12.0.0\\README.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\areas\\admin\\views\\products\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\views\\products\\createproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationcore\\entities\\products\\productvariant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|solutionrelative:src\\applicationcore\\entities\\products\\productvariant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\infrastructure\\services\\dapperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|solutionrelative:src\\infrastructure\\services\\dapperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationweb\\areas\\admin\\views\\products\\_productpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\views\\products\\_productpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationweb\\wwwroot\\application-scripts\\product-setup\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\wwwroot\\application-scripts\\product-setup\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\wwwroot\\application-scripts\\product-setup\\product.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\infrastructure\\interfaces\\products\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|solutionrelative:src\\infrastructure\\interfaces\\products\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\applicationweb\\wwwroot\\application-scripts\\product-setup\\product-list.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\wwwroot\\application-scripts\\product-setup\\product-list.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\wwwroot\\application-scripts\\product-setup\\product-list.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecommercesolution\\src\\infrastructure\\services\\products\\productstockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6D82028-449B-4AE9-A478-3C009A5644B4}|src\\Infrastructure\\Infrastructure.csproj|solutionrelative:src\\infrastructure\\services\\products\\productstockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationweb\\areas\\admin\\views\\products\\_productpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FBB571AA-1210-43F2-91DB-FEFF8B7E8437}|src\\ApplicationWeb\\ApplicationWeb.csproj|solutionrelative:src\\applicationweb\\areas\\admin\\views\\products\\_productpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|e:\\ecomarceforbangladesh\\ecommercesolution2\\ecompos\\ecommercesolution\\src\\applicationcore\\entities\\products\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA0DF761-87DA-47B3-930E-FADBF1FC23D2}|src\\ApplicationCore\\ApplicationCore.csproj|solutionrelative:src\\applicationcore\\entities\\products\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +64,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,184 +76,189 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:10:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BrandService.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\BrandService.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Services\\Products\\BrandService.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\BrandService.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Services\\Products\\BrandService.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAawEwAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T17:43:19.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductStock.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\ProductStock.cs",
-              "RelativeDocumentMoniker": "src\\ApplicationCore\\Entities\\Products\\ProductStock.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\ProductStock.cs",
-              "RelativeToolTip": "src\\ApplicationCore\\Entities\\Products\\ProductStock.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T17:42:28.105Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\OrderController.cs",
-              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\OrderController.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\OrderController.cs",
-              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\OrderController.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAawKsAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T20:43:50.62Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\CartController.cs",
-              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\CartController.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\CartController.cs",
-              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Customer\\Controller\\APIs\\UI\\CartController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAArwCcAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T20:41:31.128Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Product.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\Product.cs",
-              "RelativeDocumentMoniker": "src\\ApplicationCore\\Entities\\Products\\Product.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\Product.cs",
-              "RelativeToolTip": "src\\ApplicationCore\\Entities\\Products\\Product.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAAAHYAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T19:43:48.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "product-list.js",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
-              "RelativeDocumentMoniker": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
-              "RelativeToolTip": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
-              "ViewState": "AgIAAHoBAAAAAAAAAADwv48BAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-20T17:44:10.135Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "product.js",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
-              "RelativeDocumentMoniker": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
-              "RelativeToolTip": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-20T17:43:24.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ProductStockService.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\ProductStockService.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Services\\Products\\ProductStockService.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\ProductStockService.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Services\\Products\\ProductStockService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:26:54.952Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\ProductService.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Services\\Products\\ProductService.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\ProductService.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Services\\Products\\ProductService.cs",
-              "ViewState": "AgIAAHkBAAAAAAAAAAAWwI4BAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:07:01.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Interfaces\\Products\\IProductService.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Interfaces\\Products\\IProductService.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Interfaces\\Products\\IProductService.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Interfaces\\Products\\IProductService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:06:37.261Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductVariant.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
-              "RelativeDocumentMoniker": "src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
-              "RelativeToolTip": "src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:06:18.841Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
-              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
-              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
-              "ViewState": "AgIAAFsBAAAAAAAAAAAWwHABAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T16:59:53.003Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DapperService.cs",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\DapperService.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Services\\DapperService.cs",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Services\\DapperService.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Services\\DapperService.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAkwFEAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:15:15.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_ProductPartial.cshtml",
-              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
-              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
-              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
-              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAKAAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-20T18:53:40.187Z"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAgwNUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T08:53:44.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\ProductService.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\Services\\Products\\ProductService.cs",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Services\\Products\\ProductService.cs",
+              "RelativeToolTip": "src\\Infrastructure\\Services\\Products\\ProductService.cs",
+              "ViewState": "AgIAAA8EAAAAAAAAAAAcwCYEAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T16:09:23.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Infrastructure.csproj",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\Infrastructure.csproj",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj",
+              "RelativeToolTip": "src\\Infrastructure\\Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-23T23:10:17.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrintBarcode.cshtml",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\PrintBarcode.cshtml",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\PrintBarcode.cshtml",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\PrintBarcode.cshtml",
+              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\PrintBarcode.cshtml",
+              "ViewState": "AgIAAJkBAAAAAAAAAAAqwMABAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:52:52.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductVariant.cs",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
+              "RelativeDocumentMoniker": "src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
+              "RelativeToolTip": "src\\ApplicationCore\\Entities\\Products\\ProductVariant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T16:25:48.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "product-list.js",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
+              "RelativeToolTip": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product-list.js",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAmwB0BAACiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-23T16:46:21.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\user\\.nuget\\packages\\evohtmltopdf_azure_client\\12.0.0\\README.txt",
+              "ToolTip": "C:\\Users\\user\\.nuget\\packages\\evohtmltopdf_azure_client\\12.0.0\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-08-23T23:37:29.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateProduct.cshtml",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\CreateProduct.cshtml",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\CreateProduct.cshtml",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\CreateProduct.cshtml",
+              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\CreateProduct.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T20:10:49.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\Product.cs",
+              "RelativeDocumentMoniker": "src\\ApplicationCore\\Entities\\Products\\Product.cs",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\Entities\\Products\\Product.cs",
+              "RelativeToolTip": "src\\ApplicationCore\\Entities\\Products\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAEBVwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T17:11:20.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
+              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Controllers\\APIs\\Products\\ProductController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAmwBYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T16:10:21.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BarcodeItemModel.cs",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\DTOs\\BarcodeItemModel.cs",
+              "RelativeDocumentMoniker": "src\\ApplicationCore\\DTOs\\BarcodeItemModel.cs",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\DTOs\\BarcodeItemModel.cs",
+              "RelativeToolTip": "src\\ApplicationCore\\DTOs\\BarcodeItemModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T08:44:00.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "product.js",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
+              "RelativeToolTip": "src\\ApplicationWeb\\wwwroot\\application-scripts\\product-setup\\product.js",
+              "ViewState": "AgIAAJMAAAAAAAAAAIBZwKsAAACiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-08-23T17:59:59.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAM0TAAAAAAAAAAASwOQTAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-08-23T16:09:37.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ProductPartial.cshtml",
+              "DocumentMoniker": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
+              "RelativeDocumentMoniker": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
+              "ToolTip": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
+              "RelativeToolTip": "src\\ApplicationWeb\\Areas\\Admin\\Views\\Products\\_ProductPartial.cshtml",
+              "ViewState": "AgIAAPkAAAAAAAAAAIBZwA0BAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T18:01:41.248Z",
+              "EditorCaption": ""
             }
           ]
         }

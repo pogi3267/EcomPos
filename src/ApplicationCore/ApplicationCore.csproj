@@ -14,7 +14,9 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+    <PackageReference Include="EvoHtmlToPdf_Azure_Client" Version="12.0.0" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
+    <PackageReference Include="itext7" Version="9.2.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
@@ -22,6 +24,8 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SqlTableDependency" Version="8.5.8" />
+    <PackageReference Include="ZXing.Net" Version="0.16.10" />
+    <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.13" />
   </ItemGroup>
 
 </Project>

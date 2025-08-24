@@ -4,7 +4,7 @@
         initializeValidation('#CategoryId', '#categoryIdError', 'Please select a category.'),
         initializeValidation('#UnitId', '#unitError', 'Please select a unit.'),
         initializeValidation('#UnitPrice', '#unitpriceError', 'Please enter unit price.'),
-        initializeValidation('#PurchasePrice', '#purchasePriceError', 'Please enter purchase price.'),
+        initializeValidation('#SalePrice', '#salePriceError', 'Please enter slea price.'),
         initializeValidation('#CurrentStock', '#currentStock', 'Please enter current stock.')
     ];
     ecomTable = null;
@@ -284,7 +284,6 @@
                         <td> <span class="variationsName" > ${variant} </span>  </td>
                         <td><input type="number" class="form-control variationsPrice" value = "${price}" placeholder = "Price" name = "variationsPrice[${indexing}]" min = "0"/></td>
                         <td><input type="text" class="form-control variationsSKU"  value = "${sku}" placeholder = "SKU" name = "variationsSKU[${indexing}]"/></td>
-                        <td><input type="number" class="form-control variationsQuantity" value = "${quantity}" placeholder = "Quantity" name = "variationsQuantity[${indexing}]" value = "0" min = "0"/></td>
                         <td>
                             <div class="input-group pointer variationsPhoto" setter = "#variationsPhotoSetter${indexing}" preview = "#variationsPhotoPreview${indexing}">
                                 <div class="input-group-prepend">
@@ -428,6 +427,7 @@
             variations = JSON.parse(variations);
             let indexing = 0;
             let data = '';
+            debugger
             variations.forEach(item => { data += MakingVariationHtml(indexing++, item); });
             combination.productVariation.show();
             if ($.fn.DataTable.isDataTable('#productVariationInfo')) {

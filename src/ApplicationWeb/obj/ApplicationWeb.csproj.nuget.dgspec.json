@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj": {}
+    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj": {}
   },
   "projects": {
-    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj": {
+    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj",
+        "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\obj\\",
+        "outputPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[2.0.78, )"
             },
+            "EvoHtmlToPdf_Azure_Client": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.5.1, )"
@@ -87,6 +91,18 @@
             "SqlTableDependency": {
               "target": "Package",
               "version": "[8.5.8, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.10, )"
+            },
+            "ZXing.Net.Bindings.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[0.16.13, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.2.0, )"
             }
           },
           "imports": [
@@ -109,14 +125,14 @@
         }
       }
     },
-    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj": {
+    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj",
+        "projectUniqueName": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj",
         "projectName": "ApplicationWeb",
-        "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj",
+        "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\ApplicationWeb.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationWeb\\obj\\",
+        "outputPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -139,11 +155,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj"
+              "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj"
               },
-              "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj"
+              "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -179,6 +195,10 @@
             "CsvHelper": {
               "target": "Package",
               "version": "[33.0.1, )"
+            },
+            "EvoHtmlToPdf_Azure_Client": {
+              "target": "Package",
+              "version": "[12.0.0, )"
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",
@@ -261,6 +281,26 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.12, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.10, )"
+            },
+            "ZXing.Net.Bindings.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[0.16.13, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[9.2.0, )"
             }
           },
           "imports": [
@@ -286,14 +326,14 @@
         }
       }
     },
-    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj": {
+    "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\Infrastructure\\obj\\",
+        "outputPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -316,8 +356,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj": {
-                "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj"
+              "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj": {
+                "projectPath": "E:\\EcomarceForBangladesh\\EcommerceSolution2\\EcomPos\\EcommerceSolution\\src\\ApplicationCore\\ApplicationCore.csproj"
               }
             }
           }
@@ -338,6 +378,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EvoHtmlToPdf_Azure_Client": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Google.Apis.Auth": {
               "target": "Package",
               "version": "[1.57.0, )"
@@ -365,6 +409,22 @@
             "Stripe.net": {
               "target": "Package",
               "version": "[40.16.0, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.10, )"
+            },
+            "ZXing.Net.Bindings.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[0.16.13, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[9.2.0, )"
             }
           },
           "imports": [

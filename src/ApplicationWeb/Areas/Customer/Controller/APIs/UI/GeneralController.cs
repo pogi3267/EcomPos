@@ -462,7 +462,7 @@ namespace ApplicationWeb.Areas.Customer.Controller.APIs.UI
                 }
             });
 
-            var keysToRemove = new HashSet<string> { "Photos", "ThumbnailImage", "VideoProvider", "VideoLink", "Description", "PurchasePrice", "VariantProduct", "ChoiceOptions"
+            var keysToRemove = new HashSet<string> { "Photos", "ThumbnailImage", "VideoProvider", "VideoLink", "Description", "SalePrice", "VariantProduct", "ChoiceOptions"
             , "Colors", "Variations", "TodaysDeal", "Published", "Approved", "CashOnDelivery", "Featured", "SellerFeatured", "Discount"
             , "DiscountType", "DiscountStartDate", "DiscountEndDate", "Tax", "TaxType", "ShippingType", "ShippingCost", "IsQuantityMultiplied", "EstShippingDays", "MetaTittle"
             , "MetaDescription", "MetaImage", "PDF", "Slug", "Rating", "Barcode", "Digital", "AuctionProduct", "FileName", "FilePath", "ExternalLink", "ExternalLinkButton", "WholeSaleProduct"

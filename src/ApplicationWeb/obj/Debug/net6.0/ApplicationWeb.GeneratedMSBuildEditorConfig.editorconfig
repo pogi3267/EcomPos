@@ -9,541 +9,557 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ApplicationWeb
 build_property.RootNamespace = ApplicationWeb
-build_property.ProjectDir = E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\src\ApplicationWeb\
+build_property.ProjectDir = E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\src\ApplicationWeb
+build_property.MSBuildProjectDirectory = E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\src\ApplicationWeb
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 6.0
 build_property.EnableCodeStyleSeverity = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/AddJournalVoucher.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/AddJournalVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudGluZ1xBZGRKb3VybmFsVm91Y2hlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/AddPaymentVoucher.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/AddPaymentVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudGluZ1xBZGRQYXltZW50Vm91Y2hlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/AddReceiveVoucher.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/AddReceiveVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudGluZ1xBZGRSZWNlaXZlVm91Y2hlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/CreateChartofAccount.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/CreateChartofAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudGluZ1xDcmVhdGVDaGFydG9mQWNjb3VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/ListPaymentVoucher.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Accounting/ListPaymentVoucher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudGluZ1xMaXN0UGF5bWVudFZvdWNoZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ChangePassword.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/CreateRole.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/CreateRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cQ3JlYXRlUm9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/EditRole.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/EditRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdFJvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/EditUser.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdFVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/EditUsersInRole.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/EditUsersInRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cRWRpdFVzZXJzSW5Sb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ForgotPassword.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cRm9yZ290UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ForgotPasswordConfirmation.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cRm9yZ290UGFzc3dvcmRDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ListRoles.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ListRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTGlzdFJvbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ListUsers.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ListUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTGlzdFVzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/Login.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ManageMenuPermission.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ManageMenuPermission.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTWFuYWdlTWVudVBlcm1pc3Npb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ManageUserClaims.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ManageUserClaims.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTWFuYWdlVXNlckNsYWltcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ManageUserRoles.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ManageUserRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTWFuYWdlVXNlclJvbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/NotFound.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/NotFound.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cTm90Rm91bmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/Profile.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/Register.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ResetPassword.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cUmVzZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ResetPasswordConfirmation.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Administration/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5pc3RyYXRpb25cUmVzZXRQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Common/_DirectoryImage.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Common/_DirectoryImage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbW9uXF9EaXJlY3RvcnlJbWFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Customer/Customer.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Customer/Customer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ3VzdG9tZXJcQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/DashBoard/DashBoard.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/DashBoard/DashBoard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaEJvYXJkXERhc2hCb2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Adjustment.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Adjustment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XEFkanVzdG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Collection.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Collection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XENvbGxlY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CollectionDeposite.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CollectionDeposite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XENvbGxlY3Rpb25EZXBvc2l0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CollectionFinalized.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CollectionFinalized.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XENvbGxlY3Rpb25GaW5hbGl6ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CreateItem.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CreateItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XENyZWF0ZUl0ZW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CreateOperationalUser.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/CreateOperationalUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XENyZWF0ZU9wZXJhdGlvbmFsVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Payment.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Payment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFBheW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/PaymentFinalized.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/PaymentFinalized.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFBheW1lbnRGaW5hbGl6ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Purchase.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Purchase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFB1cmNoYXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Purchase1.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Purchase1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFB1cmNoYXNlMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/PurchaseReturn.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/PurchaseReturn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFB1cmNoYXNlUmV0dXJuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/SalesReturn.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/SalesReturn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFNhbGVzUmV0dXJuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Salse.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Inventory/Salse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSW52ZW50b3J5XFNhbHNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Marketing/Coupon.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Marketing/Coupon.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFya2V0aW5nXENvdXBvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Marketing/FlashDeal.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Marketing/FlashDeal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFya2V0aW5nXEZsYXNoRGVhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Marketing/Subscribers.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Marketing/Subscribers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFya2V0aW5nXFN1YnNjcmliZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Orders/OrderList.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Orders/OrderList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJzXE9yZGVyTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/AttributeIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/AttributeIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQXR0cmlidXRlSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/BrandIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/BrandIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQnJhbmRJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/BulkExport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/BulkExport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQnVsa0V4cG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/BulkImport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/BulkImport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQnVsa0ltcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/CategoryIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/CategoryIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQ2F0ZWdvcnlJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ColorIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ColorIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQ29sb3JJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/CreateProduct.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/CreateProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQ3JlYXRlUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ProductList.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/PrintBarcode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcUHJpbnRCYXJjb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/PrintBarcodePreview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcUHJpbnRCYXJjb2RlUHJldmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ProductList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcUHJvZHVjdExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ProductTypeIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ProductTypeIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcUHJvZHVjdFR5cGVJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ReviewsIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/ReviewsIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcUmV2aWV3c0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/UnitIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/SimpleBarcodeTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcU2ltcGxlQmFyY29kZVRlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/TestBarcode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcVGVzdEJhcmNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/UnitIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcVW5pdEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/_ProductPartial.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Products/_ProductPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcX1Byb2R1Y3RQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/InhouseReport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/InhouseReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVwb3J0c1xJbmhvdXNlUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/ProductSalesReport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/ProductSalesReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVwb3J0c1xQcm9kdWN0U2FsZXNSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/ProductStockReport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/ProductStockReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVwb3J0c1xQcm9kdWN0U3RvY2tSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/ProductWishListReport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/ProductWishListReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVwb3J0c1xQcm9kdWN0V2lzaExpc3RSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/UserSearchReport.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/Reports/UserSearchReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmVwb3J0c1xVc2VyU2VhcmNoUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/BusinessSettings.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/BusinessSettings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xCdXNpbmVzc1NldHRpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/CurrencyIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/CurrencyIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xDdXJyZW5jeUluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/GeneralSettingsIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/GeneralSettingsIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xHZW5lcmFsU2V0dGluZ3NJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/PaymentMethodIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/PaymentMethodIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xQYXltZW50TWV0aG9kSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/PickupPointsIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/PickupPointsIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xQaWNrdXBQb2ludHNJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/PolicySetup.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/PolicySetup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xQb2xpY3lTZXR1cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingCitiesIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingCitiesIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xTaGlwcGluZ0NpdGllc0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingConfiguration.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingConfiguration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xTaGlwcGluZ0NvbmZpZ3VyYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingCountriesIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingCountriesIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xTaGlwcGluZ0NvdW50cmllc0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingStateIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/ShippingStateIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xTaGlwcGluZ1N0YXRlSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/SocialLoginIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/SocialLoginIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xTb2NpYWxMb2dpbkluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/StaffIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/StaffIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xTdGFmZkluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/TermsAndPrivacy.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/TermsAndPrivacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xUZXJtc0FuZFByaXZhY3kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/VatAndTaxIndex.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/SetupAndConfigurations/VatAndTaxIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dXBBbmRDb25maWd1cmF0aW9uc1xWYXRBbmRUYXhJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/User/Create.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/User/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/_ViewImports.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/_ViewStart.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Lockout.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Login.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Logout.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Register.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Error.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/_ViewImports.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/_ViewStart.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/AddPurchase.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/AddPurchase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHVyY2hhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Error.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Index.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Privacy.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/Home.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXEhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_AdminLayout.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_BackendLayout.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_BackendLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9CYWNrZW5kTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_ButtonPartial.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_ButtonPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9CdXR0b25QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_Footer.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_LoginPartial.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_ModalUploader.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_ModalUploader.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Nb2RhbFVwbG9hZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_SideNavbar.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_SideNavbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TaWRlTmF2YmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_StringButtonIdPartial.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_StringButtonIdPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9TdHJpbmdCdXR0b25JZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_Topbar.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_Topbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Ub3BiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/_ViewImports.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/EcomarceForBangladesh/EcommerceSolution2/EcommerceSolution/src/ApplicationWeb/Pages/_ViewStart.cshtml]
+[E:/EcomarceForBangladesh/EcommerceSolution2/EcomPos/EcommerceSolution/src/ApplicationWeb/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

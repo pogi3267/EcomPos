@@ -124,3 +124,5 @@ E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\bin\Debug\zh-Hant\
 E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\obj\Debug\docker-c.35A3FFBA.Up2Date
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\bin\Debug\ApplicationWeb.dll
+E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

@@ -283,7 +283,10 @@
 		<PackageReference Include="AutoMapper" Version="12.0.0" />
 		<PackageReference Include="Azure.Identity" Version="1.8.2" />
 		<PackageReference Include="CsvHelper" Version="33.0.1" />
+		<PackageReference Include="EvoHtmlToPdf_Azure_Client" Version="12.0.0" />
 		<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+		<PackageReference Include="itext7" Version="9.2.0" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="9.2.0" />
 		<PackageReference Include="MessagePack" Version="3.1.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.33" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
@@ -306,6 +309,9 @@
 		<PackageReference Include="System.CodeDom" Version="7.0.0" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
 		<PackageReference Include="SqlTableDependency" Version="8.5.8" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.12" />
+    <PackageReference Include="ZXing.Net" Version="0.16.10" />
+    <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.13" />
 	</ItemGroup>
 
 	<ItemGroup>

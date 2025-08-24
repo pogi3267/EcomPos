@@ -1,0 +1,536 @@
+@{
+    ViewData["Title"] = "Print Barcode";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Print Barcode</h4>
+                    <p class="text-muted mb-0">The field labels marked with * are required input fields.</p>
+                </div>
+                <div class="card-body">
+                    <form id="barcodeForm">
+                        <!-- Add Product Section -->
+                        <div class="form-group">
+                            <label for="productSearch">Add Product *</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-barcode"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="productSearch" 
+                                       placeholder="Please type product code and select..." required>
+                            </div>
+                        </div>
+
+                        <!-- Product List Table -->
+                        <div class="table-responsive mt-3">
+                            <table class="table table-bordered" id="productTable" style="display: none;">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Code</th>
+                                        <th>Variant</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Print Options -->
+                        <div class="row mt-4">
+                            @* <div class="col-md-6">
+                                <label class="font-weight-bold">Print:</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="printProductName" checked>
+                                    <label class="form-check-label" for="printProductName">
+                                        Product Name
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="printPrice" checked>
+                                    <label class="form-check-label" for="printPrice">
+                                        Price
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="printPromotionalPrice">
+                                    <label class="form-check-label" for="printPromotionalPrice">
+                                        Promotional Price
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="printCompanyName">
+                                    <label class="form-check-label" for="printCompanyName">
+                                        Company Name
+                                    </label>
+                                </div>
+                            </div> *@
+                            <div class="col-md-6">
+                               @*  <div class="form-group">
+                                    <label for="paperSize">Paper Size *</label>
+                                    <select class="form-control" id="paperSize" required>
+                                        <option value="">Select paper size...</option>
+                                        <option value="A4">A4</option>
+                                        <option value="A5">A5</option>
+                                        <option value="Letter">Letter</option>
+                                        <option value="Legal">Legal</option>
+                                        <option value="Custom">Custom</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="barcodeType">Barcode Type</label>
+                                    <select class="form-control" id="barcodeType">
+                                        <option value="Code128">Code 128</option>
+                                        <option value="Code39">Code 39</option>
+                                        <option value="EAN13">EAN-13</option>
+                                        <option value="UPC">UPC</option>
+                                        <option value="QR">QR Code</option>
+                                    </select>
+                                </div> *@
+                                <!-- Barcode Settings -->
+                                <div class="form-group">
+                                    <label>Barcode Type *</label>
+                                    <select id="barcodeType" class="form-control" required>
+                                        <option value="code128">Code 128</option>
+                                        <option value="code39">Code 39</option>
+                                        <option value="ean13">EAN-13</option>
+                                        <option value="upc">UPC</option>
+                                        <option value="qr">QR Code</option>
+                                    </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Barcode Width (px)</label>
+                                            <input type="number" id="barcodeWidth" class="form-control" value="200" min="100" max="500" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Barcode Height (px)</label>
+                                            <input type="number" id="barcodeHeight" class="form-control" value="100" min="50" max="300" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Paper Size</label>
+                                    <select id="paperSize" class="form-control">
+                                        <option value="a4">A4</option>
+                                        <option value="a5">A5</option>
+                                        <option value="letter">Letter</option>
+                                        <option value="legal">Legal</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Company Name</label>
+                                    <input type="text" id="companyName" class="form-control" value="Your Company Name" />
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="checkbox" id="showProductName" class="form-check-input" checked />
+                                    <label class="form-check-label" for="showProductName">Show Product Name</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="checkbox" id="showPrice" class="form-check-input" checked />
+                                    <label class="form-check-label" for="showPrice">Show Price</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="checkbox" id="showCompanyName" class="form-check-input" checked />
+                                    <label class="form-check-label" for="showCompanyName">Show Company Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">
+                                <i class="fas fa-print mr-2"></i>Generate & Print Barcode
+                            </button>
+                            
+                            <!-- Test Button for Debugging -->
+                            <button type="button" class="btn btn-secondary btn-lg px-5 ml-3" onclick="testAddProduct()">
+                                <i class="fas fa-bug mr-2"></i>Test Add Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Search Modal -->
+<div class="modal fade" id="productSearchModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Product</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="modalProductSearch" 
+                           placeholder="Search by product name, code, or SKU...">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover" id="modalProductTable">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Code</th>
+                                <th>Variant</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modalProductTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            let selectedProducts = [];
+            
+            // Product search functionality
+            $('#productSearch').on('click', function() {
+                $('#productSearchModal').modal('show');
+                loadProducts();
+            });
+
+            // Modal product search
+            $('#modalProductSearch').on('input', function() {
+                const searchTerm = $(this).val();
+                if (searchTerm.length >= 2) {
+                    searchProducts(searchTerm);
+                }
+            });
+
+            // Load products for modal
+            function loadProducts() {
+                console.log('Loading products for modal...');
+                $.ajax({
+                    url: '/Admin/Products/GetProductsForBarcode',
+                    type: 'GET',
+                    success: function(response) {
+                        console.log('Products loaded successfully:', response);
+                        displayProductsInModal(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error loading products:', xhr, status, error);
+                        showAlert('Error loading products: ' + error, 'error');
+                    }
+                });
+            }
+
+            // Search products
+            function searchProducts(searchTerm) {
+                console.log('Searching products with term:', searchTerm);
+                $.ajax({
+                    url: '/Admin/Products/SearchProductsForBarcode',
+                    type: 'GET',
+                    data: { searchTerm: searchTerm },
+                    success: function(response) {
+                        console.log('Products search successful:', response);
+                        displayProductsInModal(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error searching products:', xhr, status, error);
+                        showAlert('Error searching products: ' + error, 'error');
+                    }
+                });
+            }
+
+            // Display products in modal
+            function displayProductsInModal(products) {
+                console.log('Displaying products in modal. Products:', products);
+                
+                const tbody = $('#modalProductTableBody');
+                console.log('Modal table body element:', tbody.length);
+                
+                tbody.empty();
+
+                products.forEach(function(product, index) {
+                    console.log('Creating modal row for product:', product, 'at index:', index);
+                    
+                    const row = `
+                        <tr>
+                            <td>
+                                <strong>${product.name}</strong><br>
+                                <small class="text-muted">${product.categoryName || ''}</small>
+                            </td>
+                            <td>${product.productSKU || product.barcode || 'N/A'}</td>
+                            <td>
+                                ${product.hasVariants ? 
+                                    `<select class="form-control form-control-sm variant-select" data-product-id="${product.productId}">
+                                        <option value="">Select Variant</option>
+                                        ${product.variants.map(v => `<option value="${v.variantId}">${v.attributes || v.sku}</option>`).join('')}
+                                    </select>` : 
+                                    '<span class="text-muted">No variants</span>'
+                                }
+                            </td>
+                            <td>৳${product.unitPrice || 0}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary add-product-btn" 
+                                        data-product-id="${product.productId}">
+                                    Add
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                    tbody.append(row);
+                    console.log('Modal row added for product:', product.name);
+                });
+                
+                console.log('Modal display completed. Total rows:', tbody.find('tr').length);
+            }
+
+            // Add product to barcode list
+            $(document).on('click', '.add-product-btn', function() {
+                console.log('Add product button clicked');
+                console.log('Button data:', $(this).data('product-id'));
+                
+                try {
+                    const productId = $(this).data('product-id');
+                    const buttonElement = $(this);
+                    console.log('Product ID:', productId);
+
+                    // Fetch product details from the server
+                    $.ajax({
+                        url: '/Admin/Products/GetProductById',
+                        type: 'GET',
+                        data: { productId: productId },
+                        success: function(response) {
+                            console.log('Product details loaded successfully:', response);
+                            const product = response.product;
+
+                            if (!product || !product.productId) {
+                                showAlert('Invalid product data', 'error');
+                                return;
+                            }
+
+                            // Get variant selection from the current row
+                            const variantSelect = buttonElement.closest('tr').find('.variant-select');
+                            console.log('Variant select found:', variantSelect.length);
+                            
+                            if (product.hasVariants && variantSelect.val()) {
+                                console.log('Variant selected:', variantSelect.val());
+                                const variant = product.variants.find(v => v.variantId == variantSelect.val());
+                                product.selectedVariant = variant;
+                                console.log('Selected variant:', variant);
+                            }
+
+                            addProductToList(product);
+                            $('#productSearchModal').modal('hide');
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching product details:', xhr, status, error);
+                            showAlert('Error fetching product details: ' + error, 'error');
+                        }
+                    });
+
+                } catch (error) {
+                    console.error('Error adding product:', error);
+                    showAlert('Error adding product: ' + error.message, 'error');
+                }
+            });
+
+            // Add product to the main list
+            function addProductToList(product) {
+                console.log('Adding product to list:', product);
+                
+                if (selectedProducts.length >= 1) {
+                    showAlert('Please select only one product at a time to print barcode.', 'warning');
+                    return;
+                }
+
+                const productItem = {
+                    id: product.productId,
+                    name: product.name,
+                    code: product.productSKU || product.barcode || 'N/A',
+                    variant: product.selectedVariant ? product.selectedVariant.attributes : 'No variant',
+                    variantId: product.selectedVariant ? product.selectedVariant.variantId : null,
+                    price: product.selectedVariant ? product.selectedVariant.regularPrice : product.unitPrice,
+                    quantity: 1
+                };
+
+                console.log('Created product item:', productItem);
+                selectedProducts = [productItem];
+                displayProductsInTable();
+                $('#productTable').show();
+                
+                console.log('Product added successfully. Total products:', selectedProducts.length);
+            }
+
+            // Display products in main table
+            function displayProductsInTable() {
+                console.log('Displaying products in table. Products:', selectedProducts);
+                
+                const tbody = $('#productTableBody');
+                console.log('Table body element:', tbody.length);
+                
+                tbody.empty();
+
+                selectedProducts.forEach(function(product, index) {
+                    console.log('Creating row for product:', product, 'at index:', index);
+                    
+                    const row = `
+                        <tr>
+                            <td>${product.name}</td>
+                            <td>${product.code}</td>
+                            <td>${product.variant}</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" 
+                                       value="${product.quantity}" min="1" 
+                                       onchange="updateQuantity(${index}, this.value)">
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" onclick="removeProduct(${index})">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                    tbody.append(row);
+                    console.log('Row added to table');
+                });
+                
+                console.log('Table display completed. Total rows:', tbody.find('tr').length);
+            }
+
+            // Update quantity
+            window.updateQuantity = function(index, quantity) {
+                if (selectedProducts[index]) {
+                    selectedProducts[index].quantity = parseInt(quantity) || 1;
+                }
+            };
+
+            // Remove product
+            window.removeProduct = function(index) {
+                selectedProducts.splice(index, 1);
+                if (selectedProducts.length === 0) {
+                    $('#productTable').hide();
+                } else {
+                    displayProductsInTable();
+                }
+            };
+
+
+
+            // Generate barcode
+            $('#barcodeForm').on('submit', function(e) {
+                e.preventDefault();
+
+                if (selectedProducts.length === 0) {
+                    showAlert('Please select at least one product', 'warning');
+                    return;
+                }
+
+                const barcodeData = {
+                    products: selectedProducts,
+                    barcodeType: $('#barcodeType').val(),
+                    barcodeWidth: parseInt($('#barcodeWidth').val()),
+                    barcodeHeight: parseInt($('#barcodeHeight').val()),
+                    paperSize: $('#paperSize').val(),
+                    showProductName: $('#showProductName').is(':checked'),
+                    showPrice: $('#showPrice').is(':checked'),
+                    showCompanyName: $('#showCompanyName').is(':checked'),
+                    companyName: $('#companyName').val()
+                };
+
+                $.ajax({
+                    url: '/Admin/Products/GenerateBarcode',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(barcodeData),
+                    success: function(response) {
+                        if (response.success) {
+                            showAlert(response.message, 'success');
+
+                            // Download PDF directly
+                            if (response.downloadUrl) {
+                                window.open(response.downloadUrl, '_blank');
+                            }
+                        } else {
+                            showAlert(response.message, 'error');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        showAlert('Error generating barcode: ' + error, 'error');
+                    }
+                });
+            });
+
+            // Utility function to show alerts
+            function showAlert(message, type) {
+                console.log('Showing alert:', message, 'Type:', type);
+                
+                const alertClass = type === 'error' ? 'alert-danger' : 
+                                 type === 'warning' ? 'alert-warning' : 
+                                 type === 'success' ? 'alert-success' : 'alert-info';
+                
+                const alertHtml = `
+                    <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+                        ${message}
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                `;
+                
+                console.log('Alert HTML:', alertHtml);
+                $('.card-body').prepend(alertHtml);
+                console.log('Alert added to page');
+                
+                // Auto remove after 5 seconds
+                setTimeout(function() {
+                    $('.alert').fadeOut();
+                    console.log('Alert auto-removed');
+                }, 5000);
+            }
+
+            // Test function for debugging product addition
+            function testAddProduct() {
+                console.log('Testing add product functionality...');
+                // Simulate adding a product from the modal
+                const testProduct = {
+                    productId: 1, // Example product ID
+                    name: 'Test Product 1',
+                    productSKU: 'SKU001',
+                    barcode: '1234567890123',
+                    unitPrice: 100,
+                    hasVariants: false,
+                    variants: [],
+                    categoryName: 'Test Category'
+                };
+                
+                console.log('Test product object:', testProduct);
+                console.log('Test product JSON:', JSON.stringify(testProduct));
+                
+                addProductToList(testProduct);
+                $('#productSearchModal').modal('hide');
+                showAlert('Test product added to list!', 'success');
+                console.log('Test product added. Total products:', selectedProducts.length);
+            }
+        });
+    </script>
+}

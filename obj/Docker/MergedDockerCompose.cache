@@ -1,8 +1,8 @@
-name: dockercompose10646837510135476801
+name: dockercompose15065566065673982591
 services:
   applicationweb:
     build:
-      context: E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution
+      context: E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution
       dockerfile: src/ApplicationWeb/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     volumes:
       - type: bind
-        source: E:\EcomarceForBangladesh\EcommerceSolution2\EcommerceSolution\wwwroot\Images
+        source: E:\EcomarceForBangladesh\EcommerceSolution2\EcomPos\EcommerceSolution\wwwroot\Images
         target: /app/wwwroot/Images
         bind:
           create_host_path: true
@@ -46,4 +46,4 @@ services:
           create_host_path: true
 networks:
   default:
-    name: dockercompose10646837510135476801_default
+    name: dockercompose15065566065673982591_default

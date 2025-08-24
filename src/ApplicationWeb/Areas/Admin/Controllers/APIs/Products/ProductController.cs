@@ -251,9 +251,9 @@ namespace EcomarceOnlineShop.Areas.Admin.Controllers.APIs.Products
                         if (existingVariant != null)
                         {
                             // If variant exists, update its properties
-                            existingVariant.Sale_price = variant.Sale_price;
+                            existingVariant.Price = variant.Price;
                             existingVariant.SKU = variant.SKU;
-                            //existingVariant.Quantity = variant.Quantity;
+                            existingVariant.Image = variant.Image;
                             existingVariant.EntityState = EntityState.Modified;
                             existingVariant.Updated_At = DateTime.UtcNow;
                             existingVariant.Updated_By = User.Claims.FirstOrDefault(x => x.Type == "Id")?.Value;
@@ -261,7 +261,7 @@ namespace EcomarceOnlineShop.Areas.Admin.Controllers.APIs.Products
                         else
                         {
                             // If it's a new variant, add it
-                            variant.Product_id = entity.ProductId;
+                            variant.ProductId = entity.ProductId;
                             variant.EntityState = EntityState.Added;
                             entity.ProductVariant.Add(variant);
                         }
@@ -580,20 +580,20 @@ namespace EcomarceOnlineShop.Areas.Admin.Controllers.APIs.Products
                 Product data = await _service.GetAsync(id);
                 if (data == null) return NotFound("Data not found");
 
-                List<object> stocks = new List<object>();
-                foreach (ProductStock item in data.ProductStocks)
+                List<object> variants = new List<object>();
+                foreach (ProductVariant item in data.ProductVariant)
                 {
                     object stock = new
                     {
                         Variant = item.Variant,
                         Price = item.Price,
                         SKU = item.SKU,
-                        Quantity = item.Quantity,
+                        ImageUrl = item.ImageUrl,
                         Image = item.Image
                     };
-                    stocks.Add(stock);
+                    variants.Add(stock);
                 }
-                string jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(stocks);
+                string jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(variants);
                 data.Variations = jsonResult;
 
                 return Ok(data);
