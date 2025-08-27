@@ -64,7 +64,16 @@ namespace EcomarceOnlineShop.Areas.Admin.Controllers
             ViewBag.MenuId = menu.MenuMasterId;
             ViewBag.PageName = menu.PageName;
             return View(new Purchase());
-        } 
+        }
+
+        public async Task<IActionResult> PurchaseNew(int id)
+        {
+            MenuMaster menu = await _menuService.GetMenubyId(id);
+            ViewBag.MenuId = menu.MenuMasterId;
+            ViewBag.PageName = menu.PageName;
+            return View();
+        }
+
         public async Task<IActionResult> PurchaseReturn(int id)
         {
             MenuMaster menu = await _menuService.GetMenubyId(id);
@@ -164,6 +173,8 @@ namespace EcomarceOnlineShop.Areas.Admin.Controllers
             ViewBag.PageName = menu.PageName;
             return View(new Payment());
         }
+
+        
 
         [HttpGet]
         [AllowAnonymous]

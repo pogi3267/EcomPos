@@ -34,6 +34,18 @@
         display: none
     }
 
+    .variant-section-disabled {
+        opacity: 0.6 !important;
+        pointer-events: none !important;
+    }
+
+    .variant-section-disabled input,
+    .variant-section-disabled select,
+    .variant-section-disabled textarea {
+        background-color: #f5f5f5 !important;
+        cursor: not-allowed !important;
+    }
+
 </style>
 
 
@@ -234,8 +246,14 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0 h6"> Product Variation </h5>
+                <div class="float-right">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="variantToggle" checked>
+                        <label class="custom-control-label" for="variantToggle">Enable Variants</label>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="variantSection">
                 <div class="row">
 
                     <div class="col-md-6">
@@ -491,4 +509,31 @@
         <button type="button" class="btn btn-success" id="btnPublishSave">Save & Publish</button>
     </div>
 </form>
+
+<script>
+    $(document).ready(function() {
+        // Variant toggle functionality
+        $('#variantToggle').change(function() {
+            var isEnabled = $(this).is(':checked');
+            var variantSection = $('#variantSection');
+            
+            if (isEnabled) {
+                // Enable all form elements
+                variantSection.find('input:not([type="hidden"]), select, textarea').prop('disabled', false);
+                variantSection.find('table').show();
+                variantSection.removeClass('variant-section-disabled');
+            } else {
+                // Disable all form elements
+                variantSection.find('input:not([type="hidden"]), select, textarea').prop('disabled', true);
+                variantSection.find('table').hide();
+                variantSection.addClass('variant-section-disabled');
+            }
+        });
+        
+        // Initialize the toggle state on page load
+        setTimeout(function() {
+            $('#variantToggle').trigger('change');
+        }, 100);
+    });
+</script>
 

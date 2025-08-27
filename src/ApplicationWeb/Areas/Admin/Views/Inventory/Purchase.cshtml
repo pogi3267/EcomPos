@@ -63,37 +63,37 @@
             </div>
             <div class="card-body">
                 <form class="form" id="@formId" novalidate="novalidate">
-                    <input type="hidden" asp-for="Id" id="purchaseId">
+                    <input type="hidden" id="purchaseId">
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <label>Product Name</label>
-                            <select asp-for="ProductId" id="productId" class="form-control purchase-form-validation"></select>
+                            <select id="productId" class="form-control purchase-form-validation"></select>
                             <span class="error-message text-danger" id="productNameError"><b></b></span>
                         </div>
                         <div class="form-group col-sm-1">
                             <label>Unit</label>
-                            <select asp-for="UnitId" id="unitId" class="form-control purchase-form-validation"></select>
+                            <select id="unitId" class="form-control purchase-form-validation"></select>
                             <span class="error-message text-danger" id="unitError"><b></b></span>
                         </div>
 
                         <div class="form-group col-sm-2">
                             <label>Purchase Price</label>
-                            <input type="number" asp-for="PurchasePrice" placeholder="purchase price" class="form-control purchase-form-validation" />
+                            <input type="number" placeholder="purchase price" class="form-control purchase-form-validation" />
                             <span class="error-message text-danger" id="purchasePriceError"><b></b></span>
                         </div>
                         <div class="form-group col-sm-2">
                             <label>Regular Price</label>
-                            <input type="number" asp-for="RegularPrice" placeholder="regular price" class="form-control purchase-form-validation" />
+                            <input type="number" placeholder="regular price" class="form-control purchase-form-validation" />
                             <span class="text-danger regularPrice" style="display:none;">Regular Price</span>
                         </div>
                         <div class="form-group col-sm-2">
                             <label>Sale Price</label>
-                            <input type="number" asp-for="SalePrice" placeholder="sale price" class="form-control purchase-form-validation" />
+                            <input type="number" placeholder="sale price" class="form-control purchase-form-validation" />
                             <span class="text-danger salePrice" style="display:none;">Sale Price</span>
                         </div>
                         <div class="form-group col-sm-2">
                             <label>Expanse</label>
-                            <input type="number" asp-for="Expanse" placeholder="sale price" class="form-control purchase-form-validation" />
+                            <input type="number" placeholder="sale price" class="form-control purchase-form-validation" />
                             <span class="text-danger expanse" style="display:none;">Expanse</span>
                         </div>
                     </div>
@@ -111,14 +111,14 @@
                         </div>
                         <div class="form-group col-sm-2">
                             <label>Supplier Address</label>
-                            <input type="text" id="supplierAddress"  asp-for="Address" readonly placeholder="supplier address" class="form-control" />
+                            <input type="text" id="supplierAddress" readonly placeholder="supplier address" class="form-control" />
                             <span class="text-danger supplierAddress" style="display:none;">Supplier Address</span>
                         </div>
                         <div class="form-group col-sm-2">
                             <label for="name">Product Img</label>
                             <div class="custom-file">
-                                <label class="custom-file-label" asp-for="Photo"></label>
-                                <input type="file" asp-for="Photo" class="custom-file-input" />
+                                <label class="custom-file-label" ></label>
+                                <input type="file" class="custom-file-input" />
                                 <span class="error-message text-danger" id="brandPhotoError"><b></b></span>
                             </div>
                         </div>
@@ -138,13 +138,13 @@
                             <div class="row">
 
                                 <div class="col-md-6">
-                                    <label asp-for="ColorIds"> Colors </label>
-                                    <select class="fullWidth" multiple="multiple" asp-for="ColorIds">
+                                    <label > Colors </label>
+                                    <select class="fullWidth" multiple="multiple" >
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label asp-for="AttributeIds"> Attributes </label>
-                                    <select class="form-control fullWidth" multiple="multiple" asp-for="AttributeIds">
+                                    <label > Attributes </label>
+                                    <select class="form-control fullWidth" multiple="multiple">
                                     </select>
                                     <small class="text-muted">Choose the attributes of this product and then input values of each attribute</small>
                                 </div>
