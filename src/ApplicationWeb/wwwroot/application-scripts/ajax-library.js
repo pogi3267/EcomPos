@@ -42,6 +42,27 @@ class AjaxOperation {
         });
     }
 
+    SaveModel(destination, data) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: destination,
+                type: "POST",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                headers: {
+                    Authorization: 'Bearer ' + GetToken()
+                },
+                success: function (response) {
+                    resolve(response);
+                },
+                error: function (response) {
+                    reject(response);
+                }
+            });
+
+        });
+    }
+
     SavePostAjaxListAPI(destination, jsonData) {
         return new Promise((resolve, reject) => {
             $.ajax({

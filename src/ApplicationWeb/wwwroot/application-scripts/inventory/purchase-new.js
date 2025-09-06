@@ -10,6 +10,7 @@
     const saveUrl = "/api/PurchaseNew/Save";
     const editUrl = "/api/PurchaseNew/Edit";
     const deleteUrl = "/api/PurchaseNew/Delete";
+    const variantsUrl = "/api/PurchaseNew/variants";
 
     // Success Message
     const saveMessage = "Purchase Saved Successfully";
@@ -47,11 +48,11 @@
         // Summary elements
         discount: $("#discount"),
         discountType: $("#discountType"),
-        subTotal: $("#subTotal"),
-        otherExpenses: $("#otherExpenses"),
+        subTotalAmount: $("#subTotalAmount"),
+        otherAmount: $("#otherAmount"),
         totalWithExpenses: $("#totalWithExpenses"),
         netPrice: $("#netPrice"),
-        note: $("#note"),
+        remarks: $("#remarks"),
         
         // Buttons
         btnAddProduct: $("#btnAddProduct"),
@@ -87,6 +88,13 @@
         editingExpenseIndex = -1;
         updateProductTable();
         updateExpenseTable();
+        
+        // Reset summary display
+        selector.subTotalAmount.text("0.00");
+        selector.totalWithExpenses.text("0.00");
+        selector.netPrice.text("0.00");
+        selector.otherAmount.text("0.00");
+        
         calculateTotals();
     }
 
@@ -98,29 +106,28 @@
                     return;
                 }
 
+                const subTotalAmount = parseFloat(selector.subTotalAmount.text() || 0);
                 const model = {
-                    Id: parseInt(selector.purchaseId.val()) || 0,
-                    PurchaseDate: selector.purchaseDate.val() ? new Date(selector.purchaseDate.val()) : null,
+                    PurchaseId: parseInt(selector.purchaseId.val()) || 0,
+                    PurchaseDate: selector.purchaseDate.val(),
+                    //PurchaseDate: selector.purchaseDate.val() ? new Date(selector.purchaseDate.val()).toISOString() : null,
                     PurchaseNo: selector.purchaseNo.val(),
                     SupplierId: parseInt(selector.supplierId.val()),
-                    SupplierAddress: selector.supplierAddress.val(),
-                    PurchaseItems: purchaseItems,
-                    Expenses: expenses,
+                    SubTotalAmount: subTotalAmount,
                     Discount: parseFloat(selector.discount.val()) || 0,
                     DiscountType: selector.discountType.val(),
-                    OtherExpenses: parseFloat(selector.otherExpenses.val()) || 0,
-                    NetPrice: parseFloat(selector.netPrice.val()) || 0,
-                    Note: selector.note.val(),
-                    GrandTotalAmount: parseFloat(selector.netPrice.val()) || 0
+                    OtherAmount: parseFloat(selector.otherAmount.text()) || 0,
+                    GrandTotalAmount: parseFloat(selector.netPrice.text() || 0),
+                    Remarks: selector.remarks.val(),
+                    PurchaseItems: purchaseItems,
+                    Expenses: expenses
                 };
 
-                let response = await ajaxOperation.SaveAjax(saveUrl, model, 'application/json');
+                let response = await ajaxOperation.SaveModel(saveUrl, model);
 
                 if (typeof (response) == "object") {
                     Success(saveMessage);
-                    ResetForm();
-                    DivisionShowHide(true, false);
-                    GenerateList();
+                    Back();
                 } else {
                     Failed(response);
                 }
@@ -140,18 +147,16 @@
 
     const AddProduct = () => {
         const productId = parseInt(selector.productId.val());
-        const variantName = selector.variantName.val().trim();
+        const variantId = selector.variantId.val() ? parseInt(selector.variantId.val()) : null;
+        const variantName = selector.variantId.find('option:selected').text();
         const quantity = parseInt(selector.quantity.val());
-        const unit = selector.unit.val().trim();
+        const unitId = parseInt(selector.unitId.val());
+        const unitText = selector.unitId.find('option:selected').text();
         const purchasePrice = parseFloat(selector.purchasePrice.val());
         const branchId = parseInt(selector.branchId.val());
 
         if (!productId) {
             Failed("Please select a product.");
-            return;
-        }
-        if (!variantName) {
-            Failed("Please enter variant name.");
             return;
         }
         if (!quantity || quantity <= 0) {
@@ -167,16 +172,18 @@
         const productName = selectedProduct ? selectedProduct.text : "";
 
         const productItem = {
-            Id: editingProductIndex >= 0 ? purchaseItems[editingProductIndex].Id : 0,
-            ProductId: productId,
-            ProductName: productName,
-            VariantName: variantName,
-            Quantity: quantity,
-            Unit: unit,
-            PurchasePrice: purchasePrice,
-            BranchId: branchId,
-            BranchName: "Main Branch",
-            TotalPrice: quantity * purchasePrice
+            purchaseItemId: editingProductIndex >= 0 ? (purchaseItems[editingProductIndex].purchaseItemId || 0) : 0,
+            productId: productId,
+            productName: productName,
+            variantId: variantId,
+            variantName: variantName || "N/A",
+            quantity: quantity,
+            unitId: unitId,
+            unit: unitText,
+            price: purchasePrice,
+            branchId: branchId,
+            branchName: selector.branchId.find('option:selected').text(),
+            totalPrice: quantity * purchasePrice
         };
 
         if (editingProductIndex >= 0) {
@@ -193,12 +200,12 @@
 
     const EditProduct = (index) => {
         const item = purchaseItems[index];
-        selector.productId.val(item.ProductId);
-        selector.variantName.val(item.VariantName);
-        selector.quantity.val(item.Quantity);
-        selector.unit.val(item.Unit);
-        selector.purchasePrice.val(item.PurchasePrice);
-        selector.branchId.val(item.BranchId);
+        selector.productId.val(item.productId);
+        selector.variantId.val(item.variantId);
+        selector.quantity.val(item.quantity);
+        selector.unitId.val(item.unitId);
+        selector.purchasePrice.val(item.price);
+        selector.branchId.val(item.branchId);
         editingProductIndex = index;
         selector.btnAddProduct.text("Update");
     }
@@ -215,15 +222,15 @@
             html += `
                 <tr>
                     <td>${index + 1}</td>
-                    <td>${item.ProductName}</td>
-                    <td>${item.VariantName}</td>
-                    <td>${item.Quantity}</td>
-                    <td>${item.Unit}</td>
-                    <td>${item.PurchasePrice.toFixed(2)}</td>
-                    <td>${item.BranchName}</td>
-                    <td>${item.TotalPrice.toFixed(2)}</td>
+                    <td>${item.productName}</td>
+                    <td>${ item.variantName ?? "N/A" }</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.unit}</td>
+                    <td>${item.price.toFixed(2)}</td>
+                    <td>${item.branchName}</td>
+                    <td>${item.totalPrice.toFixed(2)}</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-warning btnEditProduct" data-index="${index}">
+                        <button type="button" class="btn btn-sm btn.warning btnEditProduct" data-index="${index}">
                             <i class="fas fa-edit"></i>
                         </button>
                         <button type="button" class="btn btn-sm btn-danger btnDeleteProduct" data-index="${index}">
@@ -238,9 +245,9 @@
 
     const clearProductForm = () => {
         selector.productId.val("");
-        selector.variantName.val("");
+        selector.variantId.val("");
         selector.quantity.val("");
-        selector.unit.val("PCS");
+        selector.unitId.val("");
         selector.purchasePrice.val("");
         selector.branchId.val(1);
         editingProductIndex = -1;
@@ -248,22 +255,24 @@
     }
 
     const AddExpense = () => {
-        const costName = selector.costName.val().trim();
+        const costId = parseInt(selector.costId.val());
+        const costName = selector.costId.find('option:selected').text();
         const firstNumber = parseFloat(selector.firstNumber.val()) || 0;
         const secondNumber = parseFloat(selector.secondNumber.val()) || 0;
         const total = firstNumber * secondNumber;
 
-        if (!costName) {
-            Failed("Please enter cost name.");
+        if (!costId) {
+            Failed("Please select a cost item.");
             return;
         }
 
         const expenseItem = {
-            Id: editingExpenseIndex >= 0 ? expenses[editingExpenseIndex].Id : 0,
-            CostName: costName,
-            FirstNumber: firstNumber,
-            SecondNumber: secondNumber,
-            Total: total
+            purchaseExpenseId: editingExpenseIndex >= 0 ? (expenses[editingExpenseIndex].purchaseExpenseId || 0) : 0,
+            costId: costId,
+            description: costName,
+            firstAmount: firstNumber,
+            secondAmount: secondNumber,
+            totalAmount: total
         };
 
         if (editingExpenseIndex >= 0) {
@@ -280,10 +289,10 @@
 
     const EditExpense = (index) => {
         const item = expenses[index];
-        selector.costName.val(item.CostName);
-        selector.firstNumber.val(item.FirstNumber);
-        selector.secondNumber.val(item.SecondNumber);
-        selector.expenseTotal.val(item.Total);
+        selector.costId.val(item.costId);
+        selector.firstNumber.val(item.firstAmount);
+        selector.secondNumber.val(item.secondAmount);
+        selector.expenseTotal.val(item.totalAmount);
         editingExpenseIndex = index;
         selector.btnAddExpense.text("Update");
     }
@@ -300,10 +309,10 @@
             html += `
                 <tr>
                     <td>${index + 1}</td>
-                    <td>${item.CostName}</td>
-                    <td>${item.FirstNumber.toFixed(2)}</td>
-                    <td>${item.SecondNumber.toFixed(2)}</td>
-                    <td>${item.Total.toFixed(2)}</td>
+                    <td>${item.description}</td>
+                    <td>${Number(item.firstAmount).toFixed(2)}</td>
+                    <td>${Number(item.secondAmount).toFixed(2)}</td>
+                    <td>${Number(item.totalAmount).toFixed(2)}</td>
                     <td>
                         <button type="button" class="btn btn-sm btn-warning btnEditExpense" data-index="${index}">
                             <i class="fas fa-edit"></i>
@@ -319,7 +328,7 @@
     }
 
     const clearExpenseForm = () => {
-        selector.costName.val("");
+        selector.costId.val("");
         selector.firstNumber.val(0);
         selector.secondNumber.val(0);
         selector.expenseTotal.val(0);
@@ -329,10 +338,10 @@
 
     const calculateTotals = () => {
         // Calculate subtotal from products
-        const productSubtotal = purchaseItems.reduce((sum, item) => sum + item.TotalPrice, 0);
+        const productSubtotal = purchaseItems.reduce((sum, item) => sum + item.totalPrice, 0);
         
         // Calculate expense total
-        const expenseTotal = expenses.reduce((sum, item) => sum + item.Total, 0);
+        const expenseTotal = expenses.reduce((sum, item) => sum + item.totalAmount, 0);
         
         // Apply discount
         const discount = parseFloat(selector.discount.val()) || 0;
@@ -345,14 +354,16 @@
             discountedTotal = productSubtotal - (productSubtotal * discount / 100);
         }
         
-        // Add other expenses
-        const otherExpenses = parseFloat(selector.otherExpenses.val()) || 0;
-        const netPrice = discountedTotal + expenseTotal + otherExpenses;
+        // Auto-populate OtherExpense from cost total
+        selector.otherAmount.text(expenseTotal.toFixed(2));
+        
+        // Calculate net price
+        const netPrice = discountedTotal + expenseTotal;
         
         // Update display
-        selector.subTotal.val(discountedTotal.toFixed(2));
-        selector.totalWithExpenses.val((discountedTotal + expenseTotal).toFixed(2));
-        selector.netPrice.val(netPrice.toFixed(2));
+        selector.subTotalAmount.text(discountedTotal.toFixed(2));
+        selector.totalWithExpenses.text((discountedTotal + expenseTotal).toFixed(2));
+        selector.netPrice.text(netPrice.toFixed(2));
     }
 
     const GetInitial = async () => {
@@ -401,6 +412,8 @@
             // Set current date
             const today = new Date().toISOString().split('T')[0];
             selector.purchaseDate.val(today);
+
+            selector.purchaseNo.val(response.purchaseNo)
             
         } catch (e) {
             console.log(e);
@@ -430,10 +443,10 @@
                 "data": null,
                 "render": function (data, type, full, meta) {
                     return `<div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-warning btnEdit" id="${full.id}">
+                                <button type="button" class="btn btn-sm btn-warning btnEdit" id="${full.purchaseId}">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <button type="button" class="btn btn-sm btn-danger btnDelete" id="${full.id}">
+                                <button type="button" class="btn btn-sm btn-danger btnDelete" id="${full.purchaseId}">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>`;
@@ -452,18 +465,56 @@
             divDetailsEl.show();
             divPrimaryEl.hide();
             ResetForm();
+
+            let supplierHtml = '<option value="">Select Supplier</option>';
+            response.supplierList.forEach(item => {
+                supplierHtml += `<option value="${item.id}">${item.text}</option>`;
+            });
+            selector.supplierId.html(supplierHtml);
+
+            // Populate product dropdown
+            let productHtml = '<option value="">Select Product</option>';
+            response.productList.forEach(item => {
+                productHtml += `<option value="${item.id}">${item.text}</option>`;
+            });
+            selector.productId.html(productHtml);
+
+            let unitHtml = '<option value="">Select unit</option>';
+            response.unitList.forEach(item => {
+                unitHtml += `<option value="${item.id}">${item.text}</option>`;
+            });
+            selector.unitId.html(unitHtml);
+
+            let branchHtml = '<option value="">Select branch</option>';
+            response.branchList.forEach(item => {
+                branchHtml += `<option value="${item.id}">${item.text}</option>`;
+            });
+            selector.branchId.html(branchHtml);
+
+            let costHtml = '<option value="">Select cost</option>';
+            response.costList.forEach(item => {
+                costHtml += `<option value="${item.id}">${item.text}</option>`;
+            });
+            selector.costId.html(costHtml);
+
+            // Store lists for reference
+            supplierList = response.supplierList;
+            productList = response.productList;
+            UnitList = response.unitList;
+            branchList = response.branchList;
+            costList = response.costList;
             
             // Populate form with response data
-            selector.purchaseId.val(response.id);
+            selector.purchaseId.val(response.purchaseId);
             selector.purchaseDate.val(response.purchaseDate ? response.purchaseDate.split('T')[0] : '');
             selector.purchaseNo.val(response.purchaseNo);
             selector.supplierId.val(response.supplierId);
             selector.supplierAddress.val(response.supplierAddress);
             selector.discount.val(response.discount);
             selector.discountType.val(response.discountType);
-            selector.otherExpenses.val(response.otherExpenses);
-            selector.netPrice.val(response.netPrice);
-            selector.note.val(response.note);
+            selector.otherAmount.text(response.otherAmount);
+            selector.netPrice.text(response.grandTotalAmount);
+            selector.remarks.val(response.remarks);
             
             // Set purchase items
             purchaseItems = response.purchaseItems || [];
@@ -585,6 +636,20 @@
         }
     });
 
+    // Load variants when product changes
+    selector.productId.change(async function () {
+        debugger;
+        const productId = $(this).val();
+        selector.variantId.empty().append('<option value="">Select variant</option>');
+        if (!productId) return;
+        try {
+            const list = await ajaxOperation.GetAjaxAPI(`${variantsUrl}/${productId}`);
+            let html = '<option value="">Select variant</option>';
+            list.forEach(v => { html += `<option value="${v.id}">${v.text}</option>`; });
+            selector.variantId.html(html);
+        } catch (e) { console.log(e); }
+    });
+
     // Expense calculation
     selector.firstNumber.on("input", function() {
         const first = parseFloat($(this).val()) || 0;
@@ -601,7 +666,7 @@
     // Summary calculation events
     selector.discount.on("input", calculateTotals);
     selector.discountType.on("change", calculateTotals);
-    selector.otherExpenses.on("input", calculateTotals);
+    selector.otherAmount.on("input", calculateTotals);
 
 })();
 

@@ -1,11 +1,13 @@
 ﻿using ApplicationCore.Enums;
+using ApplicationCore.Interfaces;
 using Dapper.Contrib.Extensions;
 
 namespace ApplicationCore.Entities.Inventory
 {
     [Table("PurchaseExpense")]
-    public class PurchaseExpense
+    public class PurchaseExpense : IBaseEntity
     {
+        [Key]
         public int PurchaseExpenseId { get; set; }
         public int PurchaseId { get; set; }
         public string Description { get; set; }
@@ -18,7 +20,7 @@ namespace ApplicationCore.Entities.Inventory
         public string CostName { get; set; }
 
         [Write(false)]
-        public EntityState EntityState { get; set; }
+        public EntityState EntityState { get; set; } = EntityState.Added;
 
     }
 

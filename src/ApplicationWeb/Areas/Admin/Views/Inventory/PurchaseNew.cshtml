@@ -42,14 +42,113 @@
     }
     
     .calculation-section {
-        background-color: #e9ecef;
-        padding: 15px;
+        background-color: white;
+        color: #333;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .calculation-section .section-title {
+        color: #28a745;
+        border-bottom: 2px solid #007bff;
+        margin-bottom: 20px;
+    }
+    
+    .calculation-section .form-control {
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
         border-radius: 5px;
+        color: #333;
+        font-weight: 500;
+    }
+    
+    .calculation-section .form-control:focus {
+        background-color: white;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+    }
+    
+    .calculation-section label {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 5px;
     }
     
     .total-row {
         font-weight: bold;
         background-color: #f8f9fa;
+    }
+    
+    .expense-form-row {
+        display: flex;
+        align-items: end;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .expense-form-row .form-group {
+        margin-bottom: 0;
+        flex: 1;
+    }
+    
+    .expense-form-row .form-group.small {
+        flex: 0 0 60px;
+    }
+    
+    .expense-form-row .form-group.medium {
+        flex: 0 0 120px;
+    }
+    
+    .expense-form-row .form-group.large {
+        flex: 0 0 200px;
+    }
+    
+    .expense-form-row .form-group.buttons {
+        flex: 0 0 auto;
+        display: flex;
+        gap: 5px;
+    }
+    
+    .math-operator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 38px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        padding: 0 10px;
+    }
+    
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .summary-row:last-child {
+        border-bottom: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        border-top: 2px solid #007bff;
+        margin-top: 10px;
+        padding-top: 15px;
+    }
+    
+    .summary-label {
+        color: #333;
+        font-weight: 500;
+    }
+    
+    .summary-value {
+        color: #333;
+        font-weight: bold;
+        text-align: right;
+        min-width: 120px;
     }
 </style>
 
@@ -93,225 +192,227 @@
 
     <!-- Purchase Details Form -->
     <div class="col-sm-12" id="@divDetailsId" style="display:none;">
-        <div class="purchase-form">
-            <h3 class="section-title">Purchase Details</h3>
-            
-            <form class="form" id="@formId" novalidate="novalidate">
-                <input type="hidden" id="purchaseId" value="0">
-                
-                <!-- Purchase Details Section -->
-                <div class="form-section">
-                    <h5 class="section-title">Purchase Details</h5>
-                    <div class="row">
-                        <div class="form-group col-sm-3">
-                            <label>Purchase Date</label>
-                            <input type="date" id="purchaseDate" class="form-control purchase-form-validation" placeholder="mm/dd/yyyy">
-                            <span class="error-message text-danger" id="purchaseDateError"></span>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label>Purchase No</label>
-                            <input type="text" id="purchaseNo" class="form-control" placeholder="Purchase No" readonly>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label>Supplier</label>
-                            <select id="supplierId" class="form-control purchase-form-validation">
-                                <option value="">Select Supplier</option>
-                            </select>
-                            <span class="error-message text-danger" id="supplierError"></span>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <label>Supplier Address</label>
-                            <input type="text" id="supplierAddress" class="form-control" placeholder="Supplier Address" readonly>
-                        </div>
-                    </div>
-                </div>
+        <form class="form" id="@formId" novalidate="novalidate">
+            <input type="hidden" id="purchaseId" value="0">
 
-                <!-- Product Purchase List Section -->
-                <div class="form-section">
-                    <h5 class="section-title">Product Purchase List</h5>
-                    
-                    <!-- Add Product Form -->
-                    <div class="row">
-                        <div class="form-group col-sm-2">
-                            <label>Product Name</label>
-                            <select id="productId" class="form-control">
-                                <option value="">Select Product</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>Variant</label>
-                            <select id="variantId" class="form-control">
-                                <option value="">Select variant</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-1">
-                            <label>Quantity</label>
-                            <input type="number" id="quantity" class="form-control" placeholder="Quantity" min="1">
-                        </div>
-                        <div class="form-group col-sm-1">
-                            <label>Unit</label>
-                            <select id="unitId" class="form-control">
-                                <option value="">Select Unit</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>Purchase Price</label>
-                            <input type="number" id="purchasePrice" class="form-control" placeholder="Unit Price" min="0" step="0.01">
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>Branch</label>
-                            <select id="branchId" class="form-control">
-                                <option value="">Select Unit</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>&nbsp;</label>
-                            <div>
-                                <button type="button" id="btnCancelProduct" class="btn btn-danger btn-action">Cancel</button>
-                                <button type="button" id="btnAddProduct" class="btn btn-primary btn-action">Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product List Table -->
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="productTable">
-                            <thead>
-                                <tr>
-                                    <th>SL.</th>
-                                    <th>Product Name</th>
-                                    <th>Variant Name</th>
-                                    <th>Quantity</th>
-                                    <th>Unit</th>
-                                    <th>Purchase Price</th>
-                                    <th>Branch Name</th>
-                                    <th>Total Price</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="productTableBody">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Expense Section -->
-                <div class="form-section">
-                    <h5 class="section-title">Expense</h5>
-                    
-                    <!-- Add Expense Form -->
-                    <div class="row">
-                        <div class="form-group col-sm-3">
-                            <label>Cost Name</label>
-                            <select id="costId" class="form-control">
-                                <option value="">Select Cost</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>1st Number</label>
-                            <input type="number" id="firstNumber" class="form-control" value="0" min="0" step="0.01">
-                        </div>
-                        <div class="form-group col-sm-1">
-                            <label>&nbsp;</label>
-                            <div class="form-control-plaintext text-center">x</div>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>2nd Number</label>
-                            <input type="number" id="secondNumber" class="form-control" value="0" min="0" step="0.01">
-                        </div>
-                        <div class="form-group col-sm-1">
-                            <label>&nbsp;</label>
-                            <div class="form-control-plaintext text-center">=</div>
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label>Total</label>
-                            <input type="number" id="expenseTotal" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-sm-1">
-                            <label>&nbsp;</label>
-                            <div>
-                                <button type="button" id="btnCancelExpense" class="btn btn-info btn-action">Can</button>
-                                <button type="button" id="btnAddExpense" class="btn btn-primary btn-action">Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Expense List Table -->
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="expenseTable">
-                            <thead>
-                                <tr>
-                                    <th>SL:</th>
-                                    <th>Cost Name</th>
-                                    <th>First Number</th>
-                                    <th>Second Number</th>
-                                    <th>Total</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="expenseTableBody">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Summary and Calculation Section -->
+            <!-- Purchase Details Section -->
+            <div class="form-section">
+                <h5 class="section-title">Purchase Details</h5>
                 <div class="row">
-                    <div class="col-sm-8">
-                        <!-- Note Section -->
-                        <div class="form-section">
-                            <h5 class="section-title">Note</h5>
-                            <div class="form-group">
-                                <label>Purchase Note</label>
-                                <textarea id="note" class="form-control" rows="3" placeholder="Purchase Note"></textarea>
-                            </div>
-                        </div>
+                    <div class="form-group col-sm-3">
+                        <label>Purchase Date</label>
+                        <input type="date" id="purchaseDate" class="form-control purchase-form-validation" placeholder="mm/dd/yyyy">
+                        <span class="error-message text-danger" id="purchaseDateError"></span>
                     </div>
-                    
-                    <div class="col-sm-4">
-                        <!-- Calculation Section -->
-                        <div class="calculation-section">
-                            <h5 class="section-title">Summary</h5>
-                            <div class="form-group">
-                                <label>Discount</label>
-                                <input type="number" id="discount" class="form-control" placeholder="Commission" min="0" step="0.01" value="0">
-                            </div>
-                            <div class="form-group">
-                                <label>Discount Type</label>
-                                <select id="discountType" class="form-control">
-                                    <option value="amount">Amount</option>
-                                    <option value="percentage">Percentage</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Total</label>
-                                <input type="number" id="subTotal" class="form-control" placeholder="Total" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label>Other Expenses</label>
-                                <input type="number" id="otherExpenses" class="form-control" placeholder="Other Expenses" min="0" step="0.01" value="0">
-                            </div>
-                            <div class="form-group">
-                                <label>Total</label>
-                                <input type="number" id="totalWithExpenses" class="form-control" placeholder="Total" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label>Net Price</label>
-                                <input type="number" id="netPrice" class="form-control" placeholder="Net Price" readonly>
-                            </div>
+                    <div class="form-group col-sm-3">
+                        <label>Purchase No</label>
+                        <input type="text" id="purchaseNo" class="form-control" placeholder="Purchase No" readonly>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Supplier</label>
+                        <select id="supplierId" class="form-control purchase-form-validation">
+                            <option value="">Select Supplier</option>
+                        </select>
+                        <span class="error-message text-danger" id="supplierError"></span>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Supplier Address</label>
+                        <input type="text" id="supplierAddress" class="form-control" placeholder="Supplier Address" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Purchase List Section -->
+            <div class="form-section">
+                <h5 class="section-title">Product Purchase List</h5>
+
+                <!-- Add Product Form -->
+                <div class="row">
+                    <div class="form-group col-sm-2">
+                        <label>Product Name</label>
+                        <select id="productId" class="form-control">
+                            <option value="">Select Product</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>Variant</label>
+                        <select id="variantId" class="form-control">
+                            <option value="">Select variant</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-1">
+                        <label>Quantity</label>
+                        <input type="number" id="quantity" class="form-control" placeholder="Quantity" min="1">
+                    </div>
+                    <div class="form-group col-sm-1">
+                        <label>Unit</label>
+                        <select id="unitId" class="form-control">
+                            <option value="">Select Unit</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>Purchase Price</label>
+                        <input type="number" id="purchasePrice" class="form-control" placeholder="Unit Price" min="0" step="0.01">
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>Branch</label>
+                        <select id="branchId" class="form-control">
+                            <option value="">Select Unit</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>&nbsp;</label>
+                        <div>
+                            <button type="button" id="btnCancelProduct" class="btn btn-danger btn-action">Cancel</button>
+                            <button type="button" id="btnAddProduct" class="btn btn-primary btn-action">Add</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
-                <div class="row">
-                    <div class="form-group col-sm-12">
-                        <button type="button" id="btnBack" class="btn btn-danger">Back</button>
-                        <button type="button" id="btnSave" class="btn btn-primary">Save</button>
+                <!-- Product List Table -->
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="productTable">
+                        <thead>
+                            <tr>
+                                <th>SL.</th>
+                                <th>Product Name</th>
+                                <th>Variant Name</th>
+                                <th>Quantity</th>
+                                <th>Unit</th>
+                                <th>Purchase Price</th>
+                                <th>Branch Name</th>
+                                <th>Total Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Expense Section -->
+            <div class="form-section">
+                <h5 class="section-title">Expense</h5>
+
+                <!-- Add Expense Form -->
+                <div class="expense-form-row">
+                    <div class="form-group large">
+                        <label>Cost Name</label>
+                        <select id="costId" class="form-control">
+                            <option value="">Select Cost</option>
+                        </select>
+                    </div>
+                    <div class="form-group medium">
+                        <label>1st Number</label>
+                        <input type="number" id="firstNumber" class="form-control" value="0" min="0" step="0.01">
+                    </div>
+                    <div class="form-group small">
+                        <label>&nbsp;</label>
+                        <div class="math-operator">×</div>
+                    </div>
+                    <div class="form-group medium">
+                        <label>2nd Number</label>
+                        <input type="number" id="secondNumber" class="form-control" value="0" min="0" step="0.01">
+                    </div>
+                    <div class="form-group small">
+                        <label>&nbsp;</label>
+                        <div class="math-operator">=</div>
+                    </div>
+                    <div class="form-group medium">
+                        <label>Total</label>
+                        <input type="number" id="expenseTotal" class="form-control" readonly>
+                    </div>
+                    <div class="form-group buttons">
+                        <label>&nbsp;</label>
+                        <div>
+                            <button type="button" id="btnCancelExpense" class="btn btn-info btn-sm">Cancel</button>
+                            <button type="button" id="btnAddExpense" class="btn btn-primary btn-sm">Add</button>
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
+
+                <!-- Expense List Table -->
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="expenseTable">
+                        <thead>
+                            <tr>
+                                <th>SL:</th>
+                                <th>Cost Name</th>
+                                <th>First Number</th>
+                                <th>Second Number</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Summary and Calculation Section -->
+            <div class="row">
+                <div class="col-sm-8">
+                    <!-- Note Section -->
+                    <div class="form-section">
+                        <h5 class="section-title">Note</h5>
+                        <div class="form-group">
+                            <label>Purchase Note</label>
+                            <textarea id="remarks" class="form-control" rows="3" placeholder="Purchase Note"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- Calculation Section -->
+                    <div class="calculation-section">
+                        <h5 class="section-title">Summary</h5>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Discount:</span>
+                            <input type="number" id="discount" class="form-control form-control-sm" placeholder="0.00" min="0" step="0.01" value="0" style="width: 120px;">
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Discount Type:</span>
+                            <select id="discountType" class="form-control form-control-sm" style="width: 120px;">
+                                <option value="amount">Amount</option>
+                                <option value="percentage">Percentage</option>
+                            </select>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Sub Total:</span>
+                            <span class="summary-value" id="subTotalAmount">0.00</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Other Expenses:</span>
+                            <span class="summary-value" id="otherAmount">0.00</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Total with Expenses:</span>
+                            <span class="summary-value" id="totalWithExpenses">0.00</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="summary-label">Net Price:</span>
+                            <span class="summary-value" id="netPrice">0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <button type="button" id="btnBack" class="btn btn-danger">Back</button>
+                    <button type="button" id="btnSave" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

@@ -9,6 +9,7 @@ namespace ApplicationCore.Entities.Inventory
     [Table("Purchases")]
     public class Purchase : BaseEntity
     {
+        [Key]
         public int PurchaseId { get; set; }
         public DateTime PurchaseDate { get; set; }
         public string PurchaseNo { get; set; }
@@ -22,22 +23,40 @@ namespace ApplicationCore.Entities.Inventory
 
         #region Extra
         [Write(false)]
-        public List<Select2OptionModel> SupplierList { get; set; }
+        public string SupplierName { get; set; }
 
         [Write(false)]
-        public List<Select2OptionModel> ProductList { get; set; }
+        public int TotalItems { get; set; }
+        
+        [Write(false)]
+        public int GrandTotal { get; set; }
+        
+        [Write(false)]
+        public string SupplierAddress { get; set; }
 
         [Write(false)]
-        public List<Select2OptionModel> UnitList { get; set; }
+        public List<Select2OptionModel> SupplierList { get; set; } = new List<Select2OptionModel>();
 
         [Write(false)]
-        public List<Select2OptionModel> BranchList { get; set; }
+        public List<Select2OptionModel> ProductList { get; set; } = new List<Select2OptionModel>();
 
         [Write(false)]
-        public List<Select2OptionModel> CostList { get; set; }
+        public List<Select2OptionModel> UnitList { get; set; } = new List<Select2OptionModel>();
 
         [Write(false)]
-        public List<ProductVariant> VariationList { get; set; }
+        public List<Select2OptionModel> BranchList { get; set; } = new List<Select2OptionModel>();
+
+        [Write(false)]
+        public List<Select2OptionModel> CostList { get; set; } = new List<Select2OptionModel>();
+
+        [Write(false)]
+        public List<ProductVariant> VariationList { get; set; } = new List<ProductVariant>();
+
+        [Write(false)]
+        public List<PurchaseItem> PurchaseItems { get; set; } = new();
+
+        [Write(false)]
+        public List<PurchaseExpense> Expenses { get; set; } = new();
 
         #endregion Extra
     }

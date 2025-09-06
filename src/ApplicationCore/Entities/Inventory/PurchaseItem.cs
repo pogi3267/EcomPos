@@ -1,11 +1,13 @@
 ﻿using ApplicationCore.Enums;
+using ApplicationCore.Interfaces;
 using Dapper.Contrib.Extensions;
 
 namespace ApplicationCore.Entities.Inventory
 {
     [Table("PurchaseItems")]
-    public class PurchaseItem
+    public class PurchaseItem : IBaseEntity
     {
+        [Key]
         public int PurchaseItemId { get; set; }
         public int PurchaseId { get; set; }
         public int ProductId { get; set; }
@@ -17,16 +19,16 @@ namespace ApplicationCore.Entities.Inventory
         public decimal TotalPrice { get; set; }
 
         [Write(false)]
-        public string Variant { get; set; }
+        public string VariantName { get; set; }
 
         [Write(false)]
-        public decimal ProductName { get; set; }
+        public string ProductName { get; set; }
 
         [Write(false)]
-        public int BranchName { get; set; }
+        public string BranchName { get; set; }
 
         [Write(false)]
-        public int UnitName { get; set; }
+        public string Unit { get; set; }
 
         [Write(false)]
         public EntityState EntityState { get; set; }
