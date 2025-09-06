@@ -165,29 +165,28 @@ public class PurchaseService : IPurchaseService
                 await _service.SaveAsync(expenses, transaction);
             }
 
-            //oldItems.ForEach(i => { i.PurchaseId = purchaseId; });
             var oldDict = oldItems.ToDictionary(i => (i.ProductId, i.VariantId, i.BranchId));
             var newDict = items.ToDictionary(i => (i.ProductId, i.VariantId, i.BranchId));
             foreach (var old in oldDict.Values)
             {
                 if (!newDict.ContainsKey((old.ProductId, old.VariantId, old.BranchId)))
                 {
-                    // Item removed -> decrease stock
+                    // Item removed, decrease stock
                     await AdjustStockAsync(old.ProductId, old.VariantId, old.BranchId, -old.Quantity, old.Price, transaction);
                 }
             }
 
-            //Handle new/updated items
+            //Handle new or updated items
             foreach (var newItem in newDict.Values)
             {
                 if (!oldDict.TryGetValue((newItem.ProductId, newItem.VariantId, newItem.BranchId), out var oldItem))
                 {
-                    // New item -> increase stock
+                    // New item, increase stock
                     await AdjustStockAsync(newItem.ProductId, newItem.VariantId, newItem.BranchId, newItem.Quantity, newItem.Price, transaction);
                 }
                 else
                 {
-                    //Existing item -> adjust by difference
+                    //Existing item, adjust by difference
                     int diff = newItem.Quantity - oldItem.Quantity;
                     if (diff != 0)
                     {
@@ -220,7 +219,7 @@ public class PurchaseService : IPurchaseService
     public async Task AdjustStockAsync(int productId, int? variantId, int branchId, int qtyDiff, decimal price, IDbTransaction transaction)
     {
         string sql = @"
-        EXEC AdjustStock @ProductId, @VariantId, @BranchId, @QtyDiff, @Price;";
+        EXEC AdjustStock_Purchase @ProductId, @VariantId, @BranchId, @QtyDiff, @Price;";
 
         await _connection.ExecuteAsync(sql, new
         {
