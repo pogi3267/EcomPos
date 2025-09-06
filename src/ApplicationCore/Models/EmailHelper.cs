@@ -39,7 +39,7 @@ namespace ApplicationCore.Models
         public bool SendEmailPasswordResetV2(string userEmail, string link)
         {
             MailMessage mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("saurove@diu.edu.bd");
+            mailMessage.From = new MailAddress("test@mail.com");
             mailMessage.To.Add(new MailAddress(userEmail));
 
             mailMessage.Subject = "Password Reset";
@@ -47,7 +47,7 @@ namespace ApplicationCore.Models
             mailMessage.Body = link;
 
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("saurove@diu.edu.bd", "132752.");
+            client.Credentials = new System.Net.NetworkCredential("test@mail.com", "132752");
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.EnableSsl = true; // Enable SSL

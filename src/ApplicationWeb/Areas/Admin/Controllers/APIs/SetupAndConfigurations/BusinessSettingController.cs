@@ -483,12 +483,12 @@ namespace EcomarceOnlineShop.Areas.Admin.Controllers.APIs.SetupAndConfigurations
                 using (var client = new SmtpClient("smtp.gmail.com", 587))
                 {
                     client.EnableSsl = true;
-                    client.Credentials = new NetworkCredential("saurove@diu.edu.bd", "132152752.");
+                    client.Credentials = new NetworkCredential("test@mail.com", "1321654");
 
                     // Create the email message
                     var mailMessage = new MailMessage();
-                    mailMessage.From = new MailAddress("saurove@diu.edu.bd");
-                    mailMessage.To.Add("saurove07@gmail.com");
+                    mailMessage.From = new MailAddress("test@mail.com");
+                    mailMessage.To.Add("test2@mail.com");
                     mailMessage.Subject = "Hello";
                     mailMessage.Body = "This is the email body.";
 
